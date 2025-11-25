@@ -6,16 +6,17 @@ export type SlotId = "S" | "MB1" | "WS1" | "LI" | "WS2" | "MB2" | "OP";
 interface TeamState {
   starters: Record<SlotId, Player | null>;
   bench: (Player | null)[];
+
   setStarter: (slot: SlotId, player: Player | null) => void;
+  removeStarter: (slot: SlotId) => void;
+
   addBench: (player: Player | null) => void;
   removeBench: (index: number) => void;
-  resetTeam: () => void;
 
-  /** Characters already used (Hinata SSR → "Hinata") */
-  getUsedCharacterNames: () => Set<string>;
+  getUsedNames: () => Set<string>;
 }
 
-const defaultStarters: Record<SlotId, Player | null> = {
+const EMPTY_STARTERS: Record<SlotId, Player | null> = {
   S: null,
   MB1: null,
   WS1: null,
@@ -26,45 +27,29 @@ const defaultStarters: Record<SlotId, Player | null> = {
 };
 
 export const useTeamStore = create<TeamState>((set, get) => ({
-
-  starters: defaultStarters,
+  starters: EMPTY_STARTERS,
   bench: [],
 
   setStarter: (slot, player) =>
-    set((state) => ({
-      starters: {
-        ...state.starters,
-        [slot]: player,
-      },
-    })),
+    set((s) => ({ starters: { ...s.starters, [slot]: player } })),
+
+  removeStarter: (slot) =>
+    set((s) => ({ starters: { ...s.starters, [slot]: null } })),
 
   addBench: (player) =>
-    set((state) => ({
-      bench: [...state.bench, player],
-    })),
+    set((s) => ({ bench: [...s.bench, player] })),
 
-  removeBench: (index) =>
-    set((state) => ({
-      bench: state.bench.filter((_, i) => i !== index),
-    })),
+  removeBench: (i) =>
+    set((s) => ({ bench: s.bench.filter((_, idx) => idx !== i) })),
 
-  resetTeam: () => ({
-    starters: defaultStarters,
-    bench: [],
-  }),
-
-  /** NEW: detect used characters */
-  getUsedCharacterNames: () => {
-    const state = get();
+  getUsedNames: () => {
+    const { starters, bench } = get();
     const used = new Set<string>();
 
-    Object.values(state.starters).forEach((p) => {
-      if (p) used.add(p.name.split(" ")[0]);
-    });
-
-    state.bench.forEach((p) => {
-      if (p) used.add(p.name.split(" ")[0]);
-    });
+    Object.values(starters).forEach(
+      (p) => p && used.add(p.name.split(" ")[0])
+    );
+    bench.forEach((p) => p && used.add(p.name.split(" ")[0]));
 
     return used;
   },

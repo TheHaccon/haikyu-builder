@@ -1,25 +1,25 @@
 import type { Player } from "../../types/Player";
 
-interface SlotProps {
+interface Props {
   slotId: string;
   player: Player | null;
   onClick: () => void;
   onRightClick: () => void;
 }
 
-export default function Slot({ slotId, player, onClick, onRightClick }: SlotProps) {
+export default function Slot({ slotId, player, onClick, onRightClick }: Props) {
   return (
     <div
       className="slot"
       onClick={onClick}
       onContextMenu={(e) => {
-        e.preventDefault();   // disable browser menu
+        e.preventDefault();
         onRightClick();
       }}
     >
       <div className="hex">
         {player ? (
-          <img src={`public/data/${player.img}`} alt={player.name} />
+          <img src={`public/data/${player.img}`} />
         ) : (
           <div className="slot-empty">+ {slotId}</div>
         )}
@@ -29,4 +29,3 @@ export default function Slot({ slotId, player, onClick, onRightClick }: SlotProp
     </div>
   );
 }
-

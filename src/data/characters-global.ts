@@ -1,7 +1,7 @@
 import type { Player } from "../types/Player";
 
 export const characters: Player[] = [
-    { name: "Hinata SSR", role: "MB", img: "img-global/hinataSSR.png", school: "Karasuno", bonds: ["Flexible Aces", "Worthy Rival", "Surprising Friendship", "Rival Friends", "Top Disciple","Little Giants"] },
+    { name: "Hinata SSR", role: "MB", img: "img-global/hinataSSR.png", school: "Karasuno", bonds: ["Flexible Aces", "Worthy Rival", "Surprising Friendship", "Rival Friends", "Top Disciple","LIttle Giants"] },
     { name: "Hinata SR", role: "MB", img: "img-global/hinataSR.png", school: "Karasuno", bonds: ["Teammates on the Court", "\"Sun\" and \"Moon\""] },
     { name: "Kageyama SSR", role: "S", img: "img-global/tobioSSR.png", school: "Karasuno", bonds: ["Teammates on the Court", "Building Team Chemistry"] },
     { name: "Daichi SSR", role: "OP", img: "img-global/daichiSSR.png", school: "Karasuno", bonds: ["Karasuno\'s Pillar", "karasuno Senior Year", "Behind the Smile"] },
@@ -9,8 +9,8 @@ export const characters: Player[] = [
     { name: "Sugawara SR", role: "S", img: "img-global/sugawaraSR.png", school: "Karasuno", bonds: ["karasuno Senior Year",] },
     { name: "Asahi SSR", role: "WS", img: "img-global/asahiSSR.png", school: "Karasuno", bonds: ["karasuno Senior Year", "\"Guardian Deity\" and \"Wing Spiker\"", "Cannon \& Iron Wall"] },
     { name: "Asahi SR", role: "WS", img: "img-global/asahiSR.png", school: "Karasuno", bonds: ["\"Guardian Deity\" and \"Ace\"", "Karasuno\'s Wing Spiker"] },
-    { name: "Nishinoya SSR", role: "Li", img: "img-global/nishinoyaSSR.png", school: "Karasuno", bonds: ["Karasuno\'s sophomore", "Kiyoko\'s Knights", "\"Guardian Deity\" and \"Wing Spiker\""] },
-    { name: "Nishinoya SR", role: "Li", img: "img-global/nishinoyaSR.png", school: "Karasuno", bonds: ["\"Guardian Deity\" and \"Ace\"", "Formidable Opponent", "Karasuno\'s Sophomore(practice)"] },
+    { name: "Nishinoya SSR", role: "LI", img: "img-global/nishinoyaSSR.png", school: "Karasuno", bonds: ["Karasuno\'s sophomore", "Kiyoko\'s Knights", "\"Guardian Deity\" and \"Wing Spiker\""] },
+    { name: "Nishinoya SR", role: "LI", img: "img-global/nishinoyaSR.png", school: "Karasuno", bonds: ["\"Guardian Deity\" and \"Ace\"", "Formidable Opponent", "Karasuno\'s Sophomore(practice)"] },
     { name: "Tanaka SSR", role: "WS", img: "img-global/tanakaSSR.png", school: "Karasuno", bonds: ["Karasuno\'s sophomore", "Kiyoko\'s Knights", "TOMODACHI(Friends!)"] },
     { name: "Tanaka SR", role: "WS", img: "img-global/tanakaSR.png", school: "Karasuno", bonds: ["Karasuno\'s Wing Spiker", "Building Team Chemistry", "Karasuno\'s Sophomore(practice)"] },
     { name: "Tsukishima SSR", role: "MB", img: "img-global/tsukishimaSSR.png", school: "Karasuno", bonds: ["The Moment you'll be hooked on volleyball","\"Shield\" and \"Spear\"", "Master and Apprentice", "Prediction VS System","Tokyo Camp Training Partners"] },
@@ -30,7 +30,7 @@ export const characters: Player[] = [
     { name: "Matsukawa SR", role: "MB", img: "img-global/matsukawaSR.png", school: "Aoba Johsai", bonds: ["Seijoh\'s Senior Year Pillars"] },
     { name: "Hanamaki SR", role: "WS", img: "img-global/hanamakiSR.png", school: "Aoba Johsai", bonds: ["Seijoh\'s Senior Year Pillars"] },
     { name: "Yahaba SR", role: "S", img: "img-global/yahabaSR.png", school: "Aoba Johsai", bonds: ["Aoba Johsai's Sophomore", "Hidden Fire"] },
-    { name: "Watari SR", role: "Li", img: "img-global/watariSR.png", school: "Aoba Johsai", bonds: ["Aoba Johsai's Sophomore"] },
+    { name: "Watari SR", role: "LI", img: "img-global/watariSR.png", school: "Aoba Johsai", bonds: ["Aoba Johsai's Sophomore"] },
     { name: "Kindaichi SR", role: "MB", img: "img-global/kindaichiSR.png", school: "Aoba Johsai", bonds: ["Blunt and Composed", "To Greater Heights"] },
     { name: "Kunimi SR", role: "OP", img: "img-global/kunimiSR.png", school: "Aoba Johsai", bonds: ["Blunt and Composed"] },
     { name: "Kentaro SSR", role: "OP", img: "img-global/kyotaniSSR.png", school: "Aoba Johsai", bonds: ["Aoba Johsai's Sophomore", "Hidden Fire", "The Wolf Pack", "Merciless Trust"] },
@@ -40,7 +40,7 @@ export const characters: Player[] = [
     { name: "Kenma SR", role: "S", img: "img-global/kenmaSR.png", school: "Nekoma", bonds: ["\"Pivot\" and \"Defensive Pivot\"", "\"Pivot\" and \"Control Tower\""] },
     { name: "Kuroo UR", role: "MB", img: "img-global/kurooUR.png", school: "Nekoma", bonds: ["Behind the Smile", "Master and Apprentice", "\"Brain\" and \"Control Tower\"","Tokyo Camp Training Partners"] },
     { name: "Kuroo SSR", role: "MB", img: "img-global/kurooSSR.png", school: "Nekoma", bonds: ["Leaders Cut from the Same Cloth", "\"Pivot\" and \"Control Tower\""] },
-    { name: "Yaku SR", role: "Li", img: "img-global/yakuSR.png", school: "Nekoma", bonds: ["Formidable Opponent", "One-on-One Training", "\"Pivot\" and \"Defensive Pivot\""] },
+    { name: "Yaku SR", role: "LI", img: "img-global/yakuSR.png", school: "Nekoma", bonds: ["Formidable Opponent", "One-on-One Training", "\"Pivot\" and \"Defensive Pivot\""] },
     { name: "Lev SSR", role: "MB", img: "img-global/levSSR.png", school: "Nekoma", bonds: ["Flexible Aces", "Nekoma\'s Junior", "The \"Enigmatic\" Teammate", "Protective Guidance"] },
     { name: "Lev SR", role: "MB", img: "img-global/levSR.png", school: "Nekoma", bonds: ["One-on-One Training"] },
     { name: "Yamamoto SR", role: "WS", img: "img-global/yamamotoSR.png", school: "Nekoma", bonds: ["TOMODACHI(Friends!)", "Nekoma\'s Wing Spiker", "Grit and Competitive"] },
@@ -48,7 +48,7 @@ export const characters: Player[] = [
     { name: "Fukunaga SR", role: "WS", img: "img-global/fukunagaSR.png", school: "Nekoma", bonds: ["Nekoma\'s Wing Spiker"] },
     { name: "Inuoka SR", role: "MB", img: "img-global/inuokaSR.png", school: "Nekoma", bonds: ["Worthy Rival", "Nekoma\'s Junior"] },
     { name: "Teshiro SR", role: "S", img: "img-global/teshiroSR.png", school: "Nekoma", bonds: ["Nekoma\'s Junior"] },
-    { name: "Yaku SSR", role: "Li", img: "img-global/yakuSSR.png", school: "Nekoma", bonds: ["Team's Guardians", "Reliable Seniors", "Protective Guidance"] },
+    { name: "Yaku SSR", role: "LI", img: "img-global/yakuSSR.png", school: "Nekoma", bonds: ["Team's Guardians", "ReLIable Seniors", "Protective Guidance"] },
 
 
     { name: "Aone SSR", role: "MB", img: "img-global/aoneSSR.png", school: "Date Kogyo", bonds: ["Cannon \& Iron Wall", "Surprising Friendship", "The Silent and the Snarky"] },
@@ -57,7 +57,7 @@ export const characters: Player[] = [
     { name: "Kenji SR", role: "WS", img: "img-global/kenjiSR.png", school: "Date Kogyo", bonds: [] },
     { name: "Kanji SSR", role: "S", img: "img-global/kanjiSSR.png", school: "Date Kogyo", bonds: ["New Captain \& Tall Rookie", "Date Kogyo\'s Setter",] },
     { name: "Kanji SR", role: "S", img: "img-global/kanjiSR.png", school: "Date Kogyo", bonds: ["Simulated Junior Training Teamate"] },
-    { name: "Sakunami R", role: "Li", img: "img-global/sakunamiR.png", school: "Date Kogyo", bonds: ["Date Kogyo\'s Junior"] },
+    { name: "Sakunami R", role: "LI", img: "img-global/sakunamiR.png", school: "Date Kogyo", bonds: ["Date Kogyo\'s Junior"] },
     { name: "Kamasaki SR", role: "MB", img: "img-global/kamasakiSR.png", school: "Date Kogyo", bonds: ["Date Kogyo\'s Senior"] },
     { name: "Kaname SR", role: "S", img: "img-global/kanameSR.png", school: "Date Kogyo", bonds: ["Date Kogyo\'s Captains", "Date Kogyo\'s Setter", "Date Kogyo\'s Senior",] },
     { name: "Sasaya SSR", role: "OP", img: "img-global/takehitoSSR.png", school: "Date Kogyo", bonds: ["Date Kogyo\'s Wing Spiker", "Date Kogyo\'s Senior"] },
@@ -66,20 +66,20 @@ export const characters: Player[] = [
     { name: "Jingo R", role: "MB", img: "img-global/jingoR.png", school: "Date Kogyo", bonds: ["Date Kogyo\'s Junior"] },
     { name: "Taro R", role: "OP", img: "img-global/taroR.png", school: "Date Kogyo", bonds: [] },
 
-    { name: "Ushijima UR", role: "OP", img: "img-global/ushijimaUR.png", school: "Shiratorizawa", bonds: ["Undisputed Ace and Shadow Setter","Lifelong Best Friends", "Undisputed Aces", "Undisputed Ace and Shadow Setter", "Shiratorizawa's Senior", "Fated Rivals", "Ushiwaka and Benkei", "The Absolute King and the Steadfast Setter"] },
+    { name: "Ushijima UR", role: "OP", img: "img-global/ushijimaUR.png", school: "Shiratorizawa", bonds: ["Undisputed Ace and Shadow Setter","LIfelong Best Friends", "Undisputed Aces", "Undisputed Ace and Shadow Setter", "Shiratorizawa's Senior", "Fated Rivals", "Ushiwaka and Benkei", "The Absolute King and the Steadfast Setter"] },
     { name: "Goshiki SSR", role: "WS", img: "img-global/goshikiSSR.png", school: "Shiratorizawa", bonds: ["Promising Senpai", "Undisputed Aces", "Shiratorizawa's WS"] },
-    { name: "Tendo SSR", role: "MB", img: "img-global/tendoSSR.png", school: "Shiratorizawa", bonds: ["Shiratorizawa's Senior", "Lifelong Best Friends", "Promising Senpai", "Shiratorizawa\'s Middke Blocker", "Prediction VS System"] },
+    { name: "Tendo SSR", role: "MB", img: "img-global/tendoSSR.png", school: "Shiratorizawa", bonds: ["Shiratorizawa's Senior", "LIfelong Best Friends", "Promising Senpai", "Shiratorizawa\'s Middke Blocker", "Prediction VS System"] },
     { name: "Taichi SR", role: "MB", img: "img-global/kawanishiSR.png", school: "Shiratorizawa", bonds: ["Shiratorizawa\'s Middke Blocker", "Shiratorizawa 2nd Years"] },
     { name: "Shirabu SSR", role: "S", img: "img-global/shirabuSSR.png", school: "Shiratorizawa", bonds: ["Contrasting Setters","Undisputed Ace and Shadow Setter","The Absolute King and the Steadfast Setter", "Shiratorizawa 2nd Years"] },
     { name: "Semi SSR", role: "S", img: "img-global/semiSSR.png", school: "Shiratorizawa", bonds: ["Contrasting Setters", "Shiratorizawa's Senior", "Setters of Different Types"] },
     { name: "Ohira SSR", role: "WS", img: "img-global/ohiraSSR.png", school: "Shiratorizawa", bonds: ["Shiratorizawa's Senior", "Ushiwaka and Benkei", "Shiratorizawa's WS"] },
-    { name: "Yamagata SSR", role: "Li", img: "img-global/yamagataSSR.png", school: "Shiratorizawa", bonds: ["Shiratorizawa's Senior"] },
+    { name: "Yamagata SSR", role: "LI", img: "img-global/yamagataSSR.png", school: "Shiratorizawa", bonds: ["Shiratorizawa's Senior"] },
 
     { name: "Bokuto UR", role: "WS", img: "img-global/bokutoUR.png", school: "Fukurodani", bonds: ["Miracle Ace and Attentive Setter","Top Disciple","The Moment you'll be hooked on volleyball","Fukurodani's Wing Spiker","Tokyo Camp Training Partners"] },
     { name: "Akaashi SSR", role: "S", img: "img-global/akaashiSSR.png",school: "Fukurodani", bonds: ["Miracle Ace and Attentive Setter","Tokyo Camp Training Partners"] },
     { name: "Konoha SSR",role: "OP", img: "img-japan/konohaSSR.png",school: "Fukurodani",bonds: ["Fukurodani 3rd Years"] },
     { name: "Sarukui SR", role: "WS", img: "img-global/sarukuiSR.png",school: "Fukurodani", bonds: ["Fukurodani's Wing Spiker","Fukurodani 3rd Years"] },
-    { name: "Komi SSR",role: "Li", img: "img-japan/komiSSR.png",school: "Fukurodani",bonds: ["Fukurodani 3rd Years"] },
+    { name: "Komi SSR",role: "LI", img: "img-japan/komiSSR.png",school: "Fukurodani",bonds: ["Fukurodani 3rd Years"] },
     { name: "Onaga R", role: "MB", img: "img-global/onagaR.png",school: "Fukurodani", bonds: ["Fukurodani MBs"] },
     { name: "Washio SSR",role: "MB", img: "img-japan/washioSSR.png",school: "Fukurodani",bonds: ["Fukurodani MBs","Fukurodani 3rd Years"] },
 
@@ -88,16 +88,16 @@ export const characters: Player[] = [
     { name: "Kita SSR",       role: "WS", img: "img-global/kitaSSR.png",       /*power:"Receive",*/                   school: "Inarizaki",     bonds: ["Head and Core","Third Year from Inarizaki","Inarizaki WS Teammates"] },
     { name: "Suna SSR",       role: "MB", img: "img-global/sunaSSR.png",       /*power:["Block","Quick"],*/           school: "Inarizaki",     bonds: ["Classmates","Inarizaki's Middle Blockers","Inarizaki 2nd Years"] },
     { name: "Ojiro SSR",      role: "WS", img: "img-global/ojiroSSR.png",      /*power:"Power",*/                     school: "Inarizaki",     bonds: ["Friends from Volleyball Class","Third Year from Inarizaki","Inarizaki WS Teammates"] },
-    { name: "Akagi SSR",      role: "Li", img: "img-global/akagiSSR.png",      /*power:"Receive",*/                   school: "Inarizaki",     bonds: ["Third Year from Inarizaki",] },
+    { name: "Akagi SSR",      role: "LI", img: "img-global/akagiSSR.png",      /*power:"Receive",*/                   school: "Inarizaki",     bonds: ["Third Year from Inarizaki",] },
     { name: "Ginjima SSR",    role: "WS", img: "img-global/ginjimaSSR.png",    /*power:["Receive","Power"],*/         school: "Inarizaki",     bonds: ["Inarizaki 2nd Years","Inarizaki WS Teammates"] },
     { name: "Omimi SR",       role: "MB", img: "img-global/omimiSR.png",       /*power:"Block",*/                     school: "Inarizaki",     bonds: ["Inarizaki's Middle Blockers","Third Year from Inarizaki"] },
     { name: "Kosaku R",       role: "WS", img: "img-global/kosakuR.png",       /*power:"Receive",*/                   school: "Inarizaki",     bonds: ["Inarizaki 2nd Years","Inarizaki WS Teammates"] },
     { name: "Riseki R",       role: "WS", img: "img-global/risekiR.png",       /*power:"Power",*/                     school: "Inarizaki",     bonds: ["Inarizaki WS Teammates"] },
     
-    { name: "Hoshiumi UR",    role: "WS", img: "img-global/hoshiumiUR.png",school: "Kamomedai", bonds: ["Little Giants","Friends from Junior High"] },
+    { name: "Hoshiumi UR",    role: "WS", img: "img-global/hoshiumiUR.png",school: "Kamomedai", bonds: ["LIttle Giants","Friends from Junior High"] },
     { name: "Hirugami UR",    role: "MB", img: "img-global/hirugamiUR.png",school: "Kamomedai", bonds: ["Friends from Junior High"] },
     
-    { name: "Sakusa UR",      role: "WS", img: "img-global/sakusaUR.png",school: "Itachiyama", bonds: ["Japan Youth Training Camp Teammates","Top Spiker and Top-Class Libero"] },
-    { name: "Komori UR",      role: "Li", img: "img-japan/komoriUR.png",school: "Itachiyama", bonds: ["Japan Youth Training Camp Teammates","Top Spiker and Top-Class Libero"] },
+    { name: "Sakusa UR",      role: "WS", img: "img-global/sakusaUR.png",school: "Itachiyama", bonds: ["Japan Youth Training Camp Teammates","Top Spiker and Top-Class LIbero"] },
+    { name: "Komori UR",      role: "LI", img: "img-japan/komoriUR.png",school: "Itachiyama", bonds: ["Japan Youth Training Camp Teammates","Top Spiker and Top-Class LIbero"] },
 
 ];

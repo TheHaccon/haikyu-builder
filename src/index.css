@@ -303,13 +303,49 @@ h1 {
 }
 
 #gallery .card {
+  position: relative;
   background: #f8fafc;
   border: 1px solid var(--ring);
   border-radius: 10px;
   padding: 8px;
   text-align: center;
   cursor: pointer;
+  transition: transform 0.15s ease,
+              box-shadow 0.15s ease,
+              border-color 0.15s ease;
 }
+
+#gallery .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+  border-color: var(--accent);
+}
+
+/* Visual mark inside disabled cards */
+.used-tag {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: #dc2626;
+  color: white;
+  padding: 2px 6px;
+  font-size: 11px;
+  border-radius: 4px;
+  z-index: 5;
+}
+
+.variant-tag {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: #6366f1;
+  color: white;
+  padding: 2px 6px;
+  font-size: 11px;
+  border-radius: 4px;
+  z-index: 5;
+}
+
 
 #gallery .card img {
   width: 100%;
@@ -367,10 +403,84 @@ h1 {
   justify-content: space-between;
   padding: 11px;
 }
+
+/* Grayed-out cards */
+.disabled-card {
+  opacity: 0.4;
+  filter: grayscale(100%);
+  cursor: not-allowed !important;
+  position: relative;
+}
+
+.img-disabled {
+  filter: grayscale(100%) brightness(0.6);
+}
+
+/* Tag rouge “Already chosen” */
+.used-tag {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  background: #dc2626;
+  color: white;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  z-index: 5;
+}
+
+#modal-header #schoolFilter {
+  padding: 6px 10px;
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--ring);
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#modal-header #schoolFilter:hover {
+  border-color: var(--accent);
+}
+
+#modal-header #schoolFilter:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(140, 140, 140, 0.35);
+}
+
 #modal-actions {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+#modal-actions select {
+  padding: 6px 10px;
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--ring);
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+#modal-actions select:hover {
+  border-color: var(--accent);
+}
+
+#modal-actions select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(140, 140, 140, 0.35);
+  background: #3f3f3f;
+}
+
+#modal-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 #closeModal {

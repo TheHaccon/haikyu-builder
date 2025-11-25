@@ -1,13 +1,9 @@
-// src/components/Board/BenchSlot.tsx
-interface BenchSlotProps {
-  player?: { img: string; name: string } | null;
-  onClick?: () => void;
-}
+import type { Player } from "../../types/Player";
 
-export default function BenchSlot({ player, onClick }: BenchSlotProps) {
+export default function BenchSlot({ player }: { player: Player | null }) {
   return (
-    <div className="bench-slot" onClick={onClick}>
-      {player ? <img src={player.img} alt={player.name} /> : null}
+    <div className="bench-slot">
+      {player && <img src={`public/data/${player.img}`} />}
     </div>
   );
 }
