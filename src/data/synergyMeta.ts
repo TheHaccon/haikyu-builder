@@ -1,4 +1,12 @@
-export const synergyMeta = {
+export const synergyMeta: {
+    [key: string]: {
+        category: string;
+        activation: {
+            scope: string;
+            min: number;
+        };
+    };
+} = {
     "Karasuno": { category: "school", activation: { scope: "starters", min: 4 } },
     "Shiratorizawa": { category: "school", activation: { scope: "starters", min: 4 } },
     "Aoba Johsai": { category: "school", activation: { scope: "starters", min: 4 } },
@@ -86,30 +94,30 @@ export const synergyMeta = {
 
 
     "Top Disciple": { category: "stats", activation: { scope: "any", min: 2 } },
-    "The Moment you'll be hooked on volleyball":{ category: "stats", activation: { scope: "any", min: 2 } },
+    "The Moment you'll be hooked on volleyball": { category: "stats", activation: { scope: "any", min: 2 } },
     "Fukurodani's Wing Spiker": { category: "stats", activation: { scope: "any", min: 2 } },
-    "Fukurodani MBs":{ category: "stats",activation: { scope: "any", min: 2 } },
-    "Fukurodani 3rd Years":{ category: "stats",activation: { scope: "any", min: 2 } },
+    "Fukurodani MBs": { category: "stats", activation: { scope: "any", min: 2 } },
+    "Fukurodani 3rd Years": { category: "stats", activation: { scope: "any", min: 2 } },
     "Miracle Ace and Attentive Setter": { category: "deployment", activation: { scope: "any", min: 2 } },
     "Tokyo Camp Training Partners": { category: "stats", activation: { scope: "any", min: 4 } },
 
-    "The Value of the 'Stage'":                     { category: "stats",      activation: { scope: "any", min: 2 } },
-    "Two High-Energy Guys":                         { category: "stats",      activation: { scope: "any", min: 2 } },
-    "Jouzenji's WS":                                { category: "stats",      activation: { scope: "any", min: 2 } },
-    "Head and Core":                                { category: "deployment", activation: { scope: "any", min: 3 } },
-    "Youth Camp Setters":                           { category: "stats",      activation: { scope: "any", min: 2 } },
-    "Strongest High School Twins":                  { category: "deployment", activation: { scope: "any", min: 2 } },
-    "Classmates":                                   { category: "stats",      activation: { scope: "any", min: 2 } },
-    "Friends from Volleyball Class":                { category: "stats",      activation: { scope: "any", min: 3 } },
-    "Inarizaki's Middle Blockers":                  { category: "stats",      activation: { scope: "any", min: 2 } },
-    "Third Year from Inarizaki":                    { category: "stats",      activation: { scope: "any", min: 4 } },
-    "Inarizaki 2nd Years":                          { category: "stats",      activation: { scope: "any", min: 5 } },
-    "Japan Youth Training Camp Teammates":          { category: "stats",      activation: { scope: "any", min: 5 } },
-    "Inarizaki WS Teammates":                       { category: "stats",      activation: { scope: "any", min: 5 } },
+    "The Value of the 'Stage'": { category: "stats", activation: { scope: "any", min: 2 } },
+    "Two High-Energy Guys": { category: "stats", activation: { scope: "any", min: 2 } },
+    "Jouzenji's WS": { category: "stats", activation: { scope: "any", min: 2 } },
+    "Head and Core": { category: "deployment", activation: { scope: "any", min: 3 } },
+    "Youth Camp Setters": { category: "stats", activation: { scope: "any", min: 2 } },
+    "Strongest High School Twins": { category: "deployment", activation: { scope: "any", min: 2 } },
+    "Classmates": { category: "stats", activation: { scope: "any", min: 2 } },
+    "Friends from Volleyball Class": { category: "stats", activation: { scope: "any", min: 3 } },
+    "Inarizaki's Middle Blockers": { category: "stats", activation: { scope: "any", min: 2 } },
+    "Third Year from Inarizaki": { category: "stats", activation: { scope: "any", min: 4 } },
+    "Inarizaki 2nd Years": { category: "stats", activation: { scope: "any", min: 5 } },
+    "Japan Youth Training Camp Teammates": { category: "stats", activation: { scope: "any", min: 5 } },
+    "Inarizaki WS Teammates": { category: "stats", activation: { scope: "any", min: 5 } },
 
 
-    "Little Giants":                                { category: "stats",      activation: { scope: "any", min: 2 } },
-    "Friends from Junior High":                     { category: "deployment", activation: { scope: "any", min: 2 } },
+    "Little Giants": { category: "stats", activation: { scope: "any", min: 2 } },
+    "Friends from Junior High": { category: "deployment", activation: { scope: "any", min: 2 } },
 
-    "Top Spiker and Top-Class Libero":              { category: "deployment", activation: { scope: "any", min: 2 } },
+    "Top Spiker and Top-Class Libero": { category: "deployment", activation: { scope: "any", min: 2 } },
 };

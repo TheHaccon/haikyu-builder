@@ -18,7 +18,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif;
@@ -144,11 +145,11 @@ html, body {
   transition: .2s;
 }
 
-.posless-switch input:checked + .posless-slider {
+.posless-switch input:checked+.posless-slider {
   background: #6aa9ff;
 }
 
-.posless-switch input:checked + .posless-slider:before {
+.posless-switch input:checked+.posless-slider:before {
   transform: translateX(22px);
 }
 
@@ -311,8 +312,8 @@ h1 {
   text-align: center;
   cursor: pointer;
   transition: transform 0.15s ease,
-              box-shadow 0.15s ease,
-              border-color 0.15s ease;
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
 }
 
 #gallery .card:hover {
@@ -321,7 +322,6 @@ h1 {
   border-color: var(--accent);
 }
 
-/* Visual mark inside disabled cards */
 .used-tag {
   position: absolute;
   top: 6px;
@@ -395,8 +395,6 @@ h1 {
   filter: brightness(1.2);
 }
 
-
-/** Modal, search and button */
 #modal-header {
   display: flex;
   align-items: center;
@@ -404,7 +402,6 @@ h1 {
   padding: 11px;
 }
 
-/* Grayed-out cards */
 .disabled-card {
   opacity: 0.4;
   filter: grayscale(100%);
@@ -416,7 +413,6 @@ h1 {
   filter: grayscale(100%) brightness(0.6);
 }
 
-/* Tag rouge “Already chosen” */
 .used-tag {
   position: absolute;
   top: 6px;
@@ -501,6 +497,7 @@ h1 {
   border-color: var(--accent);
   color: #fff;
 }
+
 #closeModal.danger:hover {
   background: var(--danger);
   border-color: var(--danger);
@@ -546,7 +543,7 @@ h1 {
   align-items: center;
 }
 
-/* Make used characters look disabled */
+
 .disabled-card {
   opacity: 0.45;
   filter: grayscale(100%);
@@ -561,6 +558,169 @@ h1 {
   transform: none !important;
 }
 
+#addBench {
+  width: 56px;
+  height: 78px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #666;
+  color: var(--text);
+
+  border: 1px solid var(--ring);
+  border-radius: 10px;
+
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+
+  flex-shrink: 0;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+#addBench:hover:not(:disabled) {
+  background: var(--accent);
+  color: white;
+  transform: scale(1.06);
+}
+
+#addBench:disabled {
+  background: var(--card);
+  border-color: #555;
+  color: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+#bench-row {
+  margin-top: 14px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  padding-bottom: 12px;
+}
+
+/* ------------------------------
+   SYNERGY PANEL (tabs + bonds)
+--------------------------------*/
+#tabs {
+  margin-top: 16px;
+  padding: 12px 16px 16px;
+  background: var(--card);
+  border: 1px solid var(--ring);
+  border-radius: 10px;
+}
+
+#tabbar {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.tabbtn {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--ring);
+  background: var(--card);
+  color: var(--text);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.tabbtn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+.bond-filter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.bond-filter label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.bond-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bond-empty {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.bond-item {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.bond-item.bond-active {
+  border-color: #6ee7b7;
+  box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.4);
+}
+
+.bond-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+  text-decoration: underline;
+}
+
+.bond-members {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.bond-member {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bond-member img {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.bond-member-missing {
+  opacity: 0.45;
+}
+
+.missing-label {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.bond-missing-line {
+  font-size: 13px;
+  color: var(--text);
+}
+
 
 /* ------------------------------
    MOBILE
@@ -569,19 +729,23 @@ h1 {
   .nav-toggle {
     display: block;
   }
+
   .nav-links {
     display: none;
     flex-direction: column;
     width: 100%;
     margin-top: 12px;
   }
+
   .nav-links.active {
     display: flex;
   }
+
   #layout {
     display: flex;
     flex-direction: column;
   }
+
   .row {
     flex-wrap: wrap;
   }

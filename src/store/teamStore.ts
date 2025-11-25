@@ -37,7 +37,16 @@ export const useTeamStore = create<TeamState>((set, get) => ({
     set((s) => ({ starters: { ...s.starters, [slot]: null } })),
 
   addBench: (player) =>
-    set((s) => ({ bench: [...s.bench, player] })),
+    set((state) => {
+    if (state.bench.length >= 6) {
+      console.warn("Bench is full (max 6)");
+      return state;
+    }
+
+    return {
+      bench: [...state.bench, player],
+    };
+  }),
 
   removeBench: (i) =>
     set((s) => ({ bench: s.bench.filter((_, idx) => idx !== i) })),

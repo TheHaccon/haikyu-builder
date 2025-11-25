@@ -1,4 +1,7 @@
-export const synergyDescriptions = {
+export type PlayerBuffMap = Record<string, string>;
+export type SynergyDescriptionValue = string | PlayerBuffMap;
+
+export const synergyDescriptions: Record<string, SynergyDescriptionValue> = {
     "Karasuno": "Increases Power Attack and Quick Attack stats of all players present by 10%",
     "Shiratorizawa": "Increases Awareness and Strength of all players present by 10%",
     "Aoba Johsai": "Increases Power Attack stats of all players present by 15%",
