@@ -64,7 +64,7 @@ export default function PlayerModal({
               onClick={() => onSelect(p)}
             >
               <img 
-                src={`public/data/${p.img}`} 
+                src={`data/${p.img}`} 
                 alt={p.name} 
               />
 

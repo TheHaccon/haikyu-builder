@@ -12,7 +12,7 @@ export default function Slot({ slotId, player, onClick }: SlotProps) {
       <div className="hex">
         {player ? (
           <img
-            src={`public/data/${player.img}`}
+            src={`data/${player.img}`}
             alt={player.name}
           />
         ) : (
