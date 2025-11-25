@@ -6,11 +6,13 @@ export type SlotId = "S" | "MB1" | "WS1" | "LI" | "WS2" | "MB2" | "OP";
 interface TeamState {
   starters: Record<SlotId, Player | null>;
   bench: (Player | null)[];
-
   setStarter: (slot: SlotId, player: Player | null) => void;
   addBench: (player: Player | null) => void;
   removeBench: (index: number) => void;
   resetTeam: () => void;
+
+  /** Characters already used (Hinata SSR → "Hinata") */
+  getUsedCharacterNames: () => Set<string>;
 }
 
 const defaultStarters: Record<SlotId, Player | null> = {
@@ -23,7 +25,8 @@ const defaultStarters: Record<SlotId, Player | null> = {
   OP: null,
 };
 
-export const useTeamStore = create<TeamState>((set) => ({
+export const useTeamStore = create<TeamState>((set, get) => ({
+
   starters: defaultStarters,
   bench: [],
 
@@ -49,4 +52,20 @@ export const useTeamStore = create<TeamState>((set) => ({
     starters: defaultStarters,
     bench: [],
   }),
+
+  /** NEW: detect used characters */
+  getUsedCharacterNames: () => {
+    const state = get();
+    const used = new Set<string>();
+
+    Object.values(state.starters).forEach((p) => {
+      if (p) used.add(p.name.split(" ")[0]);
+    });
+
+    state.bench.forEach((p) => {
+      if (p) used.add(p.name.split(" ")[0]);
+    });
+
+    return used;
+  },
 }));

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { Player } from "../../types/Player";
+import { useTeamStore } from "../../store/teamStore";
 
 interface PlayerModalProps {
   open: boolean;
@@ -16,17 +17,20 @@ export default function PlayerModal({
   onClose,
   onSelect,
 }: PlayerModalProps) {
-  
-  // Always at the top — safe hooks
+
   const [search, setSearch] = useState("");
 
-  if (!open) return null; // Modal closed → don't render
+  // ✅ get stable function (NOT its result)
+  const getUsedCharacterNames = useTeamStore((s) => s.getUsedCharacterNames);
 
-  // Filter players like before
+  if (!open) return null;
+
+  // Now call the function *after*
+  const usedNames = getUsedCharacterNames();
+
+  // 🎯 Filter ONLY by search + role, NOT by used
   const filtered = players.filter((p) => {
     if (filterRole && p.role !== filterRole) return false;
-
-    if (!search) return true;
 
     return (
       p.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -37,7 +41,7 @@ export default function PlayerModal({
   return (
     <div id="modal" aria-hidden={open ? "false" : "true"} onClick={onClose}>
       <div id="sheet" onClick={(e) => e.stopPropagation()}>
-        
+
         <header id="modal-header">
           <h3 id="modalTitle">Players</h3>
 
@@ -50,30 +54,36 @@ export default function PlayerModal({
               onChange={(e) => setSearch(e.target.value)}
             />
 
-            <button id="closeModal" type="button" onClick={onClose}>
+            <button id="closeModal" type="button" className="danger" onClick={onClose}>
               Close
             </button>
           </div>
         </header>
 
         <div id="gallery">
-          {filtered.map((p) => (
-            <div
-              key={p.name}
-              className="card"
-              onClick={() => onSelect(p)}
-            >
-              <img 
-                src={`data/${p.img}`} 
-                alt={p.name} 
-              />
+          {filtered.map((p) => {
+            const base = p.name.split(" ")[0];
+            const isUsed = usedNames.has(base);
 
-              <div className="name">{p.name}</div>
-              <div className="meta">
-                {p.school} · {p.role}
+            return (
+              <div
+                key={p.name}
+                className={`card ${isUsed ? "disabled-card" : ""}`}
+                onClick={() => {
+                  if (!isUsed) onSelect(p);
+                }}
+              >
+                <img
+                  src={`public/data/${p.img}`}
+                  alt={p.name}
+                  className={isUsed ? "img-disabled" : ""}
+                />
+
+                <div className="name">{p.name}</div>
+                <div className="meta">{p.school} · {p.role}</div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>

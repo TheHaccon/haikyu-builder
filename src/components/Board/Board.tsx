@@ -23,10 +23,25 @@ export default function Board() {
   }
 
   function handleSelect(player: Player) {
-    if (!activeSlot) return;
-    setStarter(activeSlot, player);
-    setModalOpen(false);
+    try {
+      if (!activeSlot) return;
+      if (!player || !player.name) {
+        console.error("Invalid player received:", player);
+        return;
+      }
+
+      setStarter(activeSlot, player);
+      setModalOpen(false);
+    } catch (err) {
+      console.error("handleSelect crash:", err);
+    }
   }
+
+
+  const roleMap: Record<string, string> = {
+    S: "S", MB1: "MB", MB2: "MB", WS1: "WS", WS2: "WS", OP: "OP", LI: "Li",
+  };
+
 
   return (
     <>
@@ -34,17 +49,44 @@ export default function Board() {
 
         {/* TOP */}
         <div className="row">
-          <Slot slotId="S" player={starters.S} onClick={() => openSlot("S")} />
-          <Slot slotId="MB1" player={starters.MB1} onClick={() => openSlot("MB1")} />
-          <Slot slotId="WS1" player={starters.WS1} onClick={() => openSlot("WS1")} />
+          <Slot
+            slotId="S"
+            player={starters.S}
+            onClick={() => openSlot("S")}
+            onRightClick={() => setStarter("S", null)}
+          />
+          <Slot slotId="MB1" player={starters.MB1}
+            onClick={() => openSlot("MB1")}
+            onRightClick={() => setStarter("MB1", null)}
+          />
+
+          <Slot slotId="WS1" player={starters.WS1}
+            onClick={() => openSlot("WS1")}
+            onRightClick={() => setStarter("WS1", null)}
+          />
         </div>
 
         {/* MID */}
         <div className="row">
-          <Slot slotId="LI" player={starters.LI} onClick={() => openSlot("LI")} />
-          <Slot slotId="WS2" player={starters.WS2} onClick={() => openSlot("WS2")} />
-          <Slot slotId="MB2" player={starters.MB2} onClick={() => openSlot("MB2")} />
-          <Slot slotId="OP" player={starters.OP} onClick={() => openSlot("OP")} />
+          <Slot slotId="LI" player={starters.LI}
+            onClick={() => openSlot("LI")}
+            onRightClick={() => setStarter("LI", null)}
+          />
+
+          <Slot slotId="WS2" player={starters.WS2}
+            onClick={() => openSlot("WS2")}
+            onRightClick={() => setStarter("WS2", null)}
+          />
+
+          <Slot slotId="MB2" player={starters.MB2}
+            onClick={() => openSlot("MB2")}
+            onRightClick={() => setStarter("MB2", null)}
+          />
+
+          <Slot slotId="OP" player={starters.OP}
+            onClick={() => openSlot("OP")}
+            onRightClick={() => setStarter("OP", null)}
+          />
         </div>
 
         {/* BENCH */}
@@ -62,10 +104,11 @@ export default function Board() {
       <PlayerModal
         open={modalOpen}
         players={characters}
-        filterRole={null}
+        filterRole={activeSlot ? activeSlot.replace(/[0-9]/g, "") : null}
         onClose={() => setModalOpen(false)}
         onSelect={handleSelect}
       />
+
 
     </>
   );

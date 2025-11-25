@@ -359,6 +359,99 @@ h1 {
   filter: brightness(1.2);
 }
 
+
+/** Modal, search and button */
+#modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px;
+}
+#modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#closeModal {
+  padding: 6px 14px;
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--ring);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+#closeModal:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+#closeModal.danger:hover {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: white;
+}
+
+#closeModal:active {
+  transform: scale(0.95);
+  background: #6e6e6e;
+}
+
+#modal-header #search {
+  width: 200px;
+  padding: 6px 10px;
+
+  background: var(--card);
+  color: var(--text);
+
+  border: 1px solid var(--ring);
+  border-radius: 6px;
+
+  font-size: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#modal-header #search::placeholder {
+  color: var(--muted);
+}
+
+#modal-header #search:hover {
+  border-color: var(--accent);
+}
+
+#modal-header #search:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(140, 140, 140, 0.35);
+}
+
+#modal-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Make used characters look disabled */
+.disabled-card {
+  opacity: 0.45;
+  filter: grayscale(100%);
+  cursor: not-allowed;
+}
+
+.img-disabled {
+  filter: grayscale(100%) brightness(0.6);
+}
+
+.disabled-card:hover {
+  transform: none !important;
+}
+
+
 /* ------------------------------
    MOBILE
 --------------------------------*/
