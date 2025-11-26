@@ -63,14 +63,20 @@ html, body {
 }
 
 .nav-links li a,
-.nav-links li span {
-  color: var(--text);
+.nav-links li a:visited {
+  color: white;
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.2s ease;
 }
 
 .nav-links li a:hover {
-  color: var(--accent);
+  color: #8c8c8c;
+}
+
+.nav-links li a.active {
+  color: #ffffff !important;
+  font-weight: 700;
 }
 
 .nav-disabled {
@@ -78,7 +84,6 @@ html, body {
   cursor: not-allowed;
 }
 
-/* Positionless Switch */
 .posless-wrap {
   display: flex;
   align-items: center;
