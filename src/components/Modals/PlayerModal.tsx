@@ -143,7 +143,7 @@ export default function PlayerModal({
                 {isUsed && <div className="used-tag">Already chosen</div>}
 
                 <img
-                  src={`/data/${p.img}`}
+                  src={`data/${p.img}`}
                   className={isUsed ? "img-disabled" : ""}
                 />
 

@@ -19,7 +19,7 @@ export default function Slot({ slotId, player, onClick, onRightClick }: Props) {
     >
       <div className="hex">
         {player ? (
-          <img src={`/data/${player.img}`} />
+          <img src={`data/${player.img}`} />
         ) : (
           <div className="slot-empty">+ {slotId}</div>
         )}

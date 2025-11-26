@@ -173,7 +173,7 @@ export default function SynergyPanel() {
                           {m.player && (
                             <img
                               className={m.present ? "" : "img-disabled"}
-                              src={`/data/${m.player.img}`}
+                              src={`data/${m.player.img}`}
                               alt={m.player.name}
                             />
                           )}
@@ -217,7 +217,7 @@ export default function SynergyPanel() {
                 <div className="bond-members">
                   {bond.members.map((m) => (
                     <div key={m.name} className="bond-member">
-                      {m.player && <img src={`/data/${m.player.img}`} />}
+                      {m.player && <img src={`data/${m.player.img}`} />}
                       <strong>{m.name}</strong>
                     </div>
                   ))}
