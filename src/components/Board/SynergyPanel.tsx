@@ -24,13 +24,16 @@ function getPlayer(fullName: string): Player | null {
 }
 
 export default function SynergyPanel() {
-  const starters = useTeamStore((s) => s.starters);
+  const currentData = useTeamStore((s) => s.positionless ? s.positionlessData : s.normal);
+
+  const teams = currentData.teams;
+  const activeId = currentData.activeTeamId;
+  const activeTeam = teams.find((t) => t.id === activeId) || teams[0];
+  const starters = activeTeam.starters;
 
   const [tab, setTab] = useState<"deploy" | "buffs">("deploy");
   const [deployFilter, setDeployFilter] = useState<"all" | "active">("all");
-
   const [collapsed, setCollapsed] = useState<Record<string, boolean>>({});
-
   const startersSet = useMemo(() => {
     const set = new Set<string>();
     Object.values(starters).forEach((p) => {
@@ -48,7 +51,6 @@ export default function SynergyPanel() {
 
   function isActive(s: SynergyDefinition, presentCount: number) {
     const type = s.activation?.type ?? "all";
-
     const total = s.members?.length ?? 0;
 
     if (type === "all") return presentCount === total;
@@ -97,9 +99,9 @@ export default function SynergyPanel() {
     deployFilter === "active"
       ? statBuffs.filter((b) => b.active)
       : statBuffs;
+
   return (
     <section id="tabs">
-
       <nav id="tabbar">
         <button
           className={`tabbtn ${tab === "deploy" ? "active" : ""}`}
@@ -107,7 +109,6 @@ export default function SynergyPanel() {
         >
           Deployment Bonds
         </button>
-
         <button
           className={`tabbtn ${tab === "buffs" ? "active" : ""}`}
           onClick={() => setTab("buffs")}
@@ -115,13 +116,11 @@ export default function SynergyPanel() {
           Stat Buffs
         </button>
       </nav>
-
       {/*DEPLOYMENT TAB*/}
       {tab === "deploy" && (
         <div id="tab-deploy">
           <div id="deploy-filter" className="bond-filter">
             <span>Show bond</span>
-
             <label>
               <input
                 type="radio"
@@ -132,7 +131,6 @@ export default function SynergyPanel() {
               />
               All
             </label>
-
             <label>
               <input
                 type="radio"
@@ -144,21 +142,16 @@ export default function SynergyPanel() {
               Active only
             </label>
           </div>
-
           <h2>Deployment Bonds</h2>
-
           <ul className="bond-list">
             {deploymentBonds.length === 0 && <li>(no bonds yet)</li>}
-
             {filteredDeploymentBonds.map((bond) => (
               <li key={bond.name} className={`bond-item ${bond.active ? "bond-active" : ""} ${collapsed[bond.name] ? "bond-collapsed" : ""}`}>
                 <div className="bond-title" onClick={() => toggleBond(bond.name)}>
                   <span>{bond.name}</span>
-
                   <span className={`bond-chevron ${collapsed[bond.name] ? "" : "open"}`}></span>
                   {collapsed[bond.name] ? "▸" : "▾"}
                 </div>
-
                 {!collapsed[bond.name] && (
                   <div className="bond-content">
                     <div className="bond-members">
@@ -179,7 +172,6 @@ export default function SynergyPanel() {
                         </div>
                       ))}
                     </div>
-
                     <div className="bond-description">
                       {typeof bond.description === "string" ? (
                         <p>{bond.description}</p>
@@ -191,7 +183,6 @@ export default function SynergyPanel() {
                     </div>
                   </div>
                 )}
-
               </li>
             ))}
           </ul>
@@ -201,21 +192,16 @@ export default function SynergyPanel() {
       {/*STAT BUFF TAB*/}
       {tab === "buffs" && (
         <div id="tab-buffs">
-
           <h2>Stat Buffs</h2>
-
           <ul className="bond-list">
             {statBuffs.length === 0 && <li>(no active stat buffs)</li>}
-
             {filteredstatsBonds.map((bond) => (
               <li key={bond.name} className={`bond-item ${bond.active ? "bond-active" : ""} ${collapsed[bond.name] ? "bond-collapsed" : ""}`}>
                 <div className="bond-title" onClick={() => toggleBond(bond.name)}>
                   <span>{bond.name}</span>
-
                   <span className={`bond-chevron ${collapsed[bond.name] ? "" : "open"}`}></span>
                   {collapsed[bond.name] ? "▸" : "▾"}
                 </div>
-
                 {!collapsed[bond.name] && (
                   <div className="bond-content">
                     <div className="bond-members">
@@ -235,7 +221,6 @@ export default function SynergyPanel() {
                         </div>
                       ))}
                     </div>
-
                     <div className="bond-description">
                       {typeof bond.description === "string" ? (
                         <p>{bond.description}</p>
@@ -247,11 +232,9 @@ export default function SynergyPanel() {
                     </div>
                   </div>
                 )}
-
               </li>
             ))}
           </ul>
-
         </div>
       )}
     </section>

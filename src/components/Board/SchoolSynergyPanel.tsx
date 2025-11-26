@@ -3,7 +3,12 @@ import { useTeamStore } from "../../store/teamStore";
 import { synergies } from "../../data/synergies";
 
 export default function SchoolSynergyPanel() {
-  const starters = useTeamStore((s) => s.starters);
+  const currentData = useTeamStore((s) => s.positionless ? s.positionlessData : s.normal);
+
+  const teams = currentData.teams;
+  const activeId = currentData.activeTeamId;
+  const activeTeam = teams.find((t) => t.id === activeId) || teams[0];
+  const starters = activeTeam.starters;
 
   const schoolBonds = useMemo(() => {
     return synergies
@@ -30,40 +35,43 @@ export default function SchoolSynergyPanel() {
   }, [starters]);
 
   return (
-    <ul className="bond-list">
-      {schoolBonds.length === 0 && <li>(no active school)</li>}
-
-      {schoolBonds.map((bond) => (
-        <li
-          key={bond.name}
-          className={`bond-item ${bond.active ? "bond-active" : ""}`}
-        >
-          <div className="bond-title">
-            {bond.name}
-            {!bond.active && (
-              <span className="missing-label">
-                {" "}
-                — {bond.missing} missing (need {bond.min})
-              </span>
-            )}
-            {bond.active && <span className="active-label"> — ACTIVE</span>}
-          </div>
-
-          {bond.active && (
-            <div className="bond-description">
-              {typeof bond.description === "string" ? (
-                <p>{bond.description}</p>
-              ) : (
-                Object.entries(bond.description).map(([who, text]) => (
-                  <p key={who}>
-                    <strong>{who}:</strong> {text}
-                  </p>
-                ))
+    <div className="synergy-card">
+      <h3 className="panel-title">
+        <span>School Synergies</span>
+      </h3>
+      <ul className="bond-list">
+        {schoolBonds.map((bond) => (
+          <li
+            key={bond.name}
+            className={`bond-item ${bond.active ? "bond-active" : ""}`}
+          >
+            <div className="bond-title">
+              <span>{bond.name}</span>
+              {!bond.active && (
+                <span className="missing-label" style={{ marginLeft: "auto", fontSize: "11px" }}>
+                  (Need {bond.missing} more)
+                </span>
               )}
+              {bond.active && <span className="active-label" style={{ marginLeft: "auto", color: "#4ade80", fontSize: "11px" }}>ACTIVE</span>}
             </div>
-          )}
-        </li>
-      ))}
-    </ul>
+            {bond.active && (
+              <div className="bond-content" style={{ marginTop: "8px" }}>
+                <div className="bond-description">
+                  {typeof bond.description === "string" ? (
+                    <p>{bond.description}</p>
+                  ) : (
+                    Object.entries(bond.description).map(([who, text]) => (
+                      <p key={who}>
+                        <strong>{who}:</strong> {text}
+                      </p>
+                    ))
+                  )}
+                </div>
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

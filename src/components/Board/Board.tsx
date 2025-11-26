@@ -6,12 +6,25 @@ import { useState } from "react";
 import type { Player } from "../../types/Player";
 import { characters } from "../../data/characters-global";
 import SynergyPanel from "./SynergyPanel";
+import PowerSynergyPanel from "./PowerSynergyPanel";
 
 export default function Board() {
-  const starters = useTeamStore((s) => s.starters);
+  const positionless = useTeamStore((s) => s.positionless);
+
+  const currentData = useTeamStore((s) => s.positionless ? s.positionlessData : s.normal);
+
+  const teams = currentData.teams;
+  const activeId = currentData.activeTeamId;
+  const activeTeam = teams.find((t) => t.id === activeId) || teams[0];
+  const { starters, bench, positions } = activeTeam
+
+  const setActiveTeam = useTeamStore((s) => s.setActiveTeam);
+  const addTeam = useTeamStore((s) => s.addTeam);
+  const removeTeam = useTeamStore((s) => s.removeTeam);
   const setStarter = useTeamStore((s) => s.setStarter);
-  const bench = useTeamStore((s) => s.bench);
   const addBench = useTeamStore((s) => s.addBench);
+  const rotatePositions = useTeamStore((s) => s.rotatePositions);
+
 
   const [modalOpen, setModalOpen] = useState(false);
   const [activeSlot, setActiveSlot] = useState<keyof typeof starters | null>(null);
@@ -30,53 +43,104 @@ export default function Board() {
       setModalOpen(false);
       return;
     }
-
     if (activeSlot) {
       setStarter(activeSlot, p);
     }
-
     setModalOpen(false);
+  };
+
+  const getFilterRole = () => {
+    if (addToBenchMode) return null;
+    if (positionless) return null;
+    return activeSlot ? activeSlot.replace(/[0-9]/g, "") : null;
+  };
+
+  const renderRotatableSlot = (index: number) => {
+    const slotId = positions[index];
+    const player = starters[slotId];
+    return (
+      <Slot
+        key={slotId}
+        slotId={slotId}
+        player={player}
+        onClick={() => openSlot(slotId)}
+        onRightClick={() => setStarter(slotId, null)}
+      />
+    );
   };
 
   return (
     <>
-      <div id="board">
-        <div className="row">
-          <Slot slotId="S" player={starters.S} onClick={() => openSlot("S")} onRightClick={() => setStarter("S", null)} />
-          <Slot slotId="MB1" player={starters.MB1} onClick={() => openSlot("MB1")} onRightClick={() => setStarter("MB1", null)} />
-          <Slot slotId="WS1" player={starters.WS1} onClick={() => openSlot("WS1")} onRightClick={() => setStarter("WS1", null)} />
-        </div>
-        <div className="row">
-          <Slot slotId="LI" player={starters.LI} onClick={() => openSlot("LI")} onRightClick={() => setStarter("LI", null)} />
-          <Slot slotId="WS2" player={starters.WS2} onClick={() => openSlot("WS2")} onRightClick={() => setStarter("WS2", null)} />
-          <Slot slotId="MB2" player={starters.MB2} onClick={() => openSlot("MB2")} onRightClick={() => setStarter("MB2", null)} />
-          <Slot slotId="OP" player={starters.OP} onClick={() => openSlot("OP")} onRightClick={() => setStarter("OP", null)} />
-        </div>
-
-        <div id="bench-row">
-          {bench.map((p, i) => (
-            <BenchSlot key={i} player={p} index={i} />
+      {/* --- TEAM TABS --- */}
+      <div className="board-group">
+        <div className="tabs-container">
+          {teams.map((team) => (
+            <div
+              key={team.id}
+              className={`tab ${team.id === activeId ? 'active' : ''}`}
+              onClick={() => setActiveTeam(team.id)}
+            >
+              <span>{team.name}</span>
+              {teams.length > 1 && (
+                <button
+                  className="tab-close"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    removeTeam(team.id);
+                  }}
+                >
+                  ✕
+                </button>
+              )}
+            </div>
           ))}
-
-          <button
-            id="addBench"
-            disabled={bench.length >= 6}
-            className={bench.length >= 6 ? "bench-disabled" : ""}
-            onClick={() => {
-              setAddToBenchMode(true);
-              setActiveSlot(null);
-              setModalOpen(true);
-            }}
-          >
-            {bench.length >= 6 ? "bench full" : "+ bench"}
+          <button className="tab-add" onClick={addTeam} title="Add New Team">
+            +
           </button>
         </div>
+        <div id="board" style={{ borderTopLeftRadius: '0' }}>
+          <div className="row">
+            {renderRotatableSlot(0)}
+            {renderRotatableSlot(1)}
+            {renderRotatableSlot(2)}
+          </div>
+          <div className="row">
+            <Slot slotId="LI" player={starters.LI} onClick={() => openSlot("LI")} onRightClick={() => setStarter("LI", null)} />
+            {renderRotatableSlot(5)}
+            {renderRotatableSlot(4)}
+            {renderRotatableSlot(3)}
+          </div>
+          <div id="bench-row">
+            {bench.map((p, i) => (
+              <BenchSlot key={i} player={p} index={i} />
+            ))}
+            <button
+              className="action-btn"
+              onClick={rotatePositions}
+              title="Rotate Positions"
+            >
+              <span style={{ fontSize: '18px', marginBottom: '2px' }}>↻</span>
+              <span>Rotate</span>
+            </button>
+            <button
+              id="addBench"
+              className="action-btn"
+              disabled={bench.length >= 6}
+              onClick={() => {
+                setAddToBenchMode(true);
+                setActiveSlot(null);
+                setModalOpen(true);
+              }}
+            >
+              {bench.length >= 6 ? "Full" : "+ Bench"}
+            </button>
+          </div>
+        </div>
       </div>
-      <SynergyPanel />
       <PlayerModal
         open={modalOpen}
         players={characters}
-        filterRole={addToBenchMode ? null : activeSlot ? activeSlot.replace(/[0-9]/g, "") : null}
+        filterRole={getFilterRole()}
         onClose={() => {
           setAddToBenchMode(false);
           setModalOpen(false);

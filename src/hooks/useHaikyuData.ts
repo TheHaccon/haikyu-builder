@@ -15,7 +15,6 @@ export default function useHaikyuData(): HaikyuData {
   const [synergyPairs, setSynergyPairs] = useState({});
   const [loading, setLoading] = useState(true);
 
-  // Load a script dynamically
   const loadScript = (src: string): Promise<void> => {
     return new Promise((resolve, reject) => {
       const script = document.createElement("script");

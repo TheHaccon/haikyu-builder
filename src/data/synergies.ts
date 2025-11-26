@@ -367,7 +367,7 @@ export const synergies: SynergyDefinition[] = [
     {
         name: "NEKOMA's Wing Spiker",
         category: "deployment",
-        members: ["fukunaga SR", "Kai SR", "Yamamoto SR"],
+        members: ["Fukunaga SR", "Kai SR", "Yamamoto SR"],
         description: "Increases Receive and Spike stats of players present by 4/5/6/7/8%",
         activation: { type: "count", min: 3 }
     },
