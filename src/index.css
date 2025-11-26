@@ -688,6 +688,11 @@ h1 {
   gap: 8px;
 }
 
+.bond-title span {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
 .bond-members {
   display: flex;
   flex-wrap: wrap;

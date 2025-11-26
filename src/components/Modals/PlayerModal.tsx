@@ -34,7 +34,8 @@ export default function PlayerModal({
   }, [starters, bench]);
 
   // Determine rarity from name
-  const getRarity = (n: string): "UR" | "SSR" | "SR" | "R" | "NONE" => {
+  const getRarity = (n: string): "SP" | "UR" | "SSR" | "SR" | "R" | "NONE" => {
+    if (n.includes("SP")) return "SP";
     if (n.includes("UR")) return "UR";
     if (n.includes("SSR")) return "SSR";
     if (n.includes("SR")) return "SR";
@@ -43,10 +44,11 @@ export default function PlayerModal({
   };
 
   const rarityOrder = (r: string) =>
-    r === "UR" ? 0 :
-      r === "SSR" ? 1 :
-        r === "SR" ? 2 :
-          r === "R" ? 3 : 4;
+    r === "SP" ? 0 :
+    r === "UR" ? 1 :
+      r === "SSR" ? 2 :
+        r === "SR" ? 3 :
+          r === "R" ? 4 : 5;
 
   const schoolList = useMemo(() => {
     const s = new Set<string>();

@@ -89,10 +89,14 @@ export default function SynergyPanel() {
   const statBuffs = compute("stats");
 
   const filteredDeploymentBonds =
-  deployFilter === "active"
-    ? deploymentBonds.filter((b) => b.active)
-    : deploymentBonds;
+    deployFilter === "active"
+      ? deploymentBonds.filter((b) => b.active)
+      : deploymentBonds;
 
+  const filteredstatsBonds =
+    deployFilter === "active"
+      ? statBuffs.filter((b) => b.active)
+      : statBuffs;
   return (
     <section id="tabs">
 
@@ -151,15 +155,8 @@ export default function SynergyPanel() {
                 <div className="bond-title" onClick={() => toggleBond(bond.name)}>
                   <span>{bond.name}</span>
 
-                  <span className={`bond-chevron ${collapsed[bond.name] ? "" : "open"}`}>
-                    {collapsed[bond.name] ? "▸" : "▾"}
-                  </span>
-
-                  {!bond.active && (
-                    <span className="missing-count">
-                      — {bond.missing} missing
-                    </span>
-                  )}
+                  <span className={`bond-chevron ${collapsed[bond.name] ? "" : "open"}`}></span>
+                  {collapsed[bond.name] ? "▸" : "▾"}
                 </div>
 
                 {!collapsed[bond.name] && (
@@ -210,30 +207,47 @@ export default function SynergyPanel() {
           <ul className="bond-list">
             {statBuffs.length === 0 && <li>(no active stat buffs)</li>}
 
-            {statBuffs.map((bond) => (
-              <li key={bond.name} className="bond-item">
-                <div className="bond-title">{bond.name}</div>
+            {filteredstatsBonds.map((bond) => (
+              <li key={bond.name} className={`bond-item ${bond.active ? "bond-active" : ""} ${collapsed[bond.name] ? "bond-collapsed" : ""}`}>
+                <div className="bond-title" onClick={() => toggleBond(bond.name)}>
+                  <span>{bond.name}</span>
 
-                <div className="bond-members">
-                  {bond.members.map((m) => (
-                    <div key={m.name} className="bond-member">
-                      {m.player && <img src={`data/${m.player.img}`} />}
-                      <strong>{m.name}</strong>
+                  <span className={`bond-chevron ${collapsed[bond.name] ? "" : "open"}`}></span>
+                  {collapsed[bond.name] ? "▸" : "▾"}
+                </div>
+
+                {!collapsed[bond.name] && (
+                  <div className="bond-content">
+                    <div className="bond-members">
+                      {bond.members.map(m => (
+                        <div
+                          key={m.name}
+                          className={`bond-member ${m.present ? "" : "bond-member-missing"}`}
+                        >
+                          {m.player && (
+                            <img
+                              src={`data/${m.player.img}`}
+                              alt={m.player.name}
+                            />
+                          )}
+                          <strong>{m.name}</strong>
+                          {!m.present && <span className="missing-label">(Missing)</span>}
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
 
-                <div className="bond-description">
-                  {typeof bond.description === "string" ? (
-                    <p>{bond.description}</p>
-                  ) : (
-                    Object.entries(bond.description).map(([who, text]) => (
-                      <p key={who}>
-                        <strong>{who}</strong>: {text}
-                      </p>
-                    ))
-                  )}
-                </div>
+                    <div className="bond-description">
+                      {typeof bond.description === "string" ? (
+                        <p>{bond.description}</p>
+                      ) : (
+                        Object.entries(bond.description).map(([who, text]) => (
+                          <p key={who}><strong>{who}:</strong> {text}</p>
+                        ))
+                      )}
+                    </div>
+                  </div>
+                )}
+
               </li>
             ))}
           </ul>

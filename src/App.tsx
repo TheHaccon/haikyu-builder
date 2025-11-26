@@ -9,7 +9,8 @@ export default function App() {
 
       <header className="app-header">
         <h1>Haikyu Fly High Team Builder</h1>
-        <p id="hint">Tip: click a role to open the gallery.</p>
+        <p id="hint">Welcome to the optimized team builder, currently working on adding JP char and all the other stuff that was there in the old version.</p>
+        <p>Mobile adaptation will come in the future week</p>
       </header>
 
       <main id="layout">

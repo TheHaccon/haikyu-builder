@@ -36,27 +36,28 @@ export default function Navbar() {
             Resources counter <small>(coming soon)</small>
           </span>
         </li>
-
-        {/* Right side: server + positionless toggle (visual only for now) */}
-        <div id="toolbar-top" className="toolbar-top">
-          <span className="server-label">Server:</span>
-          <div className="server-toggle">
-            <div className="server-option active" data-server="global">
-              Global
-            </div>
-            <div className="server-option" data-server="japan">
-              Japan
-            </div>
-          </div>
-
-          <div className="posless-wrap">
-            <span className="posless-label">Normal</span>
-            <label className="posless-switch">
-              <input type="checkbox" id="positionlessToggle" />
-              <span className="posless-slider" />
-            </label>
-            <span className="posless-label">Positionless</span>
-          </div>
+        <li className="nav-disabled">
+          <span>
+            Memory <small>(coming soon)</small>
+          </span>
+        </li>
+                <li className="nav-disabled">
+          <span>
+            Versus <small>(coming soon)</small>
+          </span>
+        </li>
+                <li className="nav-disabled">
+          <span>
+            About <small>(coming soon)</small>
+          </span>
+        </li>
+        <div className="posless-wrap nav-disabled" >
+          <span className="posless-label">Normal</span>
+          <label className="posless-switch">
+            <input type="checkbox" id="positionlessToggle" disabled />
+            <span className="posless-slider" />
+          </label>
+          <span className="posless-label">Positionless</span>
         </div>
       </ul>
     </nav>

@@ -4,4 +4,5 @@ export interface Player {
   role: string;
   school: string;
   bonds?: string[];
+  power?: string[];
 }
