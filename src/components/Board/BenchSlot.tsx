@@ -18,7 +18,7 @@ export default function BenchSlot({ player, index }: Props) {
       }}
     >
       {player ? (
-        <img src={`public/data/${player.img}`} />
+        <img src={`data/${player.img}`} />
       ) : (
         <div className="empty-bench">+</div>
       )}

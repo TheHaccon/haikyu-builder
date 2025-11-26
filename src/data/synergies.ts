@@ -321,4 +321,40 @@ export const synergies: SynergyDefinition[] = [
         description: { "Oikawa UR": "Toss +5/7/9/12/15, Toss +1/2/3/4/5%", "Ushijima UR": "No buff" },
         activation: { type: "count", min: 2 }
     },
+    /*NEKOMA*/
+    {
+        name: "Long-standing Rivals",
+        category: "stats",
+        members: ["Oikawa UR", "Ushijima UR"],
+        description: { "Oikawa UR": "Toss +5/7/9/12/15, Toss +1/2/3/4/5%", "Ushijima UR": "No buff" },
+        activation: { type: "count", min: 2 }
+    },
+    {
+        name: "Long-standing Rivals",
+        category: "stats",
+        members: ["Oikawa UR", "Ushijima UR"],
+        description: { "Oikawa UR": "Toss +5/7/9/12/15, Toss +1/2/3/4/5%", "Ushijima UR": "No buff" },
+        activation: { type: "count", min: 2 }
+    },
+    {
+        name: "Long-standing Rivals",
+        category: "stats",
+        members: ["Oikawa UR", "Ushijima UR"],
+        description: { "Oikawa UR": "Toss +5/7/9/12/15, Toss +1/2/3/4/5%", "Ushijima UR": "No buff" },
+        activation: { type: "count", min: 2 }
+    },
+    {
+        name: "Long-standing Rivals",
+        category: "stats",
+        members: ["Oikawa UR", "Ushijima UR"],
+        description: { "Oikawa UR": "Toss +5/7/9/12/15, Toss +1/2/3/4/5%", "Ushijima UR": "No buff" },
+        activation: { type: "count", min: 2 }
+    },
+    {
+        name: "Long-standing Rivals",
+        category: "stats",
+        members: ["Oikawa UR", "Ushijima UR"],
+        description: { "Oikawa UR": "Toss +5/7/9/12/15, Toss +1/2/3/4/5%", "Ushijima UR": "No buff" },
+        activation: { type: "count", min: 2 }
+    },
 ];
