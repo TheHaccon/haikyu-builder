@@ -64,7 +64,7 @@ export const synergies: SynergyDefinition[] = [
         name: "KARASUNO Senior Year",
         category: "deployment",
         members: ["Daichi SSR", "Sugawara SR", "Asahi SSR"],
-        description: "Reduces Stamina consumption of Spike skills by 10%; when performing Power Spikes, increases this player\'s Attack Technique by 6/7/8/9/10%",
+        description: "Reduces Stamina consumption of Spike skills by 10%; when performing Power Spikes, increases this player's Attack Technique by 6/7/8/9/10%",
         activation: { type: "count", min: 3 }
     },
     {
@@ -99,7 +99,7 @@ export const synergies: SynergyDefinition[] = [
         name: "\"Shield\" and \"Spear\"",
         category: "deployment",
         members: ["Tsukishima SSR", "Tadashi SR"],
-        description: "Increases Tsukishima\'s Block stat by 6/7/8/9/10% and Tadashi\'s Serve stat by 6/7/8/9/10%",
+        description: "Increases Tsukishima's Block stat by 6/7/8/9/10% and Tadashi's Serve stat by 6/7/8/9/10%",
         activation: { type: "count", min: 2 }
     },
     {
@@ -169,7 +169,7 @@ export const synergies: SynergyDefinition[] = [
         name: "\"Shield\" and \"Spear\"",
         category: "deployment",
         members: ["Tsukishima SR", "Tadashi R"],
-        description: "Increases Tsukishima\'s Block stat by 6/7/8/9/10% and Tadashi\'s Serve stat by 6/7/8/9/10%",
+        description: "Increases Tsukishima\'s Block stat by 6/7/8/9/10% and Tadashi's Serve stat by 6/7/8/9/10%",
         activation: { type: "count", min: 2 }
     },
     {
@@ -248,7 +248,7 @@ export const synergies: SynergyDefinition[] = [
         name: "The Wolf Pack",
         category: "deployment",
         members: ["Iwaizumi SSR", "Kentaro SSR"],
-        description: "Increases  Iwaizumi and Kentaro\'s Power Attack stat by 6/7/8/9/10%",
+        description: "Increases  Iwaizumi and Kentaro's Power Attack stat by 6/7/8/9/10%",
         activation: { type: "count", min: 2 }
     },
     {
@@ -269,7 +269,7 @@ export const synergies: SynergyDefinition[] = [
         name: "Blunt and Composed",
         category: "deployment",
         members: ["Kindaichi SR", "Kunimi SR"],
-        description: "Increases Kindaichi\'s Quick Attack stat by 6/7/8/9/10% and  Kunimi\'s Power Attack stat by 6/7/8/9/10%",
+        description: "Increases Kindaichi's Quick Attack stat by 6/7/8/9/10% and  Kunimi's Power Attack stat by 6/7/8/9/10%",
         activation: { type: "count", min: 2 }
     },
     {
@@ -297,7 +297,7 @@ export const synergies: SynergyDefinition[] = [
         name: "SEIJOH's Senior Year Pillars",
         category: "deployment",
         members: ["Matsukawa SR", "Hanamaki SR"],
-        description: "Increases Matsukawa\'s Block stat by 6/67/8/9/10% and Hanamaki\'s Receive stat by 6/7/8/9/10%",
+        description: "Increases Matsukawa's Block stat by 6/67/8/9/10% and Hanamaki's Receive stat by 6/7/8/9/10%",
         activation: { type: "count", min: 2 }
     },
     {
@@ -323,38 +323,73 @@ export const synergies: SynergyDefinition[] = [
     },
     /*NEKOMA*/
     {
-        name: "Long-standing Rivals",
+        name: "Reliable Senpai",
         category: "stats",
-        members: ["Oikawa UR", "Ushijima UR"],
-        description: { "Oikawa UR": "Toss +5/7/9/12/15, Toss +1/2/3/4/5%", "Ushijima UR": "No buff" },
+        members: ["Yaku SSR", "Kuroo UR", "Kai SR"],
+        description: { "Yaku SSR": "No buff", "Kuroo UR": "Quick Attack +5/7/9/12/15, Quick Attack +1/2/3/4/5%", "Kai SR": "No buff" },
+        activation: { type: "count", min: 3 }
+    },
+    {
+        name: "Reception Mentors",
+        category: "deployment",
+        members: ["Yaku SSR", "Lev SSR"],
+        description: "increases Yaku Receive by 6/7/8/9/10% and Lev Quick Attack by 6/7/8/9/10%",
         activation: { type: "count", min: 2 }
     },
     {
-        name: "Long-standing Rivals",
-        category: "stats",
-        members: ["Oikawa UR", "Ushijima UR"],
-        description: { "Oikawa UR": "Toss +5/7/9/12/15, Toss +1/2/3/4/5%", "Ushijima UR": "No buff" },
+        name: "\"Brain\" and \"Control Tower\"",
+        category: "deployment",
+        members: ["Kenma SSR", "Kuroo UR"],
+        description: "Kenma sets the ball, Kuroo performs a Quick Spike with 265/280/295/310/325% of Quick Attack stat as power",
         activation: { type: "count", min: 2 }
     },
     {
-        name: "Long-standing Rivals",
+        name: "The \"Enigmatic\" Teammate",
         category: "stats",
-        members: ["Oikawa UR", "Ushijima UR"],
-        description: { "Oikawa UR": "Toss +5/7/9/12/15, Toss +1/2/3/4/5%", "Ushijima UR": "No buff" },
+        members: ["Kenma SSR", "Lev SSR"],
+        description: { "Kenma SSR": "No buff", "Lev SSR": "Block +5/7/9/12/15, Block +1/2/3/4/5%" },
         activation: { type: "count", min: 2 }
     },
     {
-        name: "Long-standing Rivals",
+        name: "NEKOMA's Junior",
         category: "stats",
-        members: ["Oikawa UR", "Ushijima UR"],
-        description: { "Oikawa UR": "Toss +5/7/9/12/15, Toss +1/2/3/4/5%", "Ushijima UR": "No buff" },
+        members: ["Teshiro SR", "Inuoka SR", "Lev SSR"],
+        description: { "Teshiro SR": "Receive +5/7/9/12/15, Receive +1/2/3/4/5%", "Inuoka SR": "No buff", "Lev SSR": "No Buff" },
+        activation: { type: "count", min: 3 }
+    },
+    {
+        name: "Grit and Competitive",
+        category: "stats",
+        members: ["Kenma SSR", "Yamamoto SR"],
+        description: { "Kenma SSR": "Set +5/7/9/12/15, Set +1/2/3/4/5%", "Yamamoto SR": "No buff" },
         activation: { type: "count", min: 2 }
     },
     {
-        name: "Long-standing Rivals",
+        name: "NEKOMA's Wing Spiker",
+        category: "deployment",
+        members: ["fukunaga SR", "Kai SR", "Yamamoto SR"],
+        description: "Increases Receive and Power Attack stats of players present by 4/5/6/7/8%",
+        activation: { type: "count", min: 3 }
+    },
+    {
+        name: "One-on-One Training",
         category: "stats",
-        members: ["Oikawa UR", "Ushijima UR"],
-        description: { "Oikawa UR": "Toss +5/7/9/12/15, Toss +1/2/3/4/5%", "Ushijima UR": "No buff" },
+        members: ["Lev SSR", "Yaku SSR"],
+        description: { "Lev SR": "Block +5/7/9/12/15, Block +1/2/3/4/5%", "Yaku SR": "Receive +5/7/9/12/15, Receive +1/2/3/4/5%" },
+        activation: { type: "count", min: 2 }
+    },
+    {
+        name: "\"Pivot\" and \"Control Tower\"",
+        category: "deployment",
+        members: ["Kenma SR", "Kuroo SSR"],
+        description: "Increases Kenma\'s Set stat by 6/7/8/9/10% and Kuroo's Block Stat by 6/7/8/9/10%",
+        activation: { type: "count", min: 2 }
+    },
+    {
+        name: "\"Pivot\" and \"Defensive Pivot\"",
+        category: "stats",
+        members: ["Kenma SSR", "Yaku SR"],
+        description: { "Kenma SSR": "Power Attack +5/7/9/12/15, Power Attack +1/2/3/4/5%","Yaku SSR": "Save +5/7/9/12/15, Save +1/2/3/4/5%", },
         activation: { type: "count", min: 2 }
     },
 ];
