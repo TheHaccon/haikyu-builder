@@ -57,7 +57,7 @@ const initialGroup: TeamGroup = {
 
 export const useTeamStore = create<TeamState>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       positionless: false,
       togglePositionless: () => set((s) => ({ positionless: !s.positionless })),
 

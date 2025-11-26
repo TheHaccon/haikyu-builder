@@ -15,7 +15,7 @@ const SPECIALTY_RULES: Record<string, { counter: string; tiers: Record<number, s
         tiers: { 3: "30%", 4: "50%", 5: "70%", 6: "90%" },
     },
     "Receive": {
-        counter: "Quick Attack",
+        counter: "Quick",
         tiers: { 3: "30%", 4: "50%", 5: "70%", 6: "90%", 7: "110%" },
     },
 };

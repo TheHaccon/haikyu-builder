@@ -5,8 +5,6 @@ import { useTeamStore } from "../../store/teamStore";
 import { useState } from "react";
 import type { Player } from "../../types/Player";
 import { characters } from "../../data/characters-global";
-import SynergyPanel from "./SynergyPanel";
-import PowerSynergyPanel from "./PowerSynergyPanel";
 
 export default function Board() {
   const positionless = useTeamStore((s) => s.positionless);
