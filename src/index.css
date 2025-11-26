@@ -679,10 +679,13 @@ h1 {
   box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.4);
 }
 
+
 .bond-title {
-  font-weight: 600;
-  margin-bottom: 4px;
-  text-decoration: underline;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .bond-members {
@@ -719,6 +722,16 @@ h1 {
 .bond-missing-line {
   font-size: 13px;
   color: var(--text);
+}
+
+.bond-member-missing img {
+  filter: grayscale(100%) brightness(0.6);
+  opacity: 0.5;
+}
+
+.missing-label {
+  font-size: 11px;
+  color: #9ca3af;
 }
 
 

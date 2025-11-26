@@ -1,5 +1,5 @@
 export const synergyPairs = {
-    //KARASUNO
+//KARASUNO
     "karasuno Senior Year": [["Daichi SSR", "Sugawara SR", "Asahi SSR"]],
     "Worthy Rival": [["Hinata SSR", "Inuoka SR"]],
     "Rival Friends": [["Kenma SSR", "Hinata SSR"]],
@@ -28,31 +28,34 @@ export const synergyPairs = {
     "The Returning Trio": [["Hisashi R", "Kazuhito R", "Chikara SR"]],
 
     "Simulated Junior Training Teamate": [["Kanji", "Tsukishima"]],
- //AOBA JOHSAI
+//AOBA JOHSAI
     "The Wolf Pack": [["Iwaizumi SSR", "Kentaro SSR"]],
     "Power of Trust": [["Kentaro SSR", "Oikawa UR"]],
     "Perfect Chemistry": [["Oikawa UR","Iwaizumi SSR"]],
-    "Aoba Johsai's Sophomore": [["Watari", "Yahaba", "Kentaro"]],
-    "Blunt and Composed": [["Kindaichi", "Kunimi"]],
-    
-    "Hidden Fire": [["Kentaro", "Yahaba"]],
-    "Seijoh\'s Senior Year Pillars": [["Matsukawa", "Hanamaki"]],
-    "The Wolf Pack(Practice)": [["Iwaizumi", "Kentaro"]],
-    "Team Chemistry": [["Oikawa", "Iwaizumi"]],
-    "To Greater Heights": [["Oikawa", "Kindaichi"]],
-    "Breath of Aoba": [["Iwaizumi", "Oikawa"]],
-    
-    "Fated Rivals": [["Oikawa", "Ushijima"]],
+    "Blunt and Composed": [["Kindaichi SR", "Kunimi SR"]],
+    "A Bit Higher!":[["Oikawa UR","Kindaichi SR"]],
+    "Team Chemistry": [["Oikawa SSR", "Iwaizumi SR"]],
+    "Aoba Johsai's Sophomore": [["Watari SR", "Yahaba SR", "Kentaro SSR"]],
+    "Seijoh\'s Senior Year Pillars": [["Matsukawa SR", "Hanamaki SR"]],
+    "The Wolf Pack(Practice)": [["Iwaizumi SR", "Kentaro SR"]],
+    "Hidden Fire": [["Kentaro SSR", "Yahaba SR"]],
+    "Fated Rivals": [["Oikawa UR", "Ushijima UR"]],
 
-    "Nekoma\'s Junior": [["Teshiro", "Inuoka", "Lev"]],
-    "\"Brain\" and \"Control Tower\"": [["Kenma", "Kuroo"]],
+//NEKOMA
+    "Reliable Senpai": [["Yaku SSR", "Kuroo UR", "Kai SR"]],
+    "Reception Mentors": [["Yaku SSR", "Lev SSR"]],
+    "\"Brain\" and \"Control Tower\"": [["Kenma SSR", "Kuroo UR"]],
+    "The \"Enigmatic\" Teammate": [["Kenma SSR", "Lev SSR"]],
+    "Nekoma\'s Junior": [["Teshiro SR", "Inuoka SR", "Lev SSR"]],
+    
+    
     "Nekoma\'s Wing Spiker": [["Ifukunaga", "Kai", "Yamamoto"]],
     "Grit and Competitive": [["Kenma", "Yamamoto"]],
     "One-on-One Training": [["Lev", "Yaku"]],
-    "The \"Enigmatic\" Teammate": [["Kenma", "Lev"]],
+    
     "\"Pivot\" and \"Defensive Pivot\"": [["Kenma", "Yaku"]],
     "\"Pivot\" and \"Control Tower\"": [["Kenma", "Kuroo"]],
-    "Reliable Seniors": [["Kuroo", "Yaku", "Kai"]],
+    
 
 
     "Date Kogyo\'s Captains": [["Kenji", "Kaname"]],

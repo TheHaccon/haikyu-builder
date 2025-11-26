@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import Board from "./components/Board/Board";
+import SchoolSynergyPanel from "./components/Board/SchoolSynergyPanel";
 
 export default function App() {
   return (
@@ -18,10 +19,9 @@ export default function App() {
 
         <aside id="school-panel" aria-label="School synergies">
           <h2>School Synergies</h2>
-          <ul>
-            <li>(no active school)</li>
-          </ul>
+          <SchoolSynergyPanel />
         </aside>
+
       </main>
     </div>
   );
