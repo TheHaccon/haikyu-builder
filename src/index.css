@@ -70,12 +70,13 @@ html, body {
   transition: color 0.2s ease;
 }
 
+
 .nav-links li a:hover {
-  color: #8c8c8c;
+  color: var(--ring);
 }
 
 .nav-links li a.active {
-  color: #ffffff !important;
+  color: var(--text) !important;
   font-weight: 700;
 }
 

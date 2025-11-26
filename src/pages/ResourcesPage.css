@@ -1,0 +1,463 @@
+.resources-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  color: var(--text);
+}
+
+.res-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.res-header h1 {
+  margin: 0 0 8px 0;
+  font-size: 28px;
+  color: white;
+}
+
+.res-header p {
+  color: var(--muted);
+  margin: 0;
+}
+
+/* GRID LAYOUT */
+.res-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .res-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* CARDS */
+.res-card {
+  background: var(--card);
+  border: 1px solid var(--ring);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.res-card h2 {
+  margin-top: 0;
+  border-bottom: 1px solid var(--ring);
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #fbbf24; /* Gold/Yellow accent */
+}
+
+/* INPUTS */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label-text {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.input-group input {
+  background: #222;
+  border: 1px solid var(--ring);
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 18px;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.sub-text {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: right;
+}
+
+/* RESULTS */
+.big-stat {
+  text-align: center;
+  margin-bottom: 30px;
+  background: rgba(0,0,0,0.2);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.stat-label {
+  display: block;
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat-value {
+  font-size: 48px;
+  font-weight: 800;
+  color: #60a5fa; /* Blue pull color */
+  text-shadow: 0 2px 10px rgba(96, 165, 250, 0.3);
+}
+
+/* PITY BAR */
+.pity-bar-bg {
+  height: 12px;
+  background: #222;
+  border-radius: 99px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  border: 1px solid #444;
+}
+
+.pity-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+  transition: width 0.4s ease-out;
+}
+
+.pity-text {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.pity-text strong {
+  color: white;
+}
+
+.pity-verdict {
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.pity-verdict.safe {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #34d399;
+}
+
+.pity-verdict.danger {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+}
+
+/* --- NEW OPTIONS SECTION --- */
+.options-card {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Checkboxes */
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.custom-checkbox input {
+  width: 18px;
+  height: 18px;
+  accent-color: #f97316; 
+  cursor: pointer;
+}
+
+.chk-text {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Middle Row */
+.middle-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.banner-planning-section {
+  margin-top: 40px;
+}
+
+.banner-grid-wrapper {
+  background: var(--card);
+  border: 1px solid var(--ring);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+/* MONTH NAVIGATION */
+.month-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--ring);
+  padding-bottom: 12px;
+}
+
+.month-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.nav-arrow {
+  background: #4b5563;
+  border: 1px solid #6b7280;
+  color: white;
+  font-size: 18px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-arrow:hover:not(:disabled) {
+  background: #fbbf24; /* Gold accent */
+  color: black;
+  border-color: #fbbf24;
+}
+
+.nav-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* GRID */
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+/* CARD */
+.banner-card {
+  background: rgba(0, 0, 0, 0.2); /* Slightly lighter than page bg */
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.banner-planning-section h2 {
+  margin-bottom: 20px;
+  color: white;
+  font-size: 20px;
+}
+
+.month-section {
+  margin-bottom: 30px;
+}
+
+.month-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #e5e7eb;
+  margin-bottom: 12px;
+  border-left: 4px solid #fbbf24;
+  padding-left: 10px;
+}
+
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Responsive Grid */
+  gap: 16px;
+}
+
+
+.banner-header {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e5e7eb;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.b-type {
+  color: #9ca3af;
+  margin-right: 4px;
+}
+
+.banner-img {
+  width: 100%;
+  /* Remove fixed height */
+  height: auto;
+  
+  background: transparent;
+  border: none;
+  
+  /* Center the card in the box */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Add spacing so it doesn't touch the text */
+  padding: 10px 0;
+}
+
+.banner-img img {
+  /* Let the image determine its own width/height ratio */
+
+  height: auto;
+  
+  /* CRITICAL: Limit the size so it's not huge */
+  max-width: 120px; 
+  /* You can adjust this number (e.g. 100px or 140px) to taste */
+  
+  object-fit: contain;
+  
+  /* Optional: Add shadow/radius to look like a card */
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* INPUTS INSIDE CARD */
+.banner-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.b-input-group label {
+  display: block;
+  font-size: 11px;
+  color: #9ca3af;
+  margin-bottom: 2px;
+}
+
+.b-input-group input {
+  width: 100%;
+  background: #111827;
+  border: 1px solid #374151;
+  color: white;
+  padding: 6px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.b-input-group input:focus {
+  outline: none;
+  border-color: #fbbf24;
+}
+
+/* STATS FOOTER */
+.banner-stats {
+  margin-top: 4px;
+  padding-top: 8px;
+  border-top: 1px solid #374151;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+  color: #d1d5db;
+}
+/* The Big Orange Reset Button */
+.reset-btn {
+  background-color: #ea580c;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.reset-btn:hover {
+  background-color: #f97316; 
+  transform: translateY(-1px);
+}
+
+.reset-btn:active {
+  transform: scale(0.98);
+}
+
+/* Info Badges */
+.info-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.info-badge {
+  background: #222;
+  border: 1px solid #444;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: #a3a3a3;
+  font-family: monospace;
+}
+
+/* Footnotes */
+.assumptions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .middle-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .reset-btn {
+    width: 100%;
+  }
+  .info-badges {
+    align-items: center;
+  }
+}
