@@ -33,6 +33,11 @@ export default function useHaikyuData(): HaikyuData {
         await loadScript("/data/synergyDescriptions.js");
         await loadScript("/data/synergyMeta.js");
         await loadScript("/data/synergyPairs.js");
+
+        setCharacters(window.characters || []);
+        setSynergyDescriptions(window.synergyDescriptions || {});
+        setSynergyMeta(window.synergyMeta || {});
+        setSynergyPairs(window.synergyPairs || {});
       } finally {
         setLoading(false);
       }
