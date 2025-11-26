@@ -72,7 +72,7 @@ export default function BannerGrid() {
                             </div>
                             <div className="banner-img">
                                 <img
-                                    src={`public/data/${b.img}`}
+                                    src={`data/${b.img}`}
                                     alt={b.name}
                                     onError={(e) => e.currentTarget.style.display = 'none'}
                                 />
