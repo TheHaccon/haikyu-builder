@@ -3,49 +3,18 @@ import "./ResourcesPage.css";
 import BannerGrid from "../components/Resources/BannerGrid";
 
 export default function ResourcesPage() {
-  // --- STATE ---
   const [diamonds, setDiamonds] = useState<number>(0);
   const [tickets, setTickets] = useState<number>(0);
   const [currentPity, setCurrentPity] = useState<number>(0);
-
-  // Options
-  const [monthlyPass, setMonthlyPass] = useState(false);
-  const [premiumPass, setPremiumPass] = useState(false);
-
-  // --- CONSTANTS ---
   const COST_PER_PULL = 150;
   const PITY_CAP = 140;
-  const BASE_F2P_DAILY = 406.67;
-
-  // --- CALCULATIONS ---
   const pullsFromDiamonds = Math.floor(diamonds / COST_PER_PULL);
   const totalPulls = pullsFromDiamonds + tickets;
-
-  // This is the key change: Your "Reach" is Pity + Stash
   const effectiveReach = currentPity + totalPulls;
-
-  const pullsToPity = Math.max(0, PITY_CAP - currentPity);
-
-  // Missing Resources for Current Pity (based on Reach)
   const missingPullsForPity = Math.max(0, PITY_CAP - effectiveReach);
   const missingGemsForPity = missingPullsForPity * COST_PER_PULL;
   const canHitPity = effectiveReach >= PITY_CAP;
-
-  // Calculate Bar Percentage (Cap at 100%)
   const barPercentage = Math.min(100, (effectiveReach / PITY_CAP) * 100);
-
-  // Daily Income
-  const dailyIncome = BASE_F2P_DAILY + (monthlyPass ? 90 : 0) + (premiumPass ? 100 : 0);
-
-  // Reset Handler
-  const handleReset = () => {
-    setDiamonds(0);
-    setTickets(0);
-    setCurrentPity(0);
-    setMonthlyPass(false);
-    setPremiumPass(false);
-  };
-
   return (
     <div className="resources-page">
       <header className="res-header">

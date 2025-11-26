@@ -1,6 +1,4 @@
 import { useState } from "react";
-
-// --- BANNER DATA (In Chronological Order) ---
 const BANNERS_BY_MONTH: Record<string, any[]> = {
     "November": [
         { id: "oikawa_nov", name: "Oikawa UR", type: "Nov 26", img: "img-global/oikawaUR.png" },
@@ -34,22 +32,10 @@ const BANNERS_BY_MONTH: Record<string, any[]> = {
 const MONTH_KEYS = Object.keys(BANNERS_BY_MONTH);
 
 export default function BannerGrid() {
-    const [inputs, setInputs] = useState<Record<string, { tickets: number; memories: number }>>({});
     const [monthIndex, setMonthIndex] = useState(0);
 
     const currentMonth = MONTH_KEYS[monthIndex];
     const currentBanners = BANNERS_BY_MONTH[currentMonth];
-
-    const handleInputChange = (id: string, field: "tickets" | "memories", value: string) => {
-        const num = parseInt(value) || 0;
-        setInputs((prev) => ({
-            ...prev,
-            [id]: {
-                ...prev[id],
-                [field]: num,
-            },
-        }));
-    };
 
     const nextMonth = () => {
         if (monthIndex < MONTH_KEYS.length - 1) setMonthIndex(monthIndex + 1);
