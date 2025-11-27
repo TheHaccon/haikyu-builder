@@ -123,45 +123,5 @@ export const characters: Player[] = [
     { name: "Sakusa UR",      role: "WS", img: "img-japan/sakusaUR.png",      power:["Receive","Power"],           school: "Itachiyama" },
     { name: "Komori UR",      role: "LI", img: "img-japan/komoriUR.png",      power:["Receive"],                   school: "Itachiyama" },
 
-  {
-                name: "test SSR",
-                role: "MB",
-                img: "testSSR",
-                power: "Power",
-                school: "bob school",
-            },
-
-  {
-                name: "test SSR",
-                role: "MB",
-                img: "testSSR",
-                power: ["Power"],
-                school: "bob school",
-            },
-
-  {
-                name: "test SSR",
-                role: "MB",
-                img: "testSSR",
-                power: [""Power""],
-                school: "bob school",
-            },
-
-  {
-                name: "Test SSR",
-                role: "MB",
-                img: "testSSR",
-                power: [""power", "quick""],
-                school: "Karasuno",
-            },
-
-  {
-                name: "Test SSR",
-                role: "MB",
-                img: "testSSR",
-                power: [""power", "Quick""],
-                school: "Karasuno",
-            },
-
- { name: "Mathis SSR",      role: "S", img: "img-global/mathisSSR.png",      power:[""Power""],                   school: "bob" },
+    //NEW ADDITION
 ];
