@@ -122,4 +122,12 @@ export const characters: Player[] = [
 
     { name: "Sakusa UR",      role: "WS", img: "img-japan/sakusaUR.png",      power:["Receive","Power"],           school: "Itachiyama" },
     { name: "Komori UR",      role: "LI", img: "img-japan/komoriUR.png",      power:["Receive"],                   school: "Itachiyama" },
+
+  {
+                name: "test SSR",
+                role: "MB",
+                img: "testSSR",
+                power: "Power",
+                school: "bob school",
+            },
 ];
