@@ -757,4 +757,22 @@ export const MEMORIES: Memory[] = [
             set: { lvl1: 33, max: 390 }
         }
     },
+
+  {
+    name: "Attack & Defense Boost: KORAI HOSHIUMI",
+    position: "WS",
+    rarity: "UR",
+    image: "memory/hoshiumiUR.png",
+    description: {
+        lvl1: "Memory Tier I - [Wing Spiker] Exclusive Effects: Increases the equipper's Attack Technique and Defense Technique by 3.2%. When casting a skill or Ultimate. Increases Basic Stats by 1%, stacking up to 10 times. If the contact result in a Critical, grants an additional stack.",
+        max: "Memory Tier V - [Wing Spiker] Exclusive Effects: Increases the equipper's Attack Technique and Defense Technique by 6.4%. When casting a skill or Ultimate. Increases Basic Stats by 2%, stacking up to 10 times. If the contact result in a Critical, grants an additional stack." },
+    stats: {
+        block: { lvl1: 49, max: 570 },
+        power: { lvl1: 63, max: 729 },
+        serve: { lvl1: 57, max: 665 },
+        receive: { lvl1: 63, max: 729 },
+        save: { lvl1: 46, max: 539 },
+        set: { lvl1: 43, max: 507 }
+    }
+  },
 ];
