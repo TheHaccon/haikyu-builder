@@ -793,4 +793,22 @@ export const MEMORIES: Memory[] = [
         set: { lvl1: 43, max: 507 }
     }
   },
+
+  {
+    name: "Power ATK/ATK Technique Boost: KIYOOMI SAKUSA",
+    position: "WS",
+    rarity: "UR",
+    image: "memory/sakusaUR.png",
+    description: {
+        lvl1: "Memory Tier I - [Wing Spiker] Exclusive Effects: Increases the equipper's Power Attack stat by 12%. When the equipper performs a Receive, their Attack Technique increases by 15%, lasting for 2 net crossings. After the equipper performs a Receive, their Spirit increases by 4%, stacking up to 4 times.",
+        max: "Memory Tier V - [Wing Spiker] Exclusive Effects: Increases the equipper's Power Attack stat by 24%. When the equipper performs a Receive, their Attack Technique increases by 15%, lasting for 2 net crossings. After the equipper performs a Receive, their Spirit increases by 8%, stacking up to 4 times." },
+    stats: {
+        block: { lvl1: 56, max: 656 },
+        power: { lvl1: 72, max: 838 },
+        serve: { lvl1: 66, max: 765 },
+        receive: { lvl1: 72, max: 838 },
+        save: { lvl1: 53, max: 619 },
+        set: { lvl1: 50, max: 583 }
+    }
+  },
 ];
