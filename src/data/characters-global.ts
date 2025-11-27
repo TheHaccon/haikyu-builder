@@ -124,9 +124,5 @@ export const characters: Player[] = [
     { name: "Komori UR",      role: "LI", img: "img-japan/komoriUR.png",      power:["Receive"],                   school: "Itachiyama" },
 
     //NEW ADDITION
-
-
-  { name: "Zzz SP", role: "MB", img: "img-global/zzzSP.png" , power: ["Power","Quick","Block"], school: "Karasuno"},
-
-  { name: "Zzz SP", role: "LI", img: "img-global/zzzSP.png" , power: ["Power","Quick","Block"], school: "Karasuno"},
+    
 ];
