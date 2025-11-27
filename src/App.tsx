@@ -7,6 +7,7 @@ import RoleSynergyPanel from "./components/Board/RoleSynergyPanel";
 import SynergyPanel from "./components/Board/SynergyPanel";
 import MemoryPage from "./pages/MemoryPage";
 import ResourcesPage from "./pages/ResourcesPage";
+import AdminPage from "./pages/AdminPage";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         } />
         <Route path="/memory" element={<MemoryPage />} />
         <Route path="/resources" element={<ResourcesPage />} />
+        <Route path="/admin" element={<AdminPage />} />
       </Routes>
     </div>
   );
