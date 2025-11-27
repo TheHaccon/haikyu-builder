@@ -1093,4 +1093,13 @@ export const synergies: SynergyDefinition[] = [
     description: "Kageyama and hinata are friends for life",
     activation: { type: "all", min: 2 }
   },
+
+  {
+    name: "test stats",
+    category: "stats",
+    
+    members: ["Hinata SSR","Kageyama UR"],
+    description: { "Hinata SSR": "No buff", "Kageyama UR": "Receive +5/7/9/12/15, Receive +1/2/3/4/5%" },
+    activation: { type: "all", min: 2 }
+  },
 ];
