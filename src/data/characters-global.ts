@@ -125,13 +125,4 @@ export const characters: Player[] = [
 
     //NEW ADDITION
 
- { name: "Mathis SSR",      role: "S", img: "img-global/mathisSSR.png",      power:["Power"],                   school: "bob" },
-
-  { name: "Mathis UR", role: "MB", img: "img-global/mathisUR.png", power: ["Power","Quick","Block"], school: "Karasuno" },
-
-  { name: "Mathis UR", role: "MB", img: "img-global/mathisUR.png", power: ["Power","Quick","Block"], school: "Karasuno" },
-
-  { name: "Simon SSR", role: "S", img: "img-global/simonSSR.png", power: ["Power","Quick"], school: "Itachiyama" },
-
-  { name: "Simon SSR", role: "S", img: "img-global/simonSSR.png.png", power: ["Power","Quick"], school: "Itachiyama" },
 ];
