@@ -128,4 +128,6 @@ export const characters: Player[] = [
  { name: "Mathis SSR",      role: "S", img: "img-global/mathisSSR.png",      power:["Power"],                   school: "bob" },
 
   { name: "Mathis UR", role: "MB", img: "img-global/mathisUR.png", power: ["Power","Quick","Block"], school: "Karasuno" },
+
+  { name: "Mathis UR", role: "MB", img: "img-global/mathisUR.png", power: ["Power","Quick","Block"], school: "Karasuno" },
 ];
