@@ -775,4 +775,22 @@ export const MEMORIES: Memory[] = [
         set: { lvl1: 43, max: 507 }
     }
   },
+
+  {
+    name: "Block Boost: SACHIRO HIRUGAMI",
+    position: "MB",
+    rarity: "UR",
+    image: "memory/hirugamiUR.png",
+    description: {
+        lvl1: "Memory Tier I - [Middle Blocker] Exclusive Effects: Increases the equipper's Block stat by 10%. When your side scores, the equipper gains 2.4% Block stat. Stacking up to 3 times. If your side has the "Immovable Block", players gain 1.2% Defense Technique when blocking, and the equipper gains an additional 1.2%, lasting for 4 net crossings, stacking up to 3 times.",
+        max: "Memory Tier V - [Middle Blocker] Exclusive Effects: Increases the equipper's Block stat by 20%. When your side scores, the equipper gains 2.4% Block stat. Stacking up to 3 times. If your side has the "Immovable Block", players gain 2.4% Defense Technique when blocking, and the equipper gains an additional 2.4%, lasting for 4 net crossings, stacking up to 3 times." },
+    stats: {
+        block: { lvl1: 63, max: 729 },
+        power: { lvl1: 57, max: 665 },
+        serve: { lvl1: 63, max: 729 },
+        receive: { lvl1: 49, max: 570 },
+        save: { lvl1: 46, max: 539 },
+        set: { lvl1: 43, max: 507 }
+    }
+  },
 ];
