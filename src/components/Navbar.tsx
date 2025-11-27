@@ -47,6 +47,15 @@ export default function Navbar() {
             Resources
           </Link>
         </li>
+                <li>
+          <Link
+            to="/players"
+            className={getLinkClass("/resources")}
+            onClick={() => setMenuOpen(false)}
+          >
+            Player
+          </Link>
+        </li>
         <li className="nav-disabled"><span>Bonds <small>(soon)</small></span></li>
         <li className="nav-disabled"><span>Players <small>(soon)</small></span></li>
         <li className="nav-disabled"><span>Versus <small>(soon)</small></span></li>

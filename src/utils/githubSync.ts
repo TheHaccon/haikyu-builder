@@ -1,9 +1,7 @@
 import { Buffer } from 'buffer';
 
-
 // Polyfill Buffer for the browser
 if (typeof window !== 'undefined') {
-  // FIX: Cast window to 'any' to stop the TypeScript error
   (window as any).Buffer = Buffer;
 }
 
@@ -11,28 +9,27 @@ const GITHUB_API_URL = "https://api.github.com";
 
 interface GithubConfig {
   token: string;
-  owner: string; // e.g. "thehaccon"
-  repo: string;  // e.g. "haikyu-builder"
-  branch: string; // e.g. "main"
+  owner: string;
+  repo: string;
+  branch: string;
 }
 
-// 1. Upload Image
+// 1. Upload Image (Generic)
 export async function uploadImageToGithub(
   config: GithubConfig,
   file: File,
-  path: string = "public/data/img-global"
+  path: string // e.g. "public/data/img-global"
 ) {
   const reader = new FileReader();
   
   return new Promise((resolve, reject) => {
     reader.onload = async () => {
-      const contentBase64 = (reader.result as string).split(',')[1]; // Remove "data:image..." prefix
+      const contentBase64 = (reader.result as string).split(',')[1];
 
       try {
         const url = `${GITHUB_API_URL}/repos/${config.owner}/${config.repo}/contents/${path}/${file.name}`;
         
-        // Check if file exists (to get SHA if updating, or just to know)
-        // For now, we assume new file or overwrite
+        // Check if file exists to get SHA
         const checkRes = await fetch(url, {
             headers: { Authorization: `Bearer ${config.token}` }
         });
@@ -52,7 +49,7 @@ export async function uploadImageToGithub(
             message: `[Admin] Upload ${file.name}`,
             content: contentBase64,
             branch: config.branch,
-            sha: sha // Needed if overwriting
+            sha: sha
           }),
         });
 
@@ -66,11 +63,12 @@ export async function uploadImageToGithub(
   });
 }
 
-// 2. Append Code to File
-export async function appendPlayerToCode(
+// 2. Append Code (Generic)
+// Now accepts 'filePath' to know which file to edit
+export async function appendToCode(
   config: GithubConfig,
   newEntryString: string,
-  filePath: string = "src/data/characters-global.ts"
+  filePath: string // e.g. "src/data/memories.ts"
 ) {
   const url = `${GITHUB_API_URL}/repos/${config.owner}/${config.repo}/contents/${filePath}?ref=${config.branch}`;
 
@@ -82,17 +80,17 @@ export async function appendPlayerToCode(
     }
   });
 
-  if (!getRes.ok) throw new Error("Could not fetch code file. Check path/token.");
+  if (!getRes.ok) throw new Error(`Could not fetch ${filePath}. Check path/token.`);
   
   const data = await getRes.json();
   const originalContent = Buffer.from(data.content, 'base64').toString('utf-8');
 
   // B. Find insertion point (Last "];")
+  // This assumes all your data files end with an array export like "export const X = [ ... ];"
   const lastIndex = originalContent.lastIndexOf("];");
-  if (lastIndex === -1) throw new Error("Could not find closing '];' in file.");
+  if (lastIndex === -1) throw new Error(`Could not find closing '];' in ${filePath}`);
 
   // C. Inject new data
-  // We add a comma before if needed, but usually the list items end with commas.
   const newContent = 
     originalContent.slice(0, lastIndex) + 
     "\n" + newEntryString + "\n" + 
@@ -106,7 +104,7 @@ export async function appendPlayerToCode(
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      message: `[Admin] Add player data`,
+      message: `[Admin] Update ${filePath}`,
       content: Buffer.from(newContent).toString('base64'),
       sha: data.sha,
       branch: config.branch
