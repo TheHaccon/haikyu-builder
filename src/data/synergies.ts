@@ -1084,4 +1084,13 @@ export const synergies: SynergyDefinition[] = [
         description: "Sakusa’s [Spike] increases by 10%, and Komori’s [Receive] increases by 10%. All allies’ [Receive] power increases by 20% of their [Receive] stat.",
         activation: { type: "all" }
     },
+
+  {
+    name: "test",
+    category: "deployment",
+    
+    members: ["Hinata SSR","Kageyama UR"],
+    description: "Kageyama and hinata are friends for life",
+    activation: { type: "all", min: 2 }
+  },
 ];
