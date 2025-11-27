@@ -7,7 +7,7 @@ const BANNERS_BY_MONTH: Record<string, any[]> = {
         { id: "komori_dec", name: "Komori UR", type: "Dec 3", img: "img-japan/komoriUR.png" },
         { id: "bokuto_dec", name: "Bokuto UR", type: "Dec 10", img: "img-global/bokutoUR.png" },
         { id: "kageyama_dec", name: "Kageyama UR", type: "Dec 17", img: "img-japan/tobioUR.png" },
-        { id: "hinata_dec", name: "Hinata SP", type: "Dec 31", img: "img-japan/HinataSP.png" },
+        { id: "hinata_dec", name: "Hinata SP", type: "Dec 31", img: "img-japan/hinataSP.png" },
     ],
     "January": [
         { id: "osamu_jan", name: "Osamu UR", type: "Jan 7", img: "img-global/osamuUR.png" },
