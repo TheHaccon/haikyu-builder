@@ -130,4 +130,12 @@ export const characters: Player[] = [
                 power: "Power",
                 school: "bob school",
             },
+
+  {
+                name: "test SSR",
+                role: "MB",
+                img: "testSSR",
+                power: ["Power"],
+                school: "bob school",
+            },
 ];
