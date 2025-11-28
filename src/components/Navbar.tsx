@@ -53,11 +53,10 @@ export default function Navbar() {
             className={getLinkClass("/resources")}
             onClick={() => setMenuOpen(false)}
           >
-            Player
+            Players
           </Link>
         </li>
         <li className="nav-disabled"><span>Bonds <small>(soon)</small></span></li>
-        <li className="nav-disabled"><span>Players <small>(soon)</small></span></li>
         <li className="nav-disabled"><span>Versus <small>(soon)</small></span></li>
         <li className="nav-disabled"><span>About <small>(soon)</small></span></li>
         {location.pathname === "/" && (
