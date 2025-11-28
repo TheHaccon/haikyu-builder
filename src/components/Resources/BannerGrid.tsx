@@ -27,6 +27,35 @@ const BANNERS_BY_MONTH: Record<string, any[]> = {
         { id: "kageyama_march", name: "Kageyama UR", type: "March 18", img: "img-japan/tobioUR.png" },
         { id: "aone_march", name: "Aone SP", type: "March 25", img: "img-japan/aoneSP.png" },
     ],
+    "April": [
+        { id: "hinata_april", name: "Hinata UR", type: "April 1", img: "img-japan/hinataSP.png" },
+        { id: "tsukishima_april", name: "Tsukishima SP", type: "April 8", img: "img-japan/tsukishimaSP.png" },
+        { id: "kenma_april", name: "Kenma SP", type: "April 15", img: "img-japan/kenmaSP.png" },
+        { id: "kuroo_april", name: "Kuroo SP", type: "April 22", img: "img-japan/kurooSP.png" },
+        { id: "nishinoya_april", name: "Nishinoya SP", type: "April 29", img: "img-japan/nishinoyaSP.png" },
+    ],
+    "May": [
+        { id: "kunimi_may", name: "Kunumi SP", type: "May 6", img: "img-japan/kunimiSP.png" },
+        { id: "sugawara_may", name: "Sugawara SP", type: "May 13", img: "img-japan/sugawaraSP.png" },
+        { id: "kanji_april", name: "Kanji SP", type: "May 20", img: "img-japan/kanjiSP.png" },
+        { id: "bokuto_april", name: "Bokuto SP", type: "May 27", img: "img-japan/bokutoSP.png" },
+    ],
+    "June": [
+        { id: "oikawa_june", name: "Oikawa SP", type: "June 3", img: "img-japan/oikawaSP.png" },
+        { id: "akaashi_june", name: "Akaashi SP", type: "June 10", img: "img-japan/akaashiSP.png" },
+        { id: "iwaizumi_june", name: "Iwaizumi SP", type: "June 17", img: "img-japan/iwaizumiSP.png" },
+        { id: "aone_june", name: "Aone SP", type: "June 24", img: "img-japan/aoneSP.png" },
+    ],
+    "July": [
+        { id: "ushijima_july", name: "Ushijima SP", type: "July 1", img: "img-japan/ushijimaSP.png" },
+        { id: "ginjima_july", name: "Ginjima SP", type: "July 8 FREE", img: "img-japan/ginjimaSP.png" },
+        { id: "tendo_july", name: "Tendo SP", type: "July 15", img: "img-japan/tendoSP.png" },
+        { id: "tsukishima_july", name: "Tsukishima SP", type: "July 22", img: "img-japan/tsukishimaSP.png" },
+        { id: "atsumu_july", name: "Atsumu SP", type: "July 29", img: "img-japan/atsumuSP.png" },
+    ],
+        "August": [
+        { id: "kuroo_august", name: "Kuroo SP", type: "August 5", img: "img-japan/kurooSP.png" },
+    ],
 };
 
 const MONTH_KEYS = Object.keys(BANNERS_BY_MONTH);
