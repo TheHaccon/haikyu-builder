@@ -125,4 +125,6 @@ export const characters: Player[] = [
 
     //NEW ADDITION
     
+
+  { name: "Atsumu SP", role: "S", img: "img-global/Screenshot 2025-11-28 162648.png" , power: ["Quick"], school: "Inarizaki"},
 ];
