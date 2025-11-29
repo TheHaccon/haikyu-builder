@@ -24,6 +24,7 @@ export interface WikiPlayer {
   school: string;
   rarity: string;
   position: string;
+  img?: string;
   
   stats: {
     lvl1: WikiStats;

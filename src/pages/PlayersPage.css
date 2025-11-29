@@ -127,6 +127,7 @@ select, input {
   color: #ccc;
 }
 
+.rarity-SP { background: #50d4ad; color: white; }
 .rarity-UR { background: #ef4444; color: white; }
 .rarity-SSR { background: #eab308; color: black; }
 .rarity-SR { background: #8b5cf6; color: white; }
