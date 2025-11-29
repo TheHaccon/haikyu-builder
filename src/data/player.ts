@@ -1680,4 +1680,53 @@ export const characters: WikiPlayer[] = [
             }
         ]
     },
+
+    {
+        id: "atsumu_miya_sp",
+        name: "Atsumu Miya SP",
+        school: "Inarizaki",
+        rarity: "SP",
+        position: "Setter",
+            stats: {
+                lvl1: {
+                    Serve: 164,
+                    Quick_Attack: 152,
+                    Set: 169,
+                    Receive: 129,
+                    Block: 143,
+                    Save: 121
+                },
+                max: {
+                    Serve: "-",
+                    Quick_Attack: "-",
+                    Set: "-",
+                    Receive: "-",
+                    Block: "-",
+                    Save: "-"
+                },
+            },
+        tags: ["Setter", "Inarizaki", "SP"],
+        skills: [
+            {
+                name: "Free Play",
+                tags: [],
+                description: "Miya Atsumu's [Set] and [Serve] are increased by 10%. When Miya is on the court, at the start of each rally, any player with [Awareness] at 30% or below will gain the [Ingenuity] effect. This effect increases the players [Attack Technique] and [Defensive Technique] by 10%, lasting for one rally."
+            },
+            {
+                name: "Overwhelming Serve",
+                tags: [],
+                description: "Miya Atsumu alternates between a Jump Float Serve and a Spike Serve. Jump Float Serve - Miya Atsumu performs a Jump Float Serve with [Serve] x 140%. Opponents can't use their Spike Ultimates for 2 net crossings. Spike Serve - Miya Atsumu performs a Spike Serve with [Serve] x 160%. Opponents can't use their Receive Ultimates for 2 net crossings."
+            },
+            {
+                name: "Instinctive Set",
+                tags: [],
+                description: "At the start of the rally, Miya Atsumu's first set is increased by 20%. When Miya Atsumu activates his Ultimate, all allies that have the [ingenuity] effect will have their [Attack Technique] increased by 20%, and [Defensive Technique] by 15%. Lasts for 1 rally. If the [Attack Technique] of a teammate performing a Power/Quick Spike is above 60%, this Spike will always become a Critical Play."
+            },
+            {
+                name: "Stable Setup",
+                tags: [],
+                description: "Miya Atsumu will perform a set with power equal to 260% of his [Set].  If Miya Atsumu's [Attack Technique] is 40% or higher, his next set is guaranteed to be critical."
+            }
+        ],
+    },
 ];

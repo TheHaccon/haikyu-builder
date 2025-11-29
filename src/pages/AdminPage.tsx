@@ -580,32 +580,22 @@ function CharDataForm({ config }: { config: any }) {
     rarity: "${form.rarity}",
     position: "${fullPos}",
     stats: {
-      lvl1: {
-        Serve: ${form.serve.l1},
-        ${attackType}: ${form.attack.l1},
-        Set: ${form.set.l1},
-        Receive: ${form.receive.l1},
-        Block: ${form.block.l1},
-        Save: ${form.save.l1}
-      },
-stats: {
-      lvl1: {
-        Serve: ${form.serve.l1 || 0},
-        ${attackType}: ${form.attack.l1 || 0},
-        Set: ${form.set.l1 || 0},
-        Receive: ${form.receive.l1 || 0},
-        Block: ${form.block.l1 || 0},
-        Save: ${form.save.l1 || 0}
-      },
-      max: {
-        Serve: ${form.serve.mx || '"-"'},
-        ${attackType}: ${form.attack.mx || '"-"'},
-        Set: ${form.set.mx || '"-"'},
-        Receive: ${form.receive.mx || '"-"'},
-        Block: ${form.block.mx || '"-"'},
-        Save: ${form.save.mx || '"-"'}
-      },
-    },
+        lvl1: {
+            Serve: ${form.serve.l1 || 0},
+            ${attackType}: ${form.attack.l1 || 0},
+            Set: ${form.set.l1 || 0},
+            Receive: ${form.receive.l1 || 0},
+            Block: ${form.block.l1 || 0},
+            Save: ${form.save.l1 || 0}
+        },
+        max: {
+            Serve: ${form.serve.mx || '"-"'},
+            ${attackType}: ${form.attack.mx || '"-"'},
+                Set: ${form.set.mx || '"-"'},
+            Receive: ${form.receive.mx || '"-"'},
+            Block: ${form.block.mx || '"-"'},
+            Save: ${form.save.mx || '"-"'}
+          },
     },
     tags: ${charTags},
     skills: [
@@ -613,7 +603,7 @@ ${skillsCode}
     ],
   },`;
 
-            await appendToCode(config, code, "src/data/characters-global.ts");
+            await appendToCode(config, code, "src/data/player.ts");
             setStatus({ type: 'success', msg: 'Character Saved!' });
         } catch (e: any) { setStatus({ type: 'error', msg: e.message }); }
     };
