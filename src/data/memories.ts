@@ -811,4 +811,22 @@ export const MEMORIES: Memory[] = [
         set: { lvl1: 50, max: 583 }
     }
   },
+
+  {
+    name: "Atsumu Miya",
+    position: "S",
+    rarity: "SP",
+    image: "memory/atsumuUR.png",
+    description: {
+        lvl1: "Memory Tier I - [Setter] Exclusive Effects: The equipped member's [Set] increases by 12%.\nAt the start of the rally, ally members [Awareness] at 50% or below will have their main stats increased by 7%.\nAlly members with [Awareness] at 30% or below, will also gain 10% [Power/Quick Spike].",
+        max: "Memory Tier V - [Setter] Exclusive Effects: The equipped member's [Set] increases by 24%.\nAt the start of the rally, ally members [Awareness] at 50% or below will have their main stats increased by 7%.\nAlly members with [Awareness] at 30% or below, will also gain 10% [Power/Quick Spike]." },
+    stats: {
+        block: { lvl1: 66, max: 765 },
+        power: { lvl1: 56, max: 656 },
+        serve: { lvl1: 72, max: 838 },
+        receive: { lvl1: 53, max: 619 },
+        save: { lvl1: 50, max: 583 },
+        set: { lvl1: 72, max: 838 }
+    }
+  },
 ];
