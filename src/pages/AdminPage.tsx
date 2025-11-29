@@ -658,7 +658,7 @@ ${skillsCode}
                             <div className="input-group" style={{ marginBottom: 5 }}>
                                 <input placeholder="Tags (e.g. Passive, Enhance Team)" value={skill.tags} onChange={e => handleSkillChange(i, "tags", e.target.value)} />
                             </div>
-                            <textarea placeholder="Description" rows={2} value={skill.desc} onChange={e => handleSkillChange(i, "desc", e.target.value)} />
+                            <textarea placeholder="Description" rows={7} value={skill.desc} onChange={e => handleSkillChange(i, "desc", e.target.value)} />
                         </div>
                     ))}
                 </div>
