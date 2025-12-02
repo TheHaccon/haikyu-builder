@@ -937,34 +937,212 @@ h1 {
 /* ------------------------------
    11. MOBILE / RESPONSIVE
 --------------------------------*/
-@media (max-width: 1300px) {
-  #layout {
-    grid-template-columns: 1fr 300px; 
-  }
-  #left-sidebar {
-    grid-column: 1 / -1;
-    order: 3;
-  }
-}
-
 @media (max-width: 900px) {
   .nav-toggle {
     display: block;
   }
+  
   .nav-links {
     display: none;
     flex-direction: column;
     width: 100%;
     margin-top: 12px;
+    background: var(--card);
+    border: 1px solid var(--ring);
+    border-radius: 8px;
+    padding: 10px;
+    z-index: 2000;
   }
+  
   .nav-links.active {
     display: flex;
   }
+
   #layout {
     display: flex;
     flex-direction: column;
   }
+
   .row {
     flex-wrap: wrap;
+  }
+
+  /* --- MODAL & GALLERY MOBILE FIXES --- */
+  
+  #sheet {
+    width: 95%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Stack the Header Controls */
+  #modal-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    border-bottom: 1px solid var(--ring);
+    position: relative;
+  }
+
+  #modal-actions {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+  }
+
+  /* Make dropdowns/inputs expand to fill rows */
+  #modal-actions select,
+  #modal-header #search {
+    flex-grow: 1;
+    width: 48%; /* roughly half width to fit 2 per row */
+    min-width: 120px;
+  }
+
+  /* Make the search bar full width on its own row if needed */
+  #modal-header #search {
+    width: 100%;
+    order: 10; /* Push search to bottom of controls if you want */
+  }
+
+  /* Force 2 Columns for the Player Grid */
+  #gallery {
+    grid-template-columns: repeat(3, 1fr); /* Exactly 2 columns */
+    gap: 8px;
+    padding: 8px;
+    overflow-y: auto; /* Scroll inside the modal, not the page */
+  }
+
+  /* Adjust Card Size for Mobile */
+  #gallery .card {
+    padding: 6px;
+  }
+
+  #gallery .card img {
+    height: 120px; /* Slightly smaller image height */
+  }
+
+  #gallery .name {
+    font-size: 13px;
+    margin-top: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  #gallery .meta {
+    font-size: 11px;
+  }
+
+  /* Make Close button full width at bottom of header for easy access */
+  #closeModal {
+    width: 100%;
+    margin-top: 4px;
+    background: var(--danger);
+    color: white;
+    border-color: var(--danger);
+  }
+
+  .row {
+    flex-wrap: nowrap !important; /* Override the wrap */
+    gap: 4px; /* Smaller gap between cards */
+    margin-bottom: 8px; /* Space between rows */
+  }
+
+  /* 2. SHRINK THE SLOTS TO FIT SCREEN */
+  .hex {
+    width: 80px;  /* Desktop is 120px */
+    height: 112px; /* Desktop is 168px (maintain ~1.4 ratio) */
+    border-radius: 6px;
+    border-width: 1px; /* Thinner border */
+  }
+
+  /* 3. ADJUST TEXT & LABELS FOR SMALL CARDS */
+  .hex .label, .hex .player-name {
+    font-size: 10px;
+  }
+
+  .label {
+    font-size: 10px;
+    margin-top: 2px;
+    gap: 2px;
+  }
+
+  /* 4. SHRINK BENCH SLOTS & BUTTONS */
+  .bench-slot {
+    width: 40px;
+    height: 56px;
+  }
+  
+  .action-btn, #addBench {
+    width: 40px;
+    height: 56px;
+    font-size: 10px;
+  }
+  
+  /* 5. TIGHTEN BOARD PADDING */
+  #board {
+    padding: 10px 2px; /* Less padding on edges to give cards room */
+    overflow-x: auto; /* Safety scroll if screen is TINY */
+  }
+  
+  #sheet {
+    margin-top: 50px;
+    width: 95%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header Container */
+  #modal-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-bottom: 1px solid var(--ring);
+    padding: 12px;
+    position: relative;
+    /* Needed for absolute positioning of close button */
+  }
+
+  #modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+
+  /* Filter Inputs Container */
+  #modal-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+  }
+
+  /* Make dropdowns/inputs expand to fill rows */
+  #modal-actions select,
+  #modal-header #search {
+    flex-grow: 1;
+    width: 48%;
+    min-width: 120px;
+  }
+
+  #modal-header #search {
+    width: 100%;
+    order: 10;
+  }
+  
+  #closeModal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: auto;
+    margin: 0;
+    padding: 4px 10px;
+    font-size: 12px;
+    background: var(--danger);
+    color: white;
+    border: 1px solid var(--danger);
+    z-index: 10;
   }
 }
