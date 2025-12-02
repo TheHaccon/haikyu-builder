@@ -348,6 +348,7 @@ h1 {
   border: 1px solid var(--ring);
   border-radius: 12px;
   overflow: auto;
+  z-index: 999999;
 }
 
 #modal-header {
@@ -934,6 +935,15 @@ h1 {
   border-color: var(--accent);
 }
 
+.desktop-toggle {
+  display: flex;
+  margin-left: auto; /* Push to right if in flex container */
+}
+
+.mobile-toggle {
+  display: none !important; /* Hide on desktop */
+}
+
 /* ------------------------------
    11. MOBILE / RESPONSIVE
 --------------------------------*/
@@ -1144,5 +1154,19 @@ h1 {
     color: white;
     border: 1px solid var(--danger);
     z-index: 10;
+  }
+  
+  .desktop-toggle {
+    display: none !important;
+  }
+
+  /* Show the board toggle on mobile */
+  .mobile-toggle {
+    display: flex !important;
+    justify-content: center;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px dashed #444;
+    width: 100%;
   }
 }

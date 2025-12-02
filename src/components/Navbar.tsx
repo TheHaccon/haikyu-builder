@@ -68,12 +68,11 @@ export default function Navbar() {
         <li className="nav-disabled"><span>Versus <small>(soon)</small></span></li>
         <li className="nav-disabled"><span>About <small>(soon)</small></span></li>
         {location.pathname === "/" && (
-          <div className="posless-wrap">
+          <div className="posless-wrap desktop-toggle">
             <span className="posless-label">Normal</span>
             <label className="posless-switch">
-              <input
-                type="checkbox"
-                id="positionlessToggle"
+              <input 
+                type="checkbox" 
                 checked={positionless}
                 onChange={togglePositionless}
               />

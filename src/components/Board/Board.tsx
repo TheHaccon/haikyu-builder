@@ -23,6 +23,7 @@ export default function Board() {
   const addBench = useTeamStore((s) => s.addBench);
   const rotatePositions = useTeamStore((s) => s.rotatePositions);
 
+  const togglePositionless = useTeamStore((s) => s.togglePositionless);
 
   const [modalOpen, setModalOpen] = useState(false);
   const [activeSlot, setActiveSlot] = useState<keyof typeof starters | null>(null);
@@ -132,6 +133,21 @@ export default function Board() {
             >
               {bench.length >= 6 ? "Full" : "+ Bench"}
             </button>
+          </div>
+          <div className="board-controls-footer mobile-toggle">
+            <div className="posless-wrap">
+              <span className={`posless-label ${!positionless ? 'active-text' : ''}`}>Normal</span>
+              <label className="posless-switch">
+                <input
+                  type="checkbox"
+                  id="positionlessToggleMobile"
+                  checked={positionless}
+                  onChange={togglePositionless}
+                />
+                <span className="posless-slider" />
+              </label>
+              <span className={`posless-label ${positionless ? 'active-text' : ''}`}>Positionless</span>
+            </div>
           </div>
         </div>
       </div>
