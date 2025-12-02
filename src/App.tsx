@@ -9,6 +9,7 @@ import MemoryPage from "./pages/MemoryPage";
 import ResourcesPage from "./pages/ResourcesPage";
 import AdminPage from "./pages/AdminPage";
 import PlayersPage from "./pages/PlayersPage";
+import BondsPage from "./pages/BondsPage";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route path="/memory" element={<MemoryPage />} />
         <Route path="/resources" element={<ResourcesPage />} />
         <Route path="/players" element={<PlayersPage />} />
+        <Route path="/bonds" element={<BondsPage />} />
         <Route path="/admin" element={<AdminPage />} />
       </Routes>
     </div>
