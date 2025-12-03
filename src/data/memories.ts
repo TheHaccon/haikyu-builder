@@ -849,7 +849,7 @@ export const MEMORIES: Memory[] = [
   },
 
   {
-    name: "Spike Boost: Reon Ohira",
+    name: "Spike Boost: REON OHIRA",
     position: "WS",
     rarity: "SSR",
     image: "memory/ohiraSSR.png",
@@ -867,7 +867,7 @@ export const MEMORIES: Memory[] = [
   },
 
   {
-    name: "Spike Boost: Yuji Terushima",
+    name: "Spike Boost: YUJI TERUSHIMA",
     position: "WS",
     rarity: "SSR",
     image: "memory/terushimaSSR.png",
