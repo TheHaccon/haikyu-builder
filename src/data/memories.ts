@@ -1027,4 +1027,22 @@ export const MEMORIES: Memory[] = [
         set: { lvl1: 57, max: 663 }
     }
   },
+
+  {
+    name: "Serve Boost: EITA SEMI",
+    position: "S",
+    rarity: "SSR",
+    image: "memory/semiSSR.png",
+    description: {
+        lvl1: "Memory Tier I - [Setter] Exclusive Effects: Increases equipper's Awareness stat by 8% when serving; when equipper casts a Serve Ultimate. Increases their Serve stat by 3.2%, up to 3 stacks.",
+        max: "Memory Tier V - [Setter] Exclusive Effects: Increases equipper's Awareness stat by 16% when serving; when equipper casts a Serve Ultimate. Increases their Serve stat by 6.4%, up to 3 stacks." },
+    stats: {
+        block: { lvl1: 52, max: 605 },
+        power: { lvl1: 44, max: 518 },
+        serve: { lvl1: 57, max: 663 },
+        receive: { lvl1: 42, max: 490 },
+        save: { lvl1: 39, max: 461 },
+        set: { lvl1: 57, max: 663 }
+    }
+  },
 ];
