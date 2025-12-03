@@ -973,4 +973,22 @@ export const MEMORIES: Memory[] = [
         set: { lvl1: 39, max: 461 }
     }
   },
+
+  {
+    name: "Set Boost: ATSUMU MIYA",
+    position: "S",
+    rarity: "UR",
+    image: "memory/atsumuUR.png",
+    description: {
+        lvl1: "Memory Tier I - [Setter] Exclusive Effects: Increases the equipper's Set stat by 12%. While the equipper is on the court, if any allied player's Awareness or Reflex is below 20%, that player's Attack Technique and Defense Technique increase by 3.2%. When an allied player performs a non-Critical action, the equipper gains 1% Attack and Defense Technique, stacking up to 5 times,lasting for 1 turn.",
+        max: "Memory Tier V - [Setter] Exclusive Effects: Increases the equipper's Set stat by 24%. While the equipper is on the court, if any allied player's Awareness or Reflex is below 20%, that player's Attack Technique and Defense Technique increase by 6.4%. When an allied player performs a non-Critical action, the equipper gains 2% Attack and Defense Technique, stacking up to 5 times,lasting for 1 turn." },
+    stats: {
+        block: { lvl1: 57, max: 665 },
+        power: { lvl1: 49, max: 570 },
+        serve: { lvl1: 63, max: 729 },
+        receive: { lvl1: 46, max: 539 },
+        save: { lvl1: 43, max: 507 },
+        set: { lvl1: 63, max: 729 }
+    }
+  },
 ];
