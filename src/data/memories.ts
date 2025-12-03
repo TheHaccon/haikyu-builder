@@ -829,4 +829,22 @@ export const MEMORIES: Memory[] = [
         set: { lvl1: 72, max: 838 }
     }
   },
+
+  {
+    name: "Spike Boost: KOTARO BOKUTO",
+    position: "WS",
+    rarity: "UR",
+    image: "memory/bokutoUR.png",
+    description: {
+        lvl1: "Memory Tier I - [Wing Spiker] Exclusive Effects: Increases the equipper's Power Attack stat by 12%.\nWhen your side enters [Team Morale awakening], the equipper gains an additional 4% Power Attack, up to 3 stacks. While the equipper is on the court, the duration of [Team Morale Awakening] Increases by 2 net crossings.",
+        max: "Memory Tier V - [Wing Spiker] Exclusive Effects: Increases the equipper's Power Attack stat by 24%.\nWhen your side enters [Team Morale awakening], the equipper gains an additional 8% Power Attack, up to 3 stacks. While the equipper is on the court, the duration of [Team Morale Awakening] Increases by 2 net crossings." },
+    stats: {
+        block: { lvl1: 49, max: 570 },
+        power: { lvl1: 63, max: 729 },
+        serve: { lvl1: 57, max: 665 },
+        receive: { lvl1: 63, max: 729 },
+        save: { lvl1: 46, max: 539 },
+        set: { lvl1: 43, max: 507 }
+    }
+  },
 ];
