@@ -1117,4 +1117,22 @@ export const MEMORIES: Memory[] = [
         set: { lvl1: 52, max: 605 }
     }
   },
+
+  {
+    name: "Defense Boost: MICHINARI AKAGI",
+    position: "LI",
+    rarity: "SSR",
+    image: "memory/akagiSSR.png",
+    description: {
+        lvl1: "Memory Tier I - [Libero] Exclusive Effects: Increases the equipper's Receive stat by 10%. When the equipper performs a Receive or Save that is not BAD, allied players gain 8% Defense Technique, stacking up to 3 times, lasting for 1 turn.",
+        max: "Memory Tier V - [Libero] Exclusive Effects: Increases the equipper's Receive stat by 20%. When the equipper performs a Receive or Save that is not BAD, allied players gain 16% Defense Technique, stacking up to 3 times, lasting for 1 turn." },
+    stats: {
+        block: { lvl1: 39, max: 461 },
+        power: { lvl1: 44, max: 518 },
+        serve: { lvl1: 42, max: 490 },
+        receive: { lvl1: 57, max: 663 },
+        save: { lvl1: 57, max: 663 },
+        set: { lvl1: 52, max: 605 }
+    }
+  },
 ];
