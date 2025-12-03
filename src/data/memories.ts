@@ -955,4 +955,22 @@ export const MEMORIES: Memory[] = [
         set: { lvl1: 39, max: 461 }
     }
   },
+
+  {
+    name: "Quick Attack Boost: RINTARO SUNA",
+    position: "MB",
+    rarity: "SSR",
+    image: "memory/sunaSSR.png",
+    description: {
+        lvl1: "Memory Tier I - [Middle Blocker] Exclusive Effects: Increases the equipper's Quick Attack stat by 10%. When spiking, if the opposing blocker has a Debuff, the spike's power increases by 20% of the equipper's Quick Attack stat.",
+        max: "Memory Tier V - [Middle Blocker] Exclusive Effects: Increases the equipper's Quick Attack stat by 20%. When spiking, if the opposing blocker has a Debuff, the spike's power increases by 40% of the equipper's Quick Attack stat." },
+    stats: {
+        block: { lvl1: 57, max: 663 },
+        power: { lvl1: 57, max: 663 },
+        serve: { lvl1: 52, max: 605 },
+        receive: { lvl1: 44, max: 518 },
+        save: { lvl1: 42, max: 490 },
+        set: { lvl1: 39, max: 461 }
+    }
+  },
 ];
