@@ -847,4 +847,22 @@ export const MEMORIES: Memory[] = [
         set: { lvl1: 43, max: 507 }
     }
   },
+
+  {
+    name: "Spike Boost: Reon Ohira",
+    position: "WS",
+    rarity: "SSR",
+    image: "memory/ohiraSSR.png",
+    description: {
+        lvl1: "Memory Tier I - [Wing Spiker] Exclusive Effects: When equipper casts a skill, increases their Awareness by 1.6% and Reflex by 1.6%, up to 5 stacks",
+        max: "Memory Tier V - [Wing Spiker] Exclusive Effects: When equipper casts a skill, increases their Awareness by 3.2% and Reflex by 3.2%, up to 5 stacks" },
+    stats: {
+        block: { lvl1: 44, max: 518 },
+        power: { lvl1: 57, max: 663 },
+        serve: { lvl1: 52, max: 605 },
+        receive: { lvl1: 57, max: 663 },
+        save: { lvl1: 42, max: 490 },
+        set: { lvl1: 39, max: 461 }
+    }
+  },
 ];
