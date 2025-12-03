@@ -1081,4 +1081,22 @@ export const MEMORIES: Memory[] = [
         set: { lvl1: 52, max: 605 }
     }
   },
+
+  {
+    name: "Receive Boost: HARUKI KOMI",
+    position: "LI",
+    rarity: "SSR",
+    image: "memory/komiSSR.png",
+    description: {
+        lvl1: "Memory Tier I - [Libero] Exclusive Effects: Increases the equipper's Receive and Save stats by 16%. When the equipper performs a Receive or Save that is not BAD, your side gains 10 morale. Your side's next Power Spike gains bonus power equal to 6% of the spiker's Power Attack stat.",
+        max: "Memory Tier V - [Libero] Exclusive Effects: Increases the equipper's Receive and Save stats by 8%. When the equipper performs a Receive or Save that is not BAD, your side gains 10 morale. Your side's next Power Spike gains bonus power equal to 10% of the spiker's Power Attack stat." },
+    stats: {
+        block: { lvl1: 39, max: 461 },
+        power: { lvl1: 44, max: 518 },
+        serve: { lvl1: 42, max: 490 },
+        receive: { lvl1: 57, max: 663 },
+        save: { lvl1: 57, max: 663 },
+        set: { lvl1: 52, max: 605 }
+    }
+  },
 ];
