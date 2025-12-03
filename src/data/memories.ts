@@ -937,4 +937,22 @@ export const MEMORIES: Memory[] = [
         set: { lvl1: 39, max: 461 }
     }
   },
+
+  {
+    name: "Block Boost: TATSUKI WASHIO",
+    position: "MB",
+    rarity: "SSR",
+    image: "memory/washioSSR.png",
+    description: {
+        lvl1: "Memory Tier I - [Middle Blocker] Exclusive Effects: Increases the equipper's Block stat by 12%. When the equipper blocks and the opponent performs a Critical Spike, this block is guaranteed to be Critical. If the block result is not BAD, the equipper's Block stat increases by 3%, stacking up to 3 times.",
+        max: "Memory Tier V - [Middle Blocker] Exclusive Effects: Increases the equipper's Block stat by 24%. When the equipper blocks and the opponent performs a Critical Spike, this block is guaranteed to be Critical. If the block result is not BAD, the equipper's Block stat increases by 5%, stacking up to 3 times." },
+    stats: {
+        block: { lvl1: 57, max: 663 },
+        power: { lvl1: 57, max: 663 },
+        serve: { lvl1: 52, max: 605 },
+        receive: { lvl1: 44, max: 518 },
+        save: { lvl1: 42, max: 490 },
+        set: { lvl1: 39, max: 461 }
+    }
+  },
 ];
