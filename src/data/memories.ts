@@ -919,4 +919,22 @@ export const MEMORIES: Memory[] = [
         set: { lvl1: 39, max: 461 }
     }
   },
+
+  {
+    name: "Power Attack Boost: ARAN OJIRO",
+    position: "WS",
+    rarity: "SSR",
+    image: "memory/ojiroSSR.png",
+    description: {
+        lvl1: "Memory Tier I - [Wing Spiker] Exclusive Effects: Increases the equipper's Power stat by 10%. Whenever the equipper recovers 6 Stamina, increase Power Attack by 3.2%, lasting for 5 net crossings. If a single recovery exceeds 10 Stamina, increase the equipper's Attack Technique by 3.2%, lasting for 5 net crossings.",
+        max: "Memory Tier V - [Wing Spiker] Exclusive Effects: Increases the equipper's Power stat by 20%. Whenever the equipper recovers 6 Stamina, increase Power Attack by 6.4%, lasting for 5 net crossings. If a single recovery exceeds 10 Stamina, increase the equipper's Attack Technique by 6.4%, lasting for 5 net crossings." },
+    stats: {
+        block: { lvl1: 44, max: 518 },
+        power: { lvl1: 57, max: 663 },
+        serve: { lvl1: 57, max: 663 },
+        receive: { lvl1: 52, max: 605 },
+        save: { lvl1: 42, max: 490 },
+        set: { lvl1: 39, max: 461 }
+    }
+  },
 ];
