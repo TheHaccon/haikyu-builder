@@ -865,4 +865,22 @@ export const MEMORIES: Memory[] = [
         set: { lvl1: 39, max: 461 }
     }
   },
+
+  {
+    name: "Spike Boost: Yuji Terushima",
+    position: "WS",
+    rarity: "SSR",
+    image: "memory/terushimaSSR.png",
+    description: {
+        lvl1: "Memory Tier I - [Wing Spiker] Exclusive Effects: Increases the equipper's Power Attack stat by 12%.\nWhen the equipper loses the [Play Hard], they gain 2 stacks of [Play Hard].\nEach stack increases Power/Quick Attack by 2.5%, up to 4 stacks.\nAdditionally, your back row players' Receive stat increases by 6% for 1 turn.",
+        max: "Memory Tier V - [Wing Spiker] Exclusive Effects: Increases the equipper's Power Attack stat by 24%.\nWhen the equipper loses the [Play Hard], they gain 2 stacks of [Play Hard].\nEach stack increases Power/Quick Attack by 2.5%, up to 4 stacks.\nAdditionally, your back row players' Receive stat increases by 12% for 1 turn." },
+    stats: {
+        block: { lvl1: 44, max: 518 },
+        power: { lvl1: 57, max: 663 },
+        serve: { lvl1: 52, max: 605 },
+        receive: { lvl1: 57, max: 663 },
+        save: { lvl1: 42, max: 490 },
+        set: { lvl1: 39, max: 461 }
+    }
+  },
 ];
