@@ -883,4 +883,22 @@ export const MEMORIES: Memory[] = [
         set: { lvl1: 39, max: 461 }
     }
   },
+
+  {
+    name: "Receive Boost: SHINSUKE KITA",
+    position: "WS",
+    rarity: "SSR",
+    image: "memory/kitaSSR.png",
+    description: {
+        lvl1: "Memory Tier I - [Wing Spiker] Exclusive Effects: Increases the equipper's Receive stat by 10%. If the equipper's Receive is not a Critical, your side's next Receive gains bonus power equal to 20% of the receiving player's Receive stat.",
+        max: "Memory Tier V - [Wing Spiker] Exclusive Effects: Increases the equipper's Receive stat by 20%. If the equipper's Receive is not a Critical, your side's next Receive gains bonus power equal to 40% of the receiving player's Receive stat." },
+    stats: {
+        block: { lvl1: 44, max: 518 },
+        power: { lvl1: 57, max: 663 },
+        serve: { lvl1: 52, max: 605 },
+        receive: { lvl1: 57, max: 663 },
+        save: { lvl1: 42, max: 490 },
+        set: { lvl1: 39, max: 461 }
+    }
+  },
 ];
