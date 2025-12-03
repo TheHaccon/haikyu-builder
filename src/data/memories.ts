@@ -1135,4 +1135,22 @@ export const MEMORIES: Memory[] = [
         set: { lvl1: 52, max: 605 }
     }
   },
+
+  {
+    name: "Attack Boost: OSAMU MIYA",
+    position: "OP",
+    rarity: "UR",
+    image: "memory/osamuUR.png",
+    description: {
+        lvl1: "Memory Tier I - [Opposite Hitter] Exclusive Effects: Increases the equipper's Quick Attack stat by 12%. If the equipper's Attack Technique is greater than 40%, the spike's power increases by 24% of their Quick Attack stat.",
+        max: "Memory Tier V - [Opposite Hitter] Exclusive Effects: Increases the equipper's Quick Attack stat by 24%. If the equipper's Attack Technique is greater than 40%, the spike's power increases by 48% of their Quick Attack stat." },
+    stats: {
+        block: { lvl1: 57, max: 665 },
+        power: { lvl1: 63, max: 729 },
+        serve: { lvl1: 49, max: 570 },
+        receive: { lvl1: 63, max: 729 },
+        save: { lvl1: 46, max: 539 },
+        set: { lvl1: 43, max: 507 }
+    }
+  },
 ];
