@@ -1045,4 +1045,22 @@ export const MEMORIES: Memory[] = [
         set: { lvl1: 57, max: 663 }
     }
   },
+
+  {
+    name: "DEF/ATK Stat Boost: MOTOYA KOMORI",
+    position: "LI",
+    rarity: "UR",
+    image: "memory/komoriSSR.png",
+    description: {
+        lvl1: "Memory Tier I - [Libero] Exclusive Effects: Increases the equipper's Receive stat by 12%. When the equipper performs a Receive, your side's back row players' Defense Technique increases by 2%, stacking up to 3 times. While the equipper is present, when your side's player use a Receive skill, the receiving player recovers 2 Stamina and gains 15% Power Attack/Quick Attack, lasting for 2 net crossings.",
+        max: "Memory Tier V - [Libero] Exclusive Effects: Increases the equipper's Receive stat by 24%. When the equipper performs a Receive, your side's back row players' Defense Technique increases by 2%, stacking up to 3 times. While the equipper is present, when your side's player use a Receive skill, the receiving player recovers 2 Stamina and gains 15% Power Attack/Quick Attack, lasting for 2 net crossings." },
+    stats: {
+        block: { lvl1: 50, max: 583 },
+        power: { lvl1: 56, max: 656 },
+        serve: { lvl1: 53, max: 619 },
+        receive: { lvl1: 72, max: 838 },
+        save: { lvl1: 66, max: 765 },
+        set: { lvl1: 72, max: 838 }
+    }
+  },
 ];
