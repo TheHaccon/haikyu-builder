@@ -10,6 +10,7 @@ import ResourcesPage from "./pages/ResourcesPage";
 import AdminPage from "./pages/AdminPage";
 import PlayersPage from "./pages/PlayersPage";
 import BondsPage from "./pages/BondsPage";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -42,7 +43,9 @@ function App() {
         <Route path="/bonds" element={<BondsPage />} />
         <Route path="/admin" element={<AdminPage />} />
       </Routes>
+      <Footer />
     </div>
+
   );
 }
 

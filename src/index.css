@@ -937,11 +937,46 @@ h1 {
 
 .desktop-toggle {
   display: flex;
-  margin-left: auto; /* Push to right if in flex container */
+  margin-left: auto;
 }
 
 .mobile-toggle {
-  display: none !important; /* Hide on desktop */
+  display: none !important;
+}
+
+.app-footer {
+  background-color: #1f1f1f;
+  padding: 30px 0;
+  text-align: center;
+  border-top: 1px solid var(--ring);
+  margin-top: auto;
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-icon {
+  height: 36px;
+  width: auto;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  filter: brightness(0.8);
+  vertical-align: middle;
+}
+
+.footer-icon:hover {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
+.separator {
+  color: var(--muted);
+  font-size: 20px;
+  user-select: none;
 }
 
 /* ------------------------------
