@@ -1099,4 +1099,22 @@ export const MEMORIES: Memory[] = [
         set: { lvl1: 52, max: 605 }
     }
   },
+
+  {
+    name: "Receive Boost: HAYATO YAMAGATA",
+    position: "LI",
+    rarity: "SSR",
+    image: "memory/yamagataSSR.png",
+    description: {
+        lvl1: "Memory Tier I - [Libero] Exclusive Effects: Increases equipper's Receive stat by 10%; increases equipper's Reflex by 6% when casting Receive Ultimate.",
+        max: "Memory Tier V - [Libero] Exclusive Effects: Increases equipper's Receive stat by 20%; increases equipper's Reflex by 12% when casting Receive Ultimate." },
+    stats: {
+        block: { lvl1: 39, max: 461 },
+        power: { lvl1: 44, max: 518 },
+        serve: { lvl1: 42, max: 490 },
+        receive: { lvl1: 57, max: 663 },
+        save: { lvl1: 57, max: 663 },
+        set: { lvl1: 52, max: 605 }
+    }
+  },
 ];
