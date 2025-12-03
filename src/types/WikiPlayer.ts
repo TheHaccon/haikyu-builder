@@ -6,7 +6,6 @@ export interface WikiSkill {
   description: string;
 }
 
-// Matches your specific data keys (Capitalized with underscores)
 export interface WikiStats {
   Serve?: number | string;
   Quick_Attack?: number | string;
@@ -15,7 +14,7 @@ export interface WikiStats {
   Receive?: number | string;
   Block?: number | string;
   Save?: number | string;
-  [key: string]: number | string | undefined; // Allow flexible access
+  [key: string]: number | string | undefined;
 }
 
 export interface WikiPlayer {

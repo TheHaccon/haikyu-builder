@@ -5,7 +5,6 @@
   color: var(--text);
 }
 
-/* Reuse global page-header/controls styles if possible, or define here */
 .controls-container {
   display: flex;
   flex-wrap: wrap;

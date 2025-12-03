@@ -160,7 +160,6 @@ input:focus, select:focus {
   font-size: 12px;
   color: #a3a3a3;
 }
-/* ... Keep existing CSS ... */
 
 /* TABS */
 .admin-tabs {
@@ -242,7 +241,6 @@ textarea {
   border-radius: 6px;
   resize: vertical;
 }
-/* ... Keep existing CSS ... */
 
 /* PREVIEW BOXES */
 .mem-preview-box {

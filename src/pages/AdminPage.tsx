@@ -304,7 +304,7 @@ function MemoryForm({ config }: { config: any }) {
     );
 }
 // ==========================================
-// 3. BOND FORM (AUTO-FORMATTER)
+// 3. BOND FORM
 // ==========================================
 function BondForm({ config }: { config: any }) {
     const [form, setForm] = useState({
@@ -314,7 +314,7 @@ function BondForm({ config }: { config: any }) {
         min: 2,
         members: [] as string[],
         desc: "",
-        memberBuffs: {} as Record<string, string> // Stores just "Block" or "Power" now
+        memberBuffs: {} as Record<string, string>
     });
 
     const [newMember, setNewMember] = useState("");
@@ -322,7 +322,6 @@ function BondForm({ config }: { config: any }) {
 
     const addMember = () => {
         if (newMember) {
-            // Default new members to "Power" to avoid undefined issues
             setForm(p => ({
                 ...p,
                 members: [...p.members, newMember],
@@ -357,8 +356,6 @@ function BondForm({ config }: { config: any }) {
             if (form.category === "stats") {
                 const buffEntries = form.members.map(m => {
                     const stat = form.memberBuffs[m] || "Power";
-
-                    // LOGIC: If "No buff", just print that. Otherwise, apply the formula.
                     const val = stat === "No buff"
                         ? "No buff"
                         : `${stat} +5/7/9/12/15, ${stat} +1/2/3/4/5%`;
@@ -479,10 +476,9 @@ function BondForm({ config }: { config: any }) {
 }
 
 // ==========================================
-// 4. CHAR DATA FORM (FIXED FOR NEW STRUCTURE)
+// 4. CHAR DATA FORM
 // ==========================================
 function CharDataForm({ config }: { config: any }) {
-    // Toggle for the specific attack stat key
     const [attackType, setAttackType] = useState<"Power_Attack" | "Quick_Attack">("Quick_Attack");
 
     const [form, setForm] = useState({
@@ -491,15 +487,13 @@ function CharDataForm({ config }: { config: any }) {
         position: "MB",
         rarity: "N",
 
-        // Stats (Lvl 1 / Max)
         serve: { l1: 0, mx: 0 },
-        attack: { l1: 0, mx: 0 }, // Will map to Quick_Attack or Power_Attack
+        attack: { l1: 0, mx: 0 },
         set: { l1: 0, mx: 0 },
         receive: { l1: 0, mx: 0 },
         block: { l1: 0, mx: 0 },
         save: { l1: 0, mx: 0 },
 
-        // Skills (4 slots) - 'tags' is a string here for input, converted to array on save
         skills: [
             { name: "", tags: "", desc: "" },
             { name: "", tags: "", desc: "" },
@@ -510,7 +504,6 @@ function CharDataForm({ config }: { config: any }) {
 
     const [status, setStatus] = useState({ type: '', msg: '' });
 
-    // Map short codes to full names for the "tags" array
     const FULL_POS_MAP: Record<string, string> = {
         "S": "Setter",
         "MB": "Middle Blocker",
@@ -519,10 +512,9 @@ function CharDataForm({ config }: { config: any }) {
         "OP": "Opposite Hitter"
     };
 
-    // Auto-detect rarity
     useEffect(() => {
         const n = form.name.toUpperCase();
-        let r = form.rarity; // Keep current if no match
+        let r = form.rarity;
         if (n.includes("SP")) r = "SP";
         else if (n.includes("UR")) r = "UR";
         else if (n.includes("SSR")) r = "SSR";
@@ -549,16 +541,13 @@ function CharDataForm({ config }: { config: any }) {
         setStatus({ type: 'loading', msg: 'Saving...' });
 
         try {
-            // 1. Generate ID
             const id = form.name.toLowerCase().replace(/\(practice\)/g, '').trim().replace(/\s+/g, '_');
 
-            // 2. Generate Skills Code
             const skillsCode = form.skills.map(s => {
-                // Convert "Passive, Enhance Team" -> ["Passive", "Enhance Team"]
                 const tagsArray = s.tags.split(",")
                     .map(t => t.trim())
                     .filter(t => t !== "")
-                    .map(t => `"${t}"`) // Wrap in quotes
+                    .map(t => `"${t}"`)
                     .join(", ");
 
                 return `    {
@@ -567,12 +556,8 @@ function CharDataForm({ config }: { config: any }) {
         description: "${s.desc.replace(/\n/g, ' ').replace(/"/g, '\\"')}"
       }`;
             }).join(",\n");
-
-            // 3. Generate Full Tags (Full Position, School, Rarity)
             const fullPos = FULL_POS_MAP[form.position] || form.position;
             const charTags = `["${fullPos}", "${form.school}", "${form.rarity}"]`;
-
-            // 4. Construct Final Code
             const code = `  {
     id: "${id}",
     name: "${form.name}",
@@ -612,10 +597,8 @@ ${skillsCode}
         <div className="admin-grid">
             <div className="left-col admin-card">
                 <h2>Character Data</h2>
-
                 {/* Info Inputs */}
                 <div className="input-group"><label>Name</label><input value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} placeholder="e.g. Shoyo Hinata (Practice)" /></div>
-
                 <div className="row-group">
                     <div className="input-group"><label>School</label><select value={form.school} onChange={e => setForm({ ...form, school: e.target.value })}>{SCHOOLS.map(s => <option key={s}>{s}</option>)}</select></div>
                     <div className="input-group"><label>Position</label><select value={form.position} onChange={e => setForm({ ...form, position: e.target.value })}>{POSITIONS.map(p => <option key={p}>{p}</option>)}</select></div>
@@ -636,7 +619,6 @@ ${skillsCode}
                         <option value="Power_Attack">Power Attack</option>
                     </select>
                 </h4>
-
                 <div className="stat-grid">
                     <div className="stat-row-input"><label>Serve</label><input type="number" onChange={e => handleStatChange('serve', 'l1', e.target.value)} /><input type="number" onChange={e => handleStatChange('serve', 'mx', e.target.value)} /></div>
                     <div className="stat-row-input"><label style={{ color: '#fbbf24' }}>Attack</label><input type="number" onChange={e => handleStatChange('attack', 'l1', e.target.value)} /><input type="number" onChange={e => handleStatChange('attack', 'mx', e.target.value)} /></div>
@@ -645,7 +627,6 @@ ${skillsCode}
                     <div className="stat-row-input"><label>Block</label><input type="number" onChange={e => handleStatChange('block', 'l1', e.target.value)} /><input type="number" onChange={e => handleStatChange('block', 'mx', e.target.value)} /></div>
                     <div className="stat-row-input"><label>Save</label><input type="number" onChange={e => handleStatChange('save', 'l1', e.target.value)} /><input type="number" onChange={e => handleStatChange('save', 'mx', e.target.value)} /></div>
                 </div>
-
                 {/* Skills */}
                 <h4 style={{ marginTop: 20 }}>Skills</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 15 }}>
@@ -663,7 +644,6 @@ ${skillsCode}
                     ))}
                 </div>
             </div>
-
             {/* Preview */}
             <div className="right-col admin-card">
                 <h2>Data Preview</h2>
@@ -674,7 +654,6 @@ ${skillsCode}
                             <div style={{ fontSize: 12, color: '#aaa' }}>{form.school} • {FULL_POS_MAP[form.position]} • {form.rarity}</div>
                         </div>
                     </div>
-
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 5, fontSize: 11, color: '#ccc', marginBottom: 15 }}>
                         <div>Serve: <b style={{ color: 'white' }}>{form.serve.l1}</b></div>
                         <div>{attackType === "Power_Attack" ? "Power" : "Quick"}: <b style={{ color: 'white' }}>{form.attack.l1}</b></div>
@@ -683,7 +662,6 @@ ${skillsCode}
                         <div>Block: <b style={{ color: 'white' }}>{form.block.l1}</b></div>
                         <div>Save: <b style={{ color: 'white' }}>{form.save.l1}</b></div>
                     </div>
-
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                         {form.skills.map((s, i) => (
                             <div key={i} style={{ fontSize: 11 }}>
@@ -694,7 +672,6 @@ ${skillsCode}
                         ))}
                     </div>
                 </div>
-
                 <button className="copy-btn success save-btn" onClick={handleSave}>
                     {status.type === 'loading' ? '...' : 'Save Data'}
                 </button>

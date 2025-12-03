@@ -185,8 +185,8 @@ select, input {
 
 .skill-header {
   display: flex;
-  align-items: center; /* Aligns icon vertically with text */
-  gap: 8px;            /* Space between icon and text */
+  align-items: center;
+  gap: 8px;
   margin-bottom: 4px;
 }
 
@@ -194,7 +194,7 @@ select, input {
   font-size: 12px;
   font-weight: 700;
   color: #fbbf24;
-  line-height: 1.2;    /* Tighter line height for text */
+  line-height: 1.2;
 }
 
 .skill-desc {

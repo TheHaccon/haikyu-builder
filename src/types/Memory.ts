@@ -8,7 +8,7 @@ export interface StatValue {
 
 export interface MemoryStats {
   block?: StatValue;
-  power?: StatValue; // "Attack" in UI, "power" in data
+  power?: StatValue;
   serve?: StatValue;
   receive?: StatValue;
   save?: StatValue;
@@ -25,6 +25,6 @@ export interface Memory {
   position: Position;
   rarity: Rarity;
   image: string;
-  description: MemoryDescription | string; // Handle both just in case
+  description: MemoryDescription | string;
   stats: MemoryStats;
 }
