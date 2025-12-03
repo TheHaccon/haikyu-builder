@@ -901,4 +901,22 @@ export const MEMORIES: Memory[] = [
         set: { lvl1: 39, max: 461 }
     }
   },
+
+  {
+    name: "Receive/Power Attack Boost: HITOSHI GINJIMA",
+    position: "WS",
+    rarity: "SSR",
+    image: "memory/ginjimaSSR.png",
+    description: {
+        lvl1: "Memory Tier I - [Wing Spiker] Exclusive Effects: Increases the equipper's Receive stat by 10%. When the equipper performs a Receive, their Power Attack increases by 8%, lasting for 6 net crossings. If the Receive is Critical, the equipper's next Spike is guaranteed to be a Critical.",
+        max: "Memory Tier V - [Wing Spiker] Exclusive Effects: Increases the equipper's Receive stat by 20%. When the equipper performs a Receive, their Power Attack increases by 16%, lasting for 6 net crossings. If the Receive is Critical, the equipper's next Spike is guaranteed to be a Critical." },
+    stats: {
+        block: { lvl1: 44, max: 518 },
+        power: { lvl1: 57, max: 663 },
+        serve: { lvl1: 52, max: 605 },
+        receive: { lvl1: 57, max: 663 },
+        save: { lvl1: 42, max: 490 },
+        set: { lvl1: 39, max: 461 }
+    }
+  },
 ];
