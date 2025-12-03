@@ -1009,4 +1009,22 @@ export const MEMORIES: Memory[] = [
         set: { lvl1: 57, max: 663 }
     }
   },
+
+  {
+    name: "Set Boost: KENJIRO SHIRABU",
+    position: "S",
+    rarity: "SSR",
+    image: "memory/shirabuSSR.png",
+    description: {
+        lvl1: "Memory Tier I - [Setter] Exclusive Effects: Increases equipper's Set stat by 8%; when equipper performs a Critical Set, increases Strength of your side's spikers by 16% when they perform Power Spikes, lasting for 1 net crossings.",
+        max: "Memory Tier V - [Setter] Exclusive Effects: Increases equipper's Set stat by 16%; when equipper performs a Critical Set, increases Strength of your side's spikers by 32% when they perform Power Spikes, lasting for 1 net crossings." },
+    stats: {
+        block: { lvl1: 52, max: 605 },
+        power: { lvl1: 44, max: 518 },
+        serve: { lvl1: 57, max: 663 },
+        receive: { lvl1: 42, max: 490 },
+        save: { lvl1: 39, max: 461 },
+        set: { lvl1: 57, max: 663 }
+    }
+  },
 ];
