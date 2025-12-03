@@ -1063,4 +1063,22 @@ export const MEMORIES: Memory[] = [
         set: { lvl1: 72, max: 838 }
     }
   },
+
+  {
+    name: "Receive/Quick Attack Boost: Morisuke Yaku",
+    position: "LI",
+    rarity: "SSR",
+    image: "memory/yakuSSR.png",
+    description: {
+        lvl1: "Memory Tier I - [Libero] Exclusive Effects: When equipper receives, increases Receive stat by 2%, stacking up to 5 times; when equipper achieves a PERFECT receive, increases your side's next Quick Spike power by 16% of the spiker's Quick Attack stat.",
+        max: "Memory Tier V - [Libero] Exclusive Effects: When equipper receives, increases Receive stat by 4%, stacking up to 5 times; when equipper achieves a PERFECT receive, increases your side's next Quick Spike power by 32% of the spiker's Quick Attack stat." },
+    stats: {
+        block: { lvl1: 39, max: 461 },
+        power: { lvl1: 44, max: 518 },
+        serve: { lvl1: 42, max: 490 },
+        receive: { lvl1: 57, max: 663 },
+        save: { lvl1: 57, max: 663 },
+        set: { lvl1: 52, max: 605 }
+    }
+  },
 ];
