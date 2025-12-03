@@ -1153,4 +1153,22 @@ export const MEMORIES: Memory[] = [
         set: { lvl1: 43, max: 507 }
     }
   },
+
+  {
+    name: "Reflex Boost: AKINORI KONOHA",
+    position: "OP",
+    rarity: "SSR",
+    image: "memory/konohaSSR.png",
+    description: {
+        lvl1: "Memory Tier I - [Opposite Hitter] Exclusive Effects: Increases the equipper's Basic Stats by 6%. The equipper gains additional Reflex equal to 10% of your Team Morale. While in [Team Moral Awakening], the equipper's Reflex further increases by 4%.",
+        max: "Memory Tier V - [Opposite Hitter] Exclusive Effects: Increases the equipper's Basic Stats by 12%. The equipper gains additional Reflex equal to 10% of your Team Morale. While in [Team Moral Awakening], the equipper's Reflex further increases by 8%." },
+    stats: {
+        block: { lvl1: 52, max: 605 },
+        power: { lvl1: 57, max: 663 },
+        serve: { lvl1: 44, max: 518 },
+        receive: { lvl1: 57, max: 663 },
+        save: { lvl1: 42, max: 490 },
+        set: { lvl1: 39, max: 461 }
+    }
+  },
 ];
