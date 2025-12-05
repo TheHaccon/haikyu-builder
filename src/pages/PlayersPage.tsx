@@ -175,22 +175,7 @@ export default function PlayersPage() {
                     </div>
                   </div>
                 )}
-              </div>
-              {/* CLICKABLE IMAGE */}
-              {p.img && (
-                <div
-                  className="card-image"
-                  onClick={() => openModal(p)}
-                  title="Click to view details"
-                  style={{ cursor: "pointer" }}
-                >
-                  <img
-                    src={`data/${p.img}`}
-                    alt={p.name}
-                    onError={(e) => e.currentTarget.style.display = 'none'}
-                  />
-                </div>
-              )}
+              </div>              
             </div>
           </div>
         ))}
@@ -204,7 +189,7 @@ export default function PlayersPage() {
               {/* Left: Image */}
               <div className="modal-img-col">
                 <img
-                  src={`data/${selectedPlayer.img}`}
+                  src={`data/img-player/${selectedPlayer.img}`}
                   alt={selectedPlayer.name}
                   onError={(e) => e.currentTarget.style.display = 'none'}
                 />

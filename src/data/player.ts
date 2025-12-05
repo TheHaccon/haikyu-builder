@@ -6,6 +6,7 @@ export const characters: WikiPlayer[] = [
         school: "Karasuno",
         rarity: "SSR",
         position: "Middle Blocker",
+        img:"hinataSSR.png",
         stats: {
             lvl1: {
                 Serve: 103,
@@ -62,6 +63,7 @@ export const characters: WikiPlayer[] = [
         school: "Karasuno",
         rarity: "SR",
         position: "Middle Blocker",
+        img:"hinataSR.png",
         stats: {
             lvl1: {
                 Serve: 83,
@@ -118,6 +120,7 @@ export const characters: WikiPlayer[] = [
         school: "Karasuno",
         rarity: "SSR",
         position: "Setter",
+        img:"kageyamaSSR.png",
         stats: {
             lvl1: {
                 Serve: 115,
@@ -174,6 +177,7 @@ export const characters: WikiPlayer[] = [
         school: "Karasuno",
         rarity: "SSR",
         position: "Opposite Hitter",
+        img:"daichiSSR.png",
         stats: {
             lvl1: {
                 Serve: 103,
@@ -230,6 +234,7 @@ export const characters: WikiPlayer[] = [
         school: "Karasuno",
         rarity: "SR",
         position: "Opposite Hitter",
+        img:"daichiSR.png",
         stats: {
             lvl1: {
                 Serve: 84,
@@ -286,6 +291,7 @@ export const characters: WikiPlayer[] = [
         school: "Karasuno",
         rarity: "SR",
         position: "Setter",
+        img:"sugawaraSR.png",
         stats: {
             lvl1: {
                 Serve: 99,
@@ -342,6 +348,7 @@ export const characters: WikiPlayer[] = [
         school: "Karasuno",
         rarity: "SSR",
         position: "Wing Spiker",
+        img:"asahiSSR.png",
         stats: {
             lvl1: {
                 Serve: 116,
