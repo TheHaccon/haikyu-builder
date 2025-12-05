@@ -1761,53 +1761,5 @@ export const characters: WikiPlayer[] = [
         ],
     },
 
-  {
-    id: "hinatatest_(festival)",
-    name: "HinataTest (festival)",
-    school: "Karasuno",
-    rarity: "SP",
-    position: "Middle Blocker",
-    img: "hinataF.png",
-    stats: {
-        lvl1: {
-            Serve: 0,
-            Quick_Attack: 0,
-            Set: 0,
-            Receive: 0,
-            Block: 0,
-            Save: 0
-        },
-        max: {
-            Serve: "-",
-            Quick_Attack: "-",
-                Set: "-",
-            Receive: "-",
-            Block: "-",
-            Save: "-"
-          },
-    },
-    tags: ["Middle Blocker", "Karasuno", "SP"],
-    skills: [
-    {
-        name: "",
-        tags: [],
-        description: ""
-      },
-    {
-        name: "",
-        tags: [],
-        description: ""
-      },
-    {
-        name: "",
-        tags: [],
-        description: ""
-      },
-    {
-        name: "",
-        tags: [],
-        description: ""
-      }
-    ],
-  },
+    
 ];
