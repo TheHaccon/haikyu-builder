@@ -1,8 +1,5 @@
 import { useState } from "react";
 const BANNERS_BY_MONTH: Record<string, any[]> = {
-    "November": [
-        { id: "oikawa_nov", name: "Oikawa UR", type: "Nov 26", img: "img-global/oikawaUR.png" },
-    ],
     "December": [
         { id: "komori_dec", name: "Komori UR", type: "Dec 3", img: "img-japan/komoriUR.png" },
         { id: "bokuto_dec", name: "Bokuto UR", type: "Dec 10", img: "img-global/bokutoUR.png" },

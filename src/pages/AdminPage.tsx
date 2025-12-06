@@ -480,13 +480,16 @@ function BondForm({ config }: { config: any }) {
 // ==========================================
 function CharDataForm({ config }: { config: any }) {
     const [attackType, setAttackType] = useState<"Power_Attack" | "Quick_Attack">("Quick_Attack");
+    const [preview, setPreview] = useState("");
+    const [file, setFile] = useState<File | null>(null);
+    const fileInput = useRef<HTMLInputElement>(null);
 
     const [form, setForm] = useState({
         name: "",
         school: "Karasuno",
         position: "MB",
         rarity: "N",
-
+        img:"",
         serve: { l1: 0, mx: 0 },
         attack: { l1: 0, mx: 0 },
         set: { l1: 0, mx: 0 },
@@ -512,6 +515,18 @@ function CharDataForm({ config }: { config: any }) {
         "OP": "Opposite Hitter"
     };
 
+    useEffect(() => {
+        const handlePaste = (e: ClipboardEvent) => {
+            const item = e.clipboardData?.items[0];
+            if (item?.type.includes("image")) {
+                const f = item.getAsFile();
+                if (f) { setFile(f); setPreview(URL.createObjectURL(f)); }
+            }
+        };
+        window.addEventListener("paste", handlePaste);
+        return () => window.removeEventListener("paste", handlePaste);
+    }, []);
+    
     useEffect(() => {
         const n = form.name.toUpperCase();
         let r = form.rarity;
@@ -539,6 +554,7 @@ function CharDataForm({ config }: { config: any }) {
     const handleSave = async () => {
         if (!config.token) return setStatus({ type: 'error', msg: 'Missing Token' });
         setStatus({ type: 'loading', msg: 'Saving...' });
+        if (file) await uploadImageToGithub(config, new File([file], form.img, { type: file.type }), "public/data/img-player");
 
         try {
             const id = form.name.toLowerCase().replace(/\(practice\)/g, '').trim().replace(/\s+/g, '_');
@@ -564,6 +580,7 @@ function CharDataForm({ config }: { config: any }) {
     school: "${form.school}",
     rarity: "${form.rarity}",
     position: "${fullPos}",
+    img: "${form.img}",
     stats: {
         lvl1: {
             Serve: ${form.serve.l1 || 0},
@@ -611,6 +628,12 @@ ${skillsCode}
                         </select>
                     </div>
                 </div>
+                <div className="input-group"><label>Image Name [if you take a screenshot you can just ctrl+v] </label>
+                    <label>lower letter name and CAP rarity.png</label><input value={form.img} onChange={e => setForm({ ...form, img: e.target.value })} placeholder="hinataUR.png" /></div>
+                <div style={{ marginTop: 10 }}>
+                    <button className="action-btn" style={{ width: 'auto', padding: '5px 10px', height: 'auto' }} onClick={() => fileInput.current?.click()}>Upload Img</button>
+                    <input type="file" ref={fileInput} hidden onChange={e => { if (e.target.files?.[0]) { setFile(e.target.files[0]); setPreview(URL.createObjectURL(e.target.files[0])); setForm({ ...form, img: e.target.files[0].name }) } }} />
+                </div>
                 {/* Stats */}
                 <h4 style={{ marginTop: 20, display: 'flex', justifyContent: 'space-between' }}>
                     Stats (Lvl 1 / Max)
@@ -653,6 +676,7 @@ ${skillsCode}
                             <div style={{ fontWeight: 'bold' }}>{form.name || "Name"}</div>
                             <div style={{ fontSize: 12, color: '#aaa' }}>{form.school} • {FULL_POS_MAP[form.position]} • {form.rarity}</div>
                         </div>
+                        {preview ? <img src={preview} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : null}
                     </div>
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 5, fontSize: 11, color: '#ccc', marginBottom: 15 }}>
                         <div>Serve: <b style={{ color: 'white' }}>{form.serve.l1}</b></div>
