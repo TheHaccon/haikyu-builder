@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Board from "./components/Board/Board";
 import SchoolSynergyPanel from "./components/Board/SchoolSynergyPanel";
-import PowerSynergyPanel from "./components/Board/PowerSynergyPanel";
+import SpecialtyPanel from "./components/Board/SpecialtyPanel";
 import RoleSynergyPanel from "./components/Board/RoleSynergyPanel";
 import SynergyPanel from "./components/Board/SynergyPanel";
 import MemoryPage from "./pages/MemoryPage";
@@ -33,7 +33,7 @@ function App() {
             </main>
             <aside id="right-sidebar" className="sidebar">
               <SchoolSynergyPanel />
-              <PowerSynergyPanel />
+              <SpecialtyPanel />
             </aside>
           </div>
         } />

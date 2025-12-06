@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTeamStore } from "../../store/teamStore";
 import type { Player } from "../../types/Player";
+import PowerSynergyPanel from "./PowerSynergyPanel";
 
 const ROLE_RULES: Record<string, {
     name: string;
@@ -84,7 +85,7 @@ export default function RoleSynergyPanel() {
                 </span>
             </h3>
             {isOpen && (
-                <div className="role-list">
+                <><div className="role-list">
                     {activeRoles.map(([roleCode, players]) => {
                         const rule = ROLE_RULES[roleCode];
                         const count = players.length;
@@ -123,7 +124,7 @@ export default function RoleSynergyPanel() {
                             </div>
                         );
                     })}
-                </div>
+                </div><PowerSynergyPanel /></>
             )}
         </div>
     );
