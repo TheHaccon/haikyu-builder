@@ -62,7 +62,6 @@ const getActivePowers = (starters: Record<string, Player | null>) => {
 };
 
 export default function SpecialtyPanel() {
-    const positionless = useTeamStore((s) => s.positionless);
     const currentData = useTeamStore((s) => s.positionless ? s.positionlessData : s.normal);
 
     const teams = currentData.teams;
