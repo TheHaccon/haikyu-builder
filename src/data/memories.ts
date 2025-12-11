@@ -1171,4 +1171,22 @@ export const MEMORIES: Memory[] = [
         set: { lvl1: 39, max: 461 }
     }
   },
+
+  {
+    name: "Toru Oikawa",
+    position: "S",
+    rarity: "SP",
+    image: "memory/Memory_Oikawa.png",
+    description: {
+        lvl1: "Memory Tier I - [Setter] Exclusive Effects: Increases the [Toss] of the member who has this memory set by 12%. \nAt the start of a rally, if the number of stacks of the ally's [Attack Rhythm] effect exceeds 2, all attack stats ([Powerful Hit]/[Quick Attack]/[Toss]/[Serve]/[Awareness]/[Power]/[Attack Technique]) of the member who has this memory set are increased by 10%. This effect lasts for 1 rally.",
+        max: "Memory Tier V - [Setter] Exclusive Effects: Increases the [Toss] of the member who has this memory set by 24%. \nAt the start of a rally, if the number of stacks of the ally's [Attack Rhythm] effect exceeds 2, all attack stats ([Powerful Hit]/[Quick Attack]/[Toss]/[Serve]/[Awareness]/[Power]/[Attack Technique]) of the member who has this memory set are increased by 10%. This effect lasts for 1 rally." },
+    stats: {
+        block: { lvl1: 66, max: 765 },
+        power: { lvl1: 56, max: 656 },
+        serve: { lvl1: 72, max: 838 },
+        receive: { lvl1: 53, max: 619 },
+        save: { lvl1: 50, max: 583 },
+        set: { lvl1: 72, max: 838 }
+    }
+  },
 ];
