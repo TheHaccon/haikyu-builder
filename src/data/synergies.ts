@@ -1085,4 +1085,12 @@ export const synergies: SynergyDefinition[] = [
         activation: { type: "all" }
     },
     
+
+  {
+    name: "King and Great King",
+    category: "deployment",
+    members: ["Oikawa SP","Kageyama UR"],
+    description: "When Kageyama and Oikawa fight for serve possession, whoever uses their serve skill first wins. If Oikawa wins, Kageyama gains the [Inspired] effect (lasts for 1 set). If Kageyama wins, every time Oikawa touches the ball, Kageyama gains 1 stack of [Competitive Spirit] effect. When Oikawa uses a skill, Kageyama gains 1 additional stack of [Competitive Spirit].",
+    activation: { type: "all", min: 2 }
+  },
 ];
