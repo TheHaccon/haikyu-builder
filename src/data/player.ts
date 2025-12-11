@@ -1762,4 +1762,54 @@ export const characters: WikiPlayer[] = [
     },
 
     
+
+  {
+    id: "toru_oikawa",
+    name: "Toru Oikawa",
+    school: "Aoba Johsai",
+    rarity: "SP",
+    position: "Setter",
+    img: "oikawaSP.png",
+    stats: {
+        lvl1: {
+            Serve: 175,
+            Power_Attack: 172,
+            Set: 169,
+            Receive: 128,
+            Block: 142,
+            Save: 120
+        },
+        max: {
+            Serve: "-",
+            Power_Attack: "-",
+                Set: "-",
+            Receive: "-",
+            Block: "-",
+            Save: "-"
+          },
+    },
+    tags: ["Setter", "Aoba Johsai", "SP"],
+    skills: [
+    {
+        name: "Bring Out 100% Of Your Potential",
+        tags: [],
+        description: "[Toss] is increased by 10%. At the start of a rally, Oikawa (Culture Festival)’s diagonal member gains the [Inspired] effect. This effect lasts until the diagonal member leaves the court. While having [Inspired], that member’s [Awareness] +30%, [Reflex] +30%, and [Main Stats] +30%. When ball touch happens, allies gain 1 stack of [Attack Tempo]. For each [Attack Tempo] stack, allies on the court gain +1% [Awareness]. Max 10 stacks. If Oikawa (Culture Festival) is on the court, when an ally uses an ultimate move, they gain 1 stack of [Attack Tempo]."
+      },
+    {
+        name: "Sniper Serve",
+        tags: [],
+        description: "Performs a Jump Serve with [Serve] ×160% power. If this serve results in a service ace, the cooldown of this serve will reset. When the number of [Guide] stacks reaches 5, this serve’s power increases by [Serve] ×150%. "
+      },
+    {
+        name: "The Commander Leading To Victory",
+        tags: [],
+        description: "While on the court, when an ally’s spike (Power/Quick) is made with 6 or more [Attack Tempo] stacks, all [Attack Tempo] stacks are consumed and Oikawa (Culture Festival) gains 1 [Guide] stack. (Max 5 stacks) For each stack of [Attack Tempo] consumed, this spike’s (Power/Quick) damage is increased by 15%. For each [Guide] stack, allies’ [Awareness] increases: 1st stack: +40% 2nd stack: +30% 3rd stack: +20% 4th stack: +10% Oikawa (Culture Festival)’s [Power] +15% (max 60%). When [Guide] stacks reach 5, if an ally with [Inspired] scores, Oikawa’s skill cooldown resets."
+      },
+    {
+        name: "Accurate Set",
+        tags: [],
+        description: "Performs a [Toss] ×260% power toss. Opponent’s back-row [Receive] decreases by 20%. This effect lasts until the ball crosses the net twice. After Oikawa (Culture Festival) tosses for the first spike (Power/Quick), if the ally spiker has [Inspired], opponent’s [Block] decreases by 20%. This effect also lasts until the ball crosses the net twice. At the start of each set, allies gain 5 stacks of [Attack Tempo]."
+      }
+    ],
+  },
 ];
