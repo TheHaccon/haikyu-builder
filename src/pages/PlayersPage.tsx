@@ -20,7 +20,6 @@ export default function PlayersPage() {
   const [search, setSearch] = useState("");
 
   const [showMax, setShowMax] = useState(false);
-
   const [selectedPlayer, setSelectedPlayer] = useState<WikiPlayer | null>(null);
   const [modalShowMax, setModalShowMax] = useState(false);
 
@@ -29,9 +28,7 @@ export default function PlayersPage() {
   const getStat = (p: WikiPlayer, statKey: string, useMax: boolean) => {
     if (!p.stats) return "-";
     const levelKey = useMax ? "max" : "lvl1";
-
     const val = p.stats[levelKey]?.[statKey] ?? p.stats[levelKey]?.[statKey.toLowerCase()];
-
     return val !== undefined && val !== "TBD" ? val : "-";
   };
 
@@ -45,7 +42,6 @@ export default function PlayersPage() {
       const matchRar = !rarityFilter || p.rarity === rarityFilter;
       const matchSch = !schoolFilter || p.school === schoolFilter;
       const matchSearch = !q || p.name.toLowerCase().includes(q);
-
       return matchPos && matchRar && matchSch && matchSearch;
     });
 
@@ -69,6 +65,7 @@ export default function PlayersPage() {
         <h1>Player Viewer</h1>
         <p>View all players and filter them by school or rarity.</p>
       </header>
+
       {/* --- FILTERS & CONTROLS --- */}
       <div className="controls-container">
         <div className="control-group">
@@ -128,6 +125,7 @@ export default function PlayersPage() {
           </button>
         </div>
       </div>
+
       {/* --- PLAYER GRID --- */}
       <div className="player-grid">
         {filteredPlayers.length === 0 && (
@@ -175,74 +173,79 @@ export default function PlayersPage() {
                     </div>
                   </div>
                 )}
-              </div>              
+              </div>
             </div>
           </div>
         ))}
       </div>
+
       {/* --- DETAILED LIGHTBOX MODAL --- */}
       {selectedPlayer && (
         <div className="lightbox-overlay" onClick={() => setSelectedPlayer(null)}>
           <div className="lightbox-card-modal" onClick={(e) => e.stopPropagation()}>
-            <button className="lightbox-close" onClick={() => setSelectedPlayer(null)}>✕</button>
-            <div className="modal-layout">
-              {/* Left: Image */}
-              <div className="modal-img-col">
-                <img
-                  src={`data/img-player/${selectedPlayer.img}`}
-                  alt={selectedPlayer.name}
-                  onError={(e) => e.currentTarget.style.display = 'none'}
-                />
-              </div>
-              {/* Right: Details */}
-              <div className="modal-info-col">
-                <h2 className="modal-title">{selectedPlayer.name}</h2>
-
-                <div className="modal-badges">
-                  <span className="badge" style={{ background: '#444', color: '#ccc' }}>{selectedPlayer.school}</span>
-                  <span className="badge" style={{ background: '#444', color: '#ccc' }}>{selectedPlayer.position}</span>
-                  <span className={`badge rarity-${selectedPlayer.rarity}`}>{selectedPlayer.rarity}</span>
+            <div className="modal-top-bar">
+              <h2 className="modal-title-fixed">{selectedPlayer.name}</h2>
+              <button className="lightbox-close-fixed" onClick={() => setSelectedPlayer(null)}>✕</button>
+            </div>
+            <div className="modal-scroll-content">
+              <div className="modal-layout">
+                {/* Left: Image */}
+                <div className="modal-img-col">
+                  <img
+                    src={`data/img-player/${selectedPlayer.img}`}
+                    alt={selectedPlayer.name}
+                    onError={(e) => e.currentTarget.style.display = 'none'}
+                  />
                 </div>
-                {/* STATS BOX WITH TOGGLE */}
-                <div className="modal-stats-box">
-                  <div className="stats-header-row">
-                    <h3>Statistics</h3>
-                    <div className="mini-toggle-wrapper" onClick={() => setModalShowMax(!modalShowMax)}>
-                      <span className={`toggle-label ${!modalShowMax ? "active" : ""}`}>Lv.1</span>
-                      <div className={`mini-switch ${modalShowMax ? "on" : "off"}`}>
-                        <div className="mini-slider"></div>
-                      </div>
-                      <span className={`toggle-label ${modalShowMax ? "active" : ""}`}>Max</span>
-                    </div>
+                {/* Right: Details */}
+                <div className="modal-info-col">
+                  <h2 className="modal-title">{selectedPlayer.name}</h2>
+                  <div className="modal-badges">
+                    <span className="badge" style={{ background: '#444', color: '#ccc' }}>{selectedPlayer.school}</span>
+                    <span className="badge" style={{ background: '#444', color: '#ccc' }}>{selectedPlayer.position}</span>
+                    <span className={`badge rarity-${selectedPlayer.rarity}`}>{selectedPlayer.rarity}</span>
                   </div>
-                  <div className="stats-grid large">
-                    <div className="stat-item"><span className="label">Serve</span> <span className="val">{getStat(selectedPlayer, "Serve", modalShowMax)}</span></div>
-                    <div className="stat-item"><span className="label">Set</span> <span className="val">{getStat(selectedPlayer, "Set", modalShowMax)}</span></div>
-                    <div className="stat-item"><span className="label">Receive</span> <span className="val">{getStat(selectedPlayer, "Receive", modalShowMax)}</span></div>
-                    <div className="stat-item"><span className="label">Block</span> <span className="val">{getStat(selectedPlayer, "Block", modalShowMax)}</span></div>
-                    <div className="stat-item"><span className="label">Save</span> <span className="val">{getStat(selectedPlayer, "Save", modalShowMax)}</span></div>
-                    {getStat(selectedPlayer, "Power_Attack", modalShowMax) !== "-" && (
-                      <div className="stat-item"><span className="label">Power</span> <span className="val">{getStat(selectedPlayer, "Power_Attack", modalShowMax)}</span></div>
-                    )}
-                    {getStat(selectedPlayer, "Quick_Attack", modalShowMax) !== "-" && (
-                      <div className="stat-item"><span className="label">Quick</span> <span className="val">{getStat(selectedPlayer, "Quick_Attack", modalShowMax)}</span></div>
-                    )}
-                  </div>
-                </div>
-                {/* SKILLS IN MODAL */}
-                {selectedPlayer.skills && selectedPlayer.skills.length > 0 && (
-                  <div className="modal-desc-box" style={{ marginTop: 20 }}>
-                    <h3>Skills</h3>
-                    <div className="skills-list">
-                      {selectedPlayer.skills.map((skill, idx) => (
-                        <div key={idx} className="skill-item" style={{ background: '#222', padding: '10px', marginBottom: '8px', borderRadius: '6px', border: '1px solid #444' }}>
-                          <div className="skill-name" style={{ fontSize: '13px', color: '#fbbf24', fontWeight: 'bold', marginBottom: '4px' }}>{skill.name}</div>
-                          <div className="skill-desc" style={{ fontSize: '12px', color: '#ccc', lineHeight: '1.4' }}>{skill.description}</div>
+                  {/* STATS BOX WITH TOGGLE */}
+                  <div className="modal-stats-box">
+                    <div className="stats-header-row">
+                      <h3>Statistics</h3>
+                      <div className="mini-toggle-wrapper" onClick={() => setModalShowMax(!modalShowMax)}>
+                        <span className={`toggle-label ${!modalShowMax ? "active" : ""}`}>Lv.1</span>
+                        <div className={`mini-switch ${modalShowMax ? "on" : "off"}`}>
+                          <div className="mini-slider"></div>
                         </div>
-                      ))}
+                        <span className={`toggle-label ${modalShowMax ? "active" : ""}`}>Max</span>
+                      </div>
+                    </div>
+                    <div className="stats-grid large">
+                      <div className="stat-item"><span className="label">Serve</span> <span className="val">{getStat(selectedPlayer, "Serve", modalShowMax)}</span></div>
+                      <div className="stat-item"><span className="label">Set</span> <span className="val">{getStat(selectedPlayer, "Set", modalShowMax)}</span></div>
+                      <div className="stat-item"><span className="label">Receive</span> <span className="val">{getStat(selectedPlayer, "Receive", modalShowMax)}</span></div>
+                      <div className="stat-item"><span className="label">Block</span> <span className="val">{getStat(selectedPlayer, "Block", modalShowMax)}</span></div>
+                      <div className="stat-item"><span className="label">Save</span> <span className="val">{getStat(selectedPlayer, "Save", modalShowMax)}</span></div>
+                      {getStat(selectedPlayer, "Power_Attack", modalShowMax) !== "-" && (
+                        <div className="stat-item"><span className="label">Power</span> <span className="val">{getStat(selectedPlayer, "Power_Attack", modalShowMax)}</span></div>
+                      )}
+                      {getStat(selectedPlayer, "Quick_Attack", modalShowMax) !== "-" && (
+                        <div className="stat-item"><span className="label">Quick</span> <span className="val">{getStat(selectedPlayer, "Quick_Attack", modalShowMax)}</span></div>
+                      )}
                     </div>
                   </div>
-                )}
+                  {/* SKILLS IN MODAL - Removed Inline Styles Here */}
+                  {selectedPlayer.skills && selectedPlayer.skills.length > 0 && (
+                    <div className="modal-desc-box" style={{ marginTop: 20 }}>
+                      <h3>Skills</h3>
+                      <div className="skills-list">
+                        {selectedPlayer.skills.map((skill, idx) => (
+                          <div key={idx} className="skill-item">
+                            <div className="skill-name">{skill.name}</div>
+                            <div className="skill-desc">{skill.description}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
