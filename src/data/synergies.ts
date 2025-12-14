@@ -1093,4 +1093,12 @@ export const synergies: SynergyDefinition[] = [
     description: "When Kageyama and Oikawa fight for serve possession, whoever uses their serve skill first wins. If Oikawa wins, Kageyama gains the [Inspired] effect (lasts for 1 set). If Kageyama wins, every time Oikawa touches the ball, Kageyama gains 1 stack of [Competitive Spirit] effect. When Oikawa uses a skill, Kageyama gains 1 additional stack of [Competitive Spirit].",
     activation: { type: "all", min: 2 }
   },
+
+  {
+    name: "Strongest Twins",
+    category: "deployment",
+    members: ["Atsumu SP","Osamu SP"],
+    description: "At the start of the match, Osamu gains 1 stack of [Ingenuity]. (Attack & Defense Technique 10%, and when Atsumu does his Ultimate, Att Tech 20% & Def Tech 15%.)  After Atsumu and Osamu each performing one Set, all allied members gain 2.5% [Attack Technique] & [Defense Technique]. Lasts for 1 rally.",
+    activation: { type: "all", min: 2 }
+  },
 ];
