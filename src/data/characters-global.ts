@@ -127,4 +127,6 @@ export const characters: Player[] = [
     
 
   { name: "Atsumu SP", role: "S", img: "img-global/Screenshot 2025-11-28 162648.png" , power: ["Quick"], school: "Inarizaki"},
+
+  { name: "Osamu SP", role: "S", img: "img-global/osamuSP.png" , power: ["Quick"], school: "Inarizaki"},
 ];
