@@ -1101,4 +1101,12 @@ export const synergies: SynergyDefinition[] = [
     description: "At the start of the match, Osamu gains 1 stack of [Ingenuity]. (Attack & Defense Technique 10%, and when Atsumu does his Ultimate, Att Tech 20% & Def Tech 15%.)  After Atsumu and Osamu each performing one Set, all allied members gain 2.5% [Attack Technique] & [Defense Technique]. Lasts for 1 rally.",
     activation: { type: "all", min: 2 }
   },
+
+  {
+    name: "Winter Break",
+    category: "deployment",
+    members: ["Atsumu SP","Osamu SP","Tendo SP"],
+    description: "When Atsumu and Osamu are positioned as front and back row, both gain 10% [Strength].  At the end of each rally, Tendo’s [Awareness] becomes 0%, and his [Defense Technique] increases by 10%. Max 3 stacks. When Tendo touches the ball for the first time in each rally, the play is guaranteed to be a Crit Play. At the start of each rally, for every [Winter Break] member on your court, all allied members gain 2% [Attack Technique] and [Defense Technique], up to max 12%.",
+    activation: { type: "all", min: 2 }
+  },
 ];
