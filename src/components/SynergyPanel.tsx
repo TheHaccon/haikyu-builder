@@ -2,10 +2,10 @@ import { useTeamStore } from "../store/teamStore";
 import useHaikyuData from "../hooks/useHaikyuData";
 
 export default function SynergyPanel() {
-  const currentData = useTeamStore((s) => s.positionless ? s.positionlessData : s.normal);
+  const teams = useTeamStore((s) => s.teams);
+  const activeId = useTeamStore((s) => s.activeTeamId);
 
-  const activeId = currentData.activeTeamId;
-  const activeTeam = currentData.teams.find((t) => t.id === activeId) || currentData.teams[0];
+  const activeTeam = teams.find((t) => t.id === activeId) || teams[0];
   const starters = activeTeam.starters;
 
   const { synergyMeta, synergyDescriptions, synergyPairs, loading } = useHaikyuData();
