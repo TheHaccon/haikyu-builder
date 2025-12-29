@@ -1189,4 +1189,22 @@ export const MEMORIES: Memory[] = [
         set: { lvl1: 72, max: 838 }
     }
   },
+
+  {
+    name: "Korai SP",
+    position: "WS",
+    rarity: "SP",
+    image: "memory/KoraiSP.png",
+    description: {
+        lvl1: "Memory Tier I - [Wing Spiker] Exclusive Effects: Offense & Defense Up - Hoshiumi Kourai (Winter Sports)\n\nThe member who has this Memory gains 6% Main Stats.\nWhen the equipped member activates a skill, if the play type of that skill is different from the play type of the previous skill, the member's [Attack Technique] and [Defense Technique] increase by 2%.\nMax 10 stacks.",
+        max: "Memory Tier V - [Wing Spiker] Exclusive Effects: Offense & Defense Up - Hoshiumi Kourai (Winter Sports)\n\nThe member who has this Memory gains 12% Main Stats.\nWhen the equipped member activates a skill, if the play type of that skill is different from the play type of the previous skill, the member's [Attack Technique] and [Defense Technique] increase by 2%.\nMax 10 stacks." },
+    stats: {
+        block: { lvl1: 56, max: 656 },
+        power: { lvl1: 72, max: 838 },
+        serve: { lvl1: 66, max: 765 },
+        receive: { lvl1: 72, max: 838 },
+        save: { lvl1: 53, max: 619 },
+        set: { lvl1: 50, max: 583 }
+    }
+  },
 ];
