@@ -3,7 +3,6 @@ import Navbar from "./components/Navbar";
 import Board from "./components/Board/Board";
 import SchoolSynergyPanel from "./components/Board/SchoolSynergyPanel";
 import SpecialtyPanel from "./components/Board/SpecialtyPanel";
-import RoleSynergyPanel from "./components/Board/RoleSynergyPanel";
 import SynergyPanel from "./components/Board/SynergyPanel";
 import MemoryPage from "./pages/MemoryPage";
 import ResourcesPage from "./pages/ResourcesPage";
@@ -20,7 +19,6 @@ function App() {
         <Route path="/" element={
           <div id="layout">
             <aside id="left-sidebar" className="sidebar">
-              <RoleSynergyPanel />
               <div>
                 <h2>Note</h2>
                 <p>Welcome to the optimized team builder, currently working on adding JP char and all the other stuff that was there in the old version.</p>

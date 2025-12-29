@@ -24,10 +24,9 @@ export default function PlayerModal({
   const [powerFilter, setPowerFilter] = useState("ALL");
   const [roleFilter, setRoleFilter] = useState("ALL");
 
-  const currentData = useTeamStore((s) => s.positionless ? s.positionlessData : s.normal);
+  const teams = useTeamStore((s) => s.teams);
+  const activeId = useTeamStore((s) => s.activeTeamId);
 
-  const teams = currentData.teams;
-  const activeId = currentData.activeTeamId;
   const activeTeam = teams.find((t) => t.id === activeId) || teams[0];
   const starters = activeTeam.starters;
   const bench = activeTeam.bench;

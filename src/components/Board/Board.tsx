@@ -4,17 +4,15 @@ import PlayerModal from "../Modals/PlayerModal";
 import { useTeamStore } from "../../store/teamStore";
 import { useState } from "react";
 import type { Player } from "../../types/Player";
-import { characters } from "../../data/characters-global";
+import { characters } from "../../data/characters-global"; 
 
 export default function Board() {
-  const positionless = useTeamStore((s) => s.positionless);
+  // DIRECT ACCESS - No more "normal" vs "positionless" check
+  const teams = useTeamStore((s) => s.teams);
+  const activeId = useTeamStore((s) => s.activeTeamId);
 
-  const currentData = useTeamStore((s) => s.positionless ? s.positionlessData : s.normal);
-
-  const teams = currentData.teams;
-  const activeId = currentData.activeTeamId;
   const activeTeam = teams.find((t) => t.id === activeId) || teams[0];
-  const { starters, bench, positions } = activeTeam
+  const { starters, bench, positions } = activeTeam;
 
   const setActiveTeam = useTeamStore((s) => s.setActiveTeam);
   const addTeam = useTeamStore((s) => s.addTeam);
@@ -22,14 +20,14 @@ export default function Board() {
   const setStarter = useTeamStore((s) => s.setStarter);
   const addBench = useTeamStore((s) => s.addBench);
   const rotatePositions = useTeamStore((s) => s.rotatePositions);
-
-  const togglePositionless = useTeamStore((s) => s.togglePositionless);
-
+  
   const [modalOpen, setModalOpen] = useState(false);
-  const [activeSlot, setActiveSlot] = useState<keyof typeof starters | null>(null);
+  const [activeSlot, setActiveSlot] = useState<string | null>(null);
   const [addToBenchMode, setAddToBenchMode] = useState(false);
 
-  const openSlot = (slot: keyof typeof starters) => {
+  // ... (Keep existing helper functions openSlot, handleSelect, getFilterRole) ...
+  
+  const openSlot = (slot: string) => {
     setActiveSlot(slot);
     setAddToBenchMode(false);
     setModalOpen(true);
@@ -49,40 +47,40 @@ export default function Board() {
   };
 
   const getFilterRole = () => {
-    if (addToBenchMode) return null;
-    if (positionless) return null;
-    return activeSlot ? activeSlot.replace(/[0-9]/g, "") : null;
+    // Since it's positionless, we usually return null to show ALL players
+    // Unless you want to enforce logic like "Only Setters in slot 1"
+    return null; 
   };
 
   const renderRotatableSlot = (index: number) => {
     const slotId = positions[index];
     const player = starters[slotId];
     return (
-      <Slot
-        key={slotId}
-        slotId={slotId}
-        player={player}
-        onClick={() => openSlot(slotId)}
-        onRightClick={() => setStarter(slotId, null)}
+      <Slot 
+        key={slotId} 
+        slotId={slotId} 
+        player={player} 
+        onClick={() => openSlot(slotId)} 
+        onRightClick={() => setStarter(slotId, null)} 
       />
     );
   };
 
   return (
     <>
-      {/* --- TEAM TABS --- */}
       <div className="board-group">
+        {/* Tabs */}
         <div className="tabs-container">
           {teams.map((team) => (
-            <div
-              key={team.id}
+            <div 
+              key={team.id} 
               className={`tab ${team.id === activeId ? 'active' : ''}`}
               onClick={() => setActiveTeam(team.id)}
             >
               <span>{team.name}</span>
               {teams.length > 1 && (
-                <button
-                  className="tab-close"
+                <button 
+                  className="tab-close" 
                   onClick={(e) => {
                     e.stopPropagation();
                     removeTeam(team.id);
@@ -93,10 +91,9 @@ export default function Board() {
               )}
             </div>
           ))}
-          <button className="tab-add" onClick={addTeam} title="Add New Team">
-            +
-          </button>
+          <button className="tab-add" onClick={addTeam} title="Add New Team">+</button>
         </div>
+
         <div id="board" style={{ borderTopLeftRadius: '0' }}>
           <div className="row">
             {renderRotatableSlot(0)}
@@ -109,11 +106,13 @@ export default function Board() {
             {renderRotatableSlot(4)}
             {renderRotatableSlot(3)}
           </div>
+
           <div id="bench-row">
             {bench.map((p, i) => (
               <BenchSlot key={i} player={p} index={i} />
             ))}
-            <button
+
+            <button 
               className="action-btn"
               onClick={rotatePositions}
               title="Rotate Positions"
@@ -121,36 +120,23 @@ export default function Board() {
               <span style={{ fontSize: '18px', marginBottom: '2px' }}>↻</span>
               <span>Rotate</span>
             </button>
+
             <button
               id="addBench"
               className="action-btn"
-              disabled={bench.length >= 6}
+              disabled={bench.length >= 7}
               onClick={() => {
                 setAddToBenchMode(true);
                 setActiveSlot(null);
                 setModalOpen(true);
               }}
             >
-              {bench.length >= 6 ? "Full" : "+ Bench"}
+              {bench.length >= 7 ? "Full" : "+ Bench"}
             </button>
-          </div>
-          <div className="board-controls-footer mobile-toggle">
-            <div className="posless-wrap">
-              <span className={`posless-label ${!positionless ? 'active-text' : ''}`}>Normal</span>
-              <label className="posless-switch">
-                <input
-                  type="checkbox"
-                  id="positionlessToggleMobile"
-                  checked={positionless}
-                  onChange={togglePositionless}
-                />
-                <span className="posless-slider" />
-              </label>
-              <span className={`posless-label ${positionless ? 'active-text' : ''}`}>Positionless</span>
-            </div>
           </div>
         </div>
       </div>
+      
       <PlayerModal
         open={modalOpen}
         players={characters}

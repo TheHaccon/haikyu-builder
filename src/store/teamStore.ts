@@ -1,191 +1,140 @@
 import { create } from "zustand";
-import { persist, createJSONStorage } from "zustand/middleware";
+import { persist } from "zustand/middleware";
 import type { Player } from "../types/Player";
+import { v4 as uuidv4 } from "uuid";
 
-const generateId = () => Math.random().toString(36).substr(2, 9);
-
-export type SlotId = "S" | "MB1" | "WS1" | "LI" | "WS2" | "MB2" | "OP";
-
-export interface Team {
+// Define the shape of a single Team
+export type Team = {
   id: string;
   name: string;
-  starters: Record<SlotId, Player | null>;
-  bench: (Player | null)[];
-  positions: SlotId[];
-}
-
-interface TeamGroup {
-  teams: Team[];
-  activeTeamId: string;
-}
+  starters: Record<string, Player | null>; // 0-5 for slots, "LI" for Libero
+  bench: Player[];
+  positions: string[]; // ["0", "1", "2", "3", "4", "5", "LI"]
+};
 
 interface TeamState {
-  positionless: boolean;
-  togglePositionless: () => void;
+  // --- STATE ---
+  teams: Team[];
+  activeTeamId: string;
 
-  normal: TeamGroup;
-  positionlessData: TeamGroup;
-
+  // --- ACTIONS ---
+  setActiveTeam: (id: string) => void;
   addTeam: () => void;
   removeTeam: (id: string) => void;
-  setActiveTeam: (id: string) => void;
-  updateTeamName: (id: string, name: string) => void;
-
-  setStarter: (slot: SlotId, player: Player | null) => void;
-  rotatePositions: () => void;
-  addBench: (player: Player | null) => void;
+  
+  setStarter: (slotId: string, player: Player | null) => void;
+  addBench: (player: Player) => void;
   removeBench: (index: number) => void;
+  rotatePositions: () => void;
 }
 
-const INITIAL_POSITIONS: SlotId[] = ["S", "MB1", "WS1", "OP", "MB2", "WS2"];
-const EMPTY_STARTERS: Record<SlotId, Player | null> = {
-  S: null, MB1: null, WS1: null, LI: null, WS2: null, MB2: null, OP: null,
-};
-
-const createNewTeam = (index: number): Team => ({
-  id: generateId(),
-  name: `Team ${index}`,
-  starters: { ...EMPTY_STARTERS },
+const createEmptyTeam = (name: string): Team => ({
+  id: uuidv4(),
+  name,
+  starters: {
+    "0": null, "1": null, "2": null,
+    "3": null, "4": null, "5": null,
+    "LI": null
+  },
   bench: [],
-  positions: [...INITIAL_POSITIONS],
+  positions: ["0", "1", "2", "3", "4", "5", "LI"]
 });
-
-const initialGroup: TeamGroup = {
-  teams: [createNewTeam(1)],
-  activeTeamId: "",
-};
 
 export const useTeamStore = create<TeamState>()(
   persist(
     (set) => ({
-      positionless: false,
-      togglePositionless: () => set((s) => ({ positionless: !s.positionless })),
+      // INITIAL STATE (Default to 1 empty team)
+      teams: [createEmptyTeam("Team 1")],
+      activeTeamId: "", // Will be set in hydration or logic below
 
-      normal: { ...initialGroup, teams: [createNewTeam(1)] },
-      positionlessData: { ...initialGroup, teams: [createNewTeam(1)] },
-      
-      setActiveTeam: (id) => set((s) => {
-        const target = s.positionless ? "positionlessData" : "normal";
-        return { [target]: { ...s[target], activeTeamId: id } };
-      }),
+      setActiveTeam: (id) => set({ activeTeamId: id }),
 
-      addTeam: () => set((s) => {
-        const target = s.positionless ? "positionlessData" : "normal";
-        const group = s[target];
-        const newTeam = createNewTeam(group.teams.length + 1);
+      addTeam: () => set((state) => {
+        const newTeam = createEmptyTeam(`Team ${state.teams.length + 1}`);
         return { 
-          [target]: { 
-            teams: [...group.teams, newTeam],
-            activeTeamId: newTeam.id 
-          }
+          teams: [...state.teams, newTeam],
+          activeTeamId: newTeam.id 
         };
       }),
 
-      removeTeam: (id) => set((s) => {
-        const target = s.positionless ? "positionlessData" : "normal";
-        const group = s[target];
-
-        if (group.teams.length <= 1) return s;
-
-        const remaining = group.teams.filter(t => t.id !== id);
-        const reindexed = remaining.map((t, idx) => ({ ...t, name: `Team ${idx + 1}` }));
-        
-        const newActiveId = id === group.activeTeamId ? reindexed[0].id : group.activeTeamId;
-
-        return {
-          [target]: {
-            teams: reindexed,
-            activeTeamId: newActiveId
-          }
+      removeTeam: (id) => set((state) => {
+        if (state.teams.length <= 1) return state; // Don't delete last team
+        const newTeams = state.teams.filter((t) => t.id !== id);
+        return { 
+          teams: newTeams,
+          activeTeamId: newTeams[0].id // Switch to first available
         };
       }),
 
-      updateTeamName: (id, name) => set((s) => {
-        const target = s.positionless ? "positionlessData" : "normal";
+      setStarter: (slotId, player) => set((state) => {
+        const activeId = state.activeTeamId || state.teams[0].id;
         return {
-          [target]: {
-            ...s[target],
-            teams: s[target].teams.map(t => t.id === id ? { ...t, name } : t)
-          }
+          teams: state.teams.map((t) => 
+            t.id === activeId 
+              ? { ...t, starters: { ...t.starters, [slotId]: player } }
+              : t
+          )
         };
       }),
 
-      setStarter: (slot, player) => set((s) => {
-        const target = s.positionless ? "positionlessData" : "normal";
-        const group = s[target];
+      addBench: (player) => set((state) => {
+        const activeId = state.activeTeamId || state.teams[0].id;
         return {
-          [target]: {
-            ...group,
-            teams: group.teams.map(t => 
-              t.id === group.activeTeamId 
-                ? { ...t, starters: { ...t.starters, [slot]: player } } 
-                : t
-            )
-          }
+          teams: state.teams.map((t) => {
+            if (t.id !== activeId) return t;
+            if (t.bench.length >= 7) return t; // Max bench size
+            return { ...t, bench: [...t.bench, player] };
+          })
         };
       }),
 
-      addBench: (player) => set((s) => {
-        const target = s.positionless ? "positionlessData" : "normal";
-        const group = s[target];
+      removeBench: (index) => set((state) => {
+        const activeId = state.activeTeamId || state.teams[0].id;
         return {
-          [target]: {
-            ...group,
-            teams: group.teams.map(t => {
-              if (t.id !== group.activeTeamId) return t;
-              if (t.bench.length >= 6) return t;
-              return { ...t, bench: [...t.bench, player] };
-            })
-          }
+          teams: state.teams.map((t) => {
+            if (t.id !== activeId) return t;
+            const newBench = [...t.bench];
+            newBench.splice(index, 1);
+            return { ...t, bench: newBench };
+          })
         };
       }),
 
-      removeBench: (index) => set((s) => {
-        const target = s.positionless ? "positionlessData" : "normal";
-        const group = s[target];
+      rotatePositions: () => set((state) => {
+        const activeId = state.activeTeamId || state.teams[0].id;
         return {
-          [target]: {
-            ...group,
-            teams: group.teams.map(t => 
-              t.id === group.activeTeamId 
-                ? { ...t, bench: t.bench.filter((_, i) => i !== index) } 
-                : t
-            )
-          }
-        };
-      }),
+          teams: state.teams.map((t) => {
+            if (t.id !== activeId) return t;
+            
+            // Standard Volleyball Rotation:
+            // 1->6, 6->5, 5->4, 4->3, 3->2, 2->1
+            // Our Array Indices: [0, 1, 2, 3, 4, 5] correspond to positions [4, 3, 2, 1, 6, 5] visually usually?
+            // Actually, let's just rotate the starters values
+            const s = t.starters;
+            
+            // Map based on visual board: 
+            // 0(FL), 1(FC), 2(FR)
+            // 5(BL), 4(BC), 3(BR)
+            // Clockwise rotation: 0->1, 1->2, 2->3, 3->4, 4->5, 5->0
+            
+            const newStarters = {
+              "0": s["5"],
+              "1": s["0"],
+              "2": s["1"],
+              "3": s["2"],
+              "4": s["3"],
+              "5": s["4"],
+              "LI": s["LI"] // Libero stays
+            };
 
-      rotatePositions: () => set((s) => {
-        const target = s.positionless ? "positionlessData" : "normal";
-        const group = s[target];
-        return {
-          [target]: {
-            ...group,
-            teams: group.teams.map(t => {
-              if (t.id !== group.activeTeamId) return t;
-              const p = [...t.positions];
-              const last = p.pop();
-              if (last) p.unshift(last);
-              return { ...t, positions: p };
-            })
-          }
+            return { ...t, starters: newStarters };
+          })
         };
       }),
 
     }),
     {
-      name: "volleyball-teams-v3-separated",
-      storage: createJSONStorage(() => localStorage),
-      onRehydrateStorage: () => (state) => {
-        if (state) {
-          if (state.normal.teams.length > 0 && !state.normal.activeTeamId) {
-            state.normal.activeTeamId = state.normal.teams[0].id;
-          }
-          if (state.positionlessData.teams.length > 0 && !state.positionlessData.activeTeamId) {
-            state.positionlessData.activeTeamId = state.positionlessData.teams[0].id;
-          }
-        }
-      }
+      name: "haikyu-team-storage",
     }
   )
 );

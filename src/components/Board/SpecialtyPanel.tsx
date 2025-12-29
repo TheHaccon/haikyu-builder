@@ -2,38 +2,38 @@ import { useTeamStore } from "../../store/teamStore";
 import type { Player } from "../../types/Player";
 
 const SPECIALTY_RULES: Record<string, { counter: string; tiers: Record<number, string> }> = {
-  "Quick": { 
-    counter: "Block",
-    tiers: { 
-        4: "All allies' power +15%", 
-        5: "All allies' power +20%", 
-        6: "All allies' power +25%" 
+    "Quick": {
+        counter: "Block",
+        tiers: {
+            4: "All allies' power +15%",
+            5: "All allies' power +20%",
+            6: "All allies' power +25%"
+        },
     },
-  },
-  "Block": {
-    counter: "Power",
-    tiers: { 
-        4: "All allies' power +15%", 
-        5: "All allies' power +20%", 
-        6: "All allies' power +25%" 
+    "Block": {
+        counter: "Power",
+        tiers: {
+            4: "All allies' power +15%",
+            5: "All allies' power +20%",
+            6: "All allies' power +25%"
+        },
     },
-  },
-  "Power": {
-    counter: "Receive",
-    tiers: { 
-        4: "All allies' power +15%", 
-        5: "All allies' power +20%", 
-        6: "All allies' power +25%" 
+    "Power": {
+        counter: "Receive",
+        tiers: {
+            4: "All allies' power +15%",
+            5: "All allies' power +20%",
+            6: "All allies' power +25%"
+        },
     },
-  },
-  "Receive": {
-    counter: "Quick",
-    tiers: { 
-        5: "All allies' power +15%", 
-        6: "All allies' power +20%", 
-        7: "All allies' power +25%" 
+    "Receive": {
+        counter: "Quick",
+        tiers: {
+            5: "All allies' power +15%",
+            6: "All allies' power +20%",
+            7: "All allies' power +25%"
+        },
     },
-  },
 };
 
 const getActivePowers = (starters: Record<string, Player | null>) => {
@@ -62,13 +62,12 @@ const getActivePowers = (starters: Record<string, Player | null>) => {
 };
 
 export default function SpecialtyPanel() {
-    const currentData = useTeamStore((s) => s.positionless ? s.positionlessData : s.normal);
-
-    const teams = currentData.teams;
-    const activeId = currentData.activeTeamId;
+    // NEW CODE
+    const teams = useTeamStore((s) => s.teams);
+    const activeId = useTeamStore((s) => s.activeTeamId);
     const activeTeam = teams.find((t) => t.id === activeId) || teams[0];
     const starters = activeTeam.starters;
-    
+
     const activePowers = getActivePowers(starters);
 
     return (
@@ -87,7 +86,7 @@ export default function SpecialtyPanel() {
                 {activePowers.map(([powerName, players]) => {
                     const rule = SPECIALTY_RULES[powerName];
                     const count = players.length;
-                    
+
                     // --- DYNAMIC ACTIVATION LOGIC ---
                     // Find the lowest tier requirement (4 for most, 5 for Receive)
                     const minTier = rule ? Math.min(...Object.keys(rule.tiers).map(Number)) : 0;
@@ -106,8 +105,8 @@ export default function SpecialtyPanel() {
                                 </div>
 
                                 {rule && (
-                                    <div className="power-meta" style={{fontSize: '11px', color: '#aaa'}}>
-                                        Counters: <strong style={{color:'#f87171'}}>{rule.counter}</strong>
+                                    <div className="power-meta" style={{ fontSize: '11px', color: '#aaa' }}>
+                                        Counters: <strong style={{ color: '#f87171' }}>{rule.counter}</strong>
                                     </div>
                                 )}
                             </div>
@@ -136,7 +135,7 @@ export default function SpecialtyPanel() {
                                                             {isCurrentTier && <span>✓</span>}
                                                             <span className="tier-req">{req} tags:</span>
                                                         </div>
-                                                        <span className="tier-effect" style={{fontSize: '11px'}}>{effect}</span>
+                                                        <span className="tier-effect" style={{ fontSize: '11px' }}>{effect}</span>
                                                     </div>
                                                 );
                                             })}
@@ -148,7 +147,7 @@ export default function SpecialtyPanel() {
                             <div className="power-contributors" style={{ marginTop: '10px' }}>
                                 {players.map((p, i) => (
                                     <div key={`${powerName}-${p.name}-${i}`} className="mini-head" title={p.name}>
-                                        <img src={`data/${p.img}`} alt={p.name} onError={(e) => e.currentTarget.style.display='none'} />
+                                        <img src={`data/${p.img}`} alt={p.name} onError={(e) => e.currentTarget.style.display = 'none'} />
                                     </div>
                                 ))}
                             </div>

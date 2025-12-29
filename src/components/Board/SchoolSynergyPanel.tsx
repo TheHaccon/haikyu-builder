@@ -3,10 +3,9 @@ import { useTeamStore } from "../../store/teamStore";
 import { synergies } from "../../data/synergies";
 
 export default function SchoolSynergyPanel() {
-  const currentData = useTeamStore((s) => s.positionless ? s.positionlessData : s.normal);
-
-  const teams = currentData.teams;
-  const activeId = currentData.activeTeamId;
+const teams = useTeamStore((s) => s.teams);
+  const activeId = useTeamStore((s) => s.activeTeamId);
+  
   const activeTeam = teams.find((t) => t.id === activeId) || teams[0];
   const starters = activeTeam.starters;
 
