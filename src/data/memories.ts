@@ -1207,4 +1207,22 @@ export const MEMORIES: Memory[] = [
         set: { lvl1: 50, max: 583 }
     }
   },
+
+  {
+    name: "Block & Quick Attack Up - SP Hirugami (Winter Sports)",
+    position: "MB",
+    rarity: "SP",
+    image: "memory/SPHirugami.png",
+    description: {
+        lvl1: "Memory Tier I - [Middle Blocker] Exclusive Effects: Increases the [Block] of the member with this memory equipped by 12.\nIf there are 4 or more allied Block members on the field, increases the [Block] and [Quick Attack] of allied members by 10%.\nThis effect lasts for 1 rally.",
+        max: "Memory Tier V - [Middle Blocker] Exclusive Effects: Increases the [Block] of the member with this memory equipped by 24%.\nIf there are 4 or more allied Block members on the field, increases the [Block] and [Quick Attack] of allied members by 10%.\nThis effect lasts for 1 rally." },
+    stats: {
+        block: { lvl1: 72, max: 838 },
+        power: { lvl1: 66, max: 765 },
+        serve: { lvl1: 72, max: 838 },
+        receive: { lvl1: 53, max: 619 },
+        save: { lvl1: 50, max: 583 },
+        set: { lvl1: 56, max: 656 }
+    }
+  },
 ];
