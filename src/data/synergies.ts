@@ -1109,4 +1109,12 @@ export const synergies: SynergyDefinition[] = [
     description: "When Atsumu and Osamu are positioned as front and back row, both gain 10% [Strength].  At the end of each rally, Tendo’s [Awareness] becomes 0%, and his [Defense Technique] increases by 10%. Max 3 stacks. When Tendo touches the ball for the first time in each rally, the play is guaranteed to be a Crit Play. At the start of each rally, for every [Winter Break] member on your court, all allied members gain 2% [Attack Technique] and [Defense Technique], up to max 12%.",
     activation: { type: "all", min: 2 }
   },
+
+  {
+    name: "Kizuna",
+    category: "deployment",
+    members: ["Korai SP","Hirugami SP"],
+    description: "When the your team's Trait/Lineup Specialty has the advantage, ally members' Main Stats increase by 3/6/9/12/15%.  [Winter Sports] members' Main Stats increase by an additional 20%. ",
+    activation: { type: "all", min: 2 }
+  },
 ];
