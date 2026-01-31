@@ -2,7 +2,7 @@
 
 ![Project Status](https://img.shields.io/badge/status-active-success)
 ![License](https://img.shields.io/badge/license-MIT-blue)
-![Tech](https://img.shields.io/badge/built%20with-Next.js%20%7C%20TypeScript-black)
+![Tech](https://img.shields.io/badge/built%20with-React%20%7C%20Vue.js%20%7C%20TypeScript-black)
 
 I live by this quote: "Talent is something you make bloom, instinct is something you polish." — *Oikawa*
 
